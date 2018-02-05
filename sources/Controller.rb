@@ -7,8 +7,8 @@ class Controller
 		@view.show
 	end
 
-	def text
-		"Oui"
+	def newLife
+		puts "Starting a new life from scratch"
 	end
 end
 

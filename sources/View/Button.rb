@@ -1,5 +1,6 @@
 
 class Button
+	attr_reader :hovered
 
 	def initialize(text, procedure, dx, dy, dw, dh, font_size = 50)
 		@textImg = Gosu::Image.from_text(text, font_size)
@@ -8,6 +9,16 @@ class Button
 		@dy = dy
 		@dw = dw
 		@dh = dh
+
+		@hovered = false
+	end
+
+	def trigger
+		@procedure.call
+	end
+
+	def update(dx, dy)
+		@hovered = dx >= @dx && dx <= @dw + @dx && dy >= @dy && dy <= @dh + @dy
 	end
 
 	def draw(w, h)
@@ -15,7 +26,9 @@ class Button
 		y = @dy * h
 		width = @dw * w
 		height = @dh * h
+
 		Gosu::draw_rect(x, y, width, height, Gosu::Color::BLUE)
 		@textImg.draw((width - @textImg.width) / 2 + x, (height - @textImg.height) / 2 + y, 2, 1, 1, Gosu::Color::WHITE);
 	end
 end
+
