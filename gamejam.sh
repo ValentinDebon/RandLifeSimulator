@@ -17,6 +17,7 @@ cd '../prefix'
 ./bin/gem install gosu
 sudo apt remove libsdl2-dev libsdl2-ttf-dev libpango1.0-dev libgl1-mesa-dev libopenal-dev libsndfile1-dev libmpg123-dev libgmp-dev
 
+cd '..'
 rm -rf 'ruby-2.4.2'
 rm -rf 'ruby-2.4.2.tar.xz'
 
