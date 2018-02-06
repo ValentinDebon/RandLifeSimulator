@@ -7,14 +7,14 @@ class Model
 	attr_reader :controller, :scenes
 
 	def first
-		@scenes[0..0].sample
+		@scenes[0..1].sample
 	end
 
 	def initialize(controller)
 		@controller = controller
 
 		@scenes = [
-			Scene.new("Vous voyez un caillou",
+			Scene.new("Vous voyez un caillou.",
 				"View/Assets/Caillou.jpg", [
 					Response.new("Manger le caillou.",
 						Proc.new {
@@ -27,10 +27,10 @@ class Model
 							@controller.currentScene = nil
 						}
 					),
-					Response.new("Jeter le caillou sur Billy.",
+					Response.new("Jeter le caillou sur petit <Billy>.",
 						Proc.new {
 							@controller.response = "Tel un lanceur de baseball professionnel,\nvous lancez la balle à toute vitesse.\n" +
-								"Cette dernière heurte violemment la tête de Billy, qui se met à pleurer."
+								"Cette dernière heurte violemment petit <Billy>, il se met à pleurer."
 
 							@controller.currentScene = nil
 						}
@@ -51,6 +51,38 @@ class Model
 						}
 					)
 				]
+			),
+			Scene.new("Vous vous trouvez sur le magnifique tapis oriental de mamie <Mamy>.",
+				"View/Assets/Tapis.jpg", [
+					Response.new("Déféquer dessus.",
+						Proc.new {
+							if Random.rand() > 0.4 then
+								@controller.response = "La diarrhée a été plus forte que vous."
+							else
+								@controller.response = "Votre Mamie est revenue,\n vous avez le droit à une belle engueulade."
+							end
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Rouler dessus.",
+						Proc.new {
+							@controller.response = "Ce tapis est le parfait terrain de jeu !\n" +
+								"Vous décidez donc de vous rouler dedans tel un petit sushi.\n" +
+								"Néanmoins, une fois enroulé, la poussière vous fait éternuer à foison."
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Dormir.",
+						Proc.new {
+							@controller.response = "La douceur du tapis est apaisante,\n" +
+								"lentement vous vous sentez partir vers le pays des rêves."
+
+							@controller.currentScene = nil
+						}
+					)
+				]
 			)
 
 		]
@@ -58,60 +90,6 @@ class Model
 end
 
 =begin
-def Model(controller)
-	scenes = []
-
-	scenes.push(Scene.new(1, 'View/Assets/Cailloux.jpg', 'Vous voyez un cailloux'))
-	scenes.push(Scene.new(1, 'View/Assets/Tapis.jpg', 'Vous vous trouvez sur le magnifique\n tapis oriental de mamie <Mamie>.'))
-	scenes.push(Scene.new(1, 'View/Assets/PremierMot.jpg', 'Vous le sentez au plus profond de votre être,\n vous êtes prêt !\n Vous allez dire votre premier mot !'))
-	scenes.push(Scene.new(1, 'View/Assets/Placard.jpg', 'En partant travailler, maman a oublié de fermer le fameux placard interdit.'))
-
-
-	scenes[0].responses.push(Response.new('Le manger', Proc.new {
-		if Random.rand() > 0.3 then
-			0 #suite narmol
-		else
-			1 #RIP in Pepperonis
-		end
-		}, ['Ca n\'a pas beaucoup de Gout,\n vous êtes un peu déçu.', 'Vous vous étouffez avec.']))
-
-	scenes[0].responses.push(Response.new('Le jetter sur Billy', Proc.new {
-		0 #violence ++ suite normale
-		}, ['Tel un lanceur de baseball professionnel,\n vous lancez la balle à toute vitesse.
-				\n Cette dernière heurte violemment la tête de <Billy>\n qui se met à pleurer.']))
-
-	scenes[0].responses.push(Response.new('Le Cacher', Proc.new {
-		0 #suite normale
-		}, ['Ce caillou vous semble être très précieux.\n
-			 Vous décidez de le cacher afin que personne ne vous le vole.']))
-
-	scenes[0].responses.push(Response.new('L\'ignorer', Proc.new {
-		0
-		}, ['']))
-
-
-	scenes[1].responses.push(Response.new('Lui déféquer Dessus', Proc.new {
-		randy = Random.rand()
-		if randy > 0.4 then
-			0 #suite narmol
-		else
-			1 #RIP in Pepperonis
-		end
-		}, ['La Diarhée a été plus forte que vous.', 'Votre Mamie est revenue,\n vous avez droit à une belle engueulade.']))
-
-	scenes[1].responses.push(Response.new('Se Rouler dessus', Proc.new {
-		0
-		}, ['Ce tapis est le parfait terrain de jeu !\n
-			 Vous décidez donc de vous rouler dedans tel un petit sushi.\n
-			 Néanmoins, une fois enroulé, la poussière vous fait éternuer à foison.']))
-
-	scenes[1].responses.push(Response.new('Dormir', Proc.new {
-		0
-		}, ['La douceur du tapis est apaisante,\n
-			 lentement vous vous sentez partir vers le pays des rêves.']))
-
-
-
 	scenes[2].responses.push(Response.new('Manger', Proc.new {
 		0
 		}, ['Tel l’estomac sur patte que vous êtes,\n
@@ -166,6 +144,4 @@ def Model(controller)
 			En entrant à l’intérieur vous vous retrouvez dans un autre monde…\n
 			le monde de Nyarnya']))
 
-	scenes
-end
 =end
