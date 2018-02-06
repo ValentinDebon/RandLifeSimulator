@@ -15,8 +15,20 @@ class Controller
 		@view.newScene
 	end
 
-	def scene
-		"Je suis une pute\nje suis une catin"
+	def sceneText
+		"Je suis un caillou bordel de merde"
+	end
+
+	def sceneResponses
+		[ "Vrai", "Faux" , "Peut être", "Chat de shrodinger", "Pute", "Sodomie fraiche"]
+	end
+
+	def sceneChose(index)
+		puts "Selected " + index.to_s
+	end
+
+	def death(type)
+		puts "Died with Pas de bol"
 	end
 
 	def act

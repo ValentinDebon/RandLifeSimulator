@@ -13,8 +13,16 @@ class SceneView
 		@textImg = Gosu::Image.from_text("", 50)
 		@textIterator = 0
 		@textLastIteration = 0
-		@text = @view.controller.scene
+		@text = @view.controller.sceneText
 		@textHeight = @view.height / 20
+
+		btnCount = @view.controller.sceneResponses.length
+		@responseBtns = Array.new(btnCount) {
+			|i|
+			Button.new(@view.controller.sceneResponses[i],
+				Proc.new { @view.controller.sceneChose(i) },
+				0.15, 0.70 + (0.26 / btnCount) * i, 0.7, (0.26 / btnCount), @textHeight)
+		}
 
 		@state = State::Narrating
 	end
@@ -25,12 +33,17 @@ class SceneView
 	def down(id)
 		if @state == State::Narrating then
 			@state = State::Choosing
-		else
-			@view.returnToTitle
+		elsif @state == State::Choosing then
+			@responseBtns.map { |btn| btn.trigger if btn.hovered }
 		end
 	end
 
 	def update
+		mx = @view.mouse_x / @view.width
+		my = @view.mouse_y / @view.height
+
+		@responseBtns.map { |btn| btn.update(mx, my) }
+
 		@view.redraw = true
 	end
 
@@ -43,6 +56,8 @@ class SceneView
 			@state = State::Choosing if @textIterator == @text.length
 		elsif @state == State::Choosing
 			@textImg = Gosu::Image.from_text(@text, @textHeight)
+
+			@responseBtns.map { |btn| btn.draw(@view.width, @view.height) }
 		end
 
 		Gosu::draw_rect(@view.width / 10 - 10, @view.height / 2 - 10,
