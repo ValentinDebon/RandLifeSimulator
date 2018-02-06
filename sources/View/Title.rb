@@ -8,8 +8,9 @@ class Title
 
 		@birth = Birth.new(@view)
 
+		backgrounds = ["View/Assets/birth.jpg"]
 		@titleImg = Gosu::Image.from_text("Random Life Simulator 2018", 50)
-		@backgroundImg = Gosu::Image.new("View/Assets/main_bg.png")
+		@backgroundImg = Gosu::Image.new(backgrounds.sample)
 
 		@newLifeBtn = Button.new("Nouvelle Vie", Proc.new { @view.current = @birth }, 0.33, 0.32, 0.33, 0.16)
 		@creditsBtn = Button.new("Crédits", Proc.new { puts "Crédits" }, 0.33, 0.50, 0.33, 0.16)
@@ -43,7 +44,7 @@ class Title
 		@newLifeBtn.draw(@view.width, @view.height)
 		@creditsBtn.draw(@view.width, @view.height)
 
-		@titleImg.draw((@view.width - @titleImg.width) / 2, @view.height / 6, 2, 1, 1, Gosu::Color::BLACK);
+		@titleImg.draw((@view.width - @titleImg.width) / 2, @view.height / 6, 2, 1, 1, Gosu::Color::BLACK)
 	end
 
 end

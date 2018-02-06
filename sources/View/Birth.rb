@@ -6,11 +6,15 @@ class Birth
 	def initialize(view)
 		@view = view
 
+		names = ["Gérard", "Alphonse", "Pablo", "Winifred", "Adolphe", "Josiane"]
+
 		@backgroundImg = Gosu::Image.new("View/Assets/birth.jpg")
 		@backBtn = Button.new("Retour", Proc.new { @view.returnToTitle }, 0.10, 0.80, 0.20, 0.15)
 		@raiseBtn = Button.new("Naître", Proc.new { @view.controller.newLife(@nameTxtBox.text) if @nameTxtBox.text.length != 0 },
 			0.70, 0.80, 0.20, 0.15)
 		@nameTxtBox = TextBox.new(0.2, 0.2, 0.6, 0.15)
+		@nameTxtBox.text = names.sample
+
 	end
 
 	def up(id)
