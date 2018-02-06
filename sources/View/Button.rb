@@ -36,6 +36,6 @@ class Button
 		end
 
 		Gosu::draw_rect(x, y, width, height, color)
-		@textImg.draw((width - @textImg.width) / 2 + x, (height - @textImg.height) / 2 + y, 2, 1, 1, Gosu::Color::WHITE);
+		@textImg.draw((width - @textImg.width) / 2 + x, (height - @textImg.height) / 2 + y, 2, 1, 1, Gosu::Color::WHITE)
 	end
 end

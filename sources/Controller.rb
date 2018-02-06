@@ -16,7 +16,7 @@ class Controller
 	end
 
 	def scene
-		"Pute"
+		"Je suis une pute\nje suis une catin"
 	end
 
 	def act
