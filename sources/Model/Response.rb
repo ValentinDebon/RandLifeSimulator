@@ -3,7 +3,7 @@ class Response
 	def initialize(text, procSuite, reactions)
 		@text = text
 		@reactions = reactions
-		@scenes = scenes
+		@scenes = []
 		@procSuite = procSuite
 		@destinyId
 	end

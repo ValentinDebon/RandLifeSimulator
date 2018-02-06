@@ -2,9 +2,9 @@ require_relative 'Response'
 
 class Scene
 	attr_accessor :responses
-	def initialize(act, backgroundImg, situationText)
+	def initialize(act, background, situationText)
 		@act = act
-		@backgroundImg = backgroundImg
+		@background = background
 		@situationText = situationText
 		@responses = []
 		@selectedId = nil
