@@ -1,5 +1,7 @@
-require_relative 'Response'
-require_relative 'Scene'
+
+require_relative 'Controller'
+require_relative 'Model/Response'
+require_relative 'Model/Scene'
 
 def initModel
 	scenes = []

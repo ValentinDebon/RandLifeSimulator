@@ -48,7 +48,7 @@ class SceneView
 	end
 
 	def draw
-		if @state == State::Narrating && (Gosu::milliseconds - @textLastIteration) >= 50 then
+		if @state == State::Narrating && (Gosu::milliseconds - @textLastIteration) >= 30 then
 			@textIterator += 1
 			@textLastIteration = Gosu::milliseconds
 			@textImg = Gosu::Image.from_text(@text[0..@textIterator], @textHeight)

@@ -1,4 +1,5 @@
 require_relative 'View'
+require_relative 'Model'
 
 class Controller
 	def initialize 
