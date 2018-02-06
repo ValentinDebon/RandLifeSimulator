@@ -2,6 +2,7 @@ require_relative 'Response'
 
 class Scene
 	attr_accessor :responses
+	attr_reader :situationText
 	def initialize(act, background, situationText)
 		@act = act
 		@background = background
