@@ -13,8 +13,6 @@ class Title
 
 		@newLifeBtn = Button.new("Nouvelle Vie", Proc.new { @view.current = @birth }, 0.33, 0.32, 0.33, 0.16)
 		@creditsBtn = Button.new("Crédits", Proc.new { puts "Crédits" }, 0.33, 0.50, 0.33, 0.16)
-
-		@view.redraw = true
 	end
 
 	def up(id)

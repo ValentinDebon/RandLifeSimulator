@@ -8,8 +8,15 @@ class Controller
 	end
 
 	def newLife(name)
-		puts "Starting a new life for " + name
 		@view.newAct
+	end
+
+	def nextScene
+		@view.newScene
+	end
+
+	def scene
+		"Pute"
 	end
 
 	def act

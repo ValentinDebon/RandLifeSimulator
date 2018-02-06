@@ -3,10 +3,11 @@ require 'gosu'
 require_relative 'Controller'
 require_relative 'View/Title'
 require_relative 'View/ActView'
+require_relative 'View/SceneView'
 
 class View < Gosu::Window
 	attr_accessor :redraw
-	attr_reader :controller, :title
+	attr_reader :controller
 
 	def initialize(controller)
 		super(800, 500, false, 16.666)
@@ -30,6 +31,10 @@ class View < Gosu::Window
 
 	def newAct
 		self.current = ActView.new(self)
+	end
+
+	def newScene
+		self.current = SceneView.new(self)
 	end
 
 	def button_up(id)

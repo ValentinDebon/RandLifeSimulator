@@ -8,8 +8,6 @@ class ActView
 		@actImg = Gosu::Image.from_text("Acte " + @view.controller.act, 100)
 		@animStart = Gosu::milliseconds
 		@duration = 5000
-
-		@view.redraw = true
 	end
 
 	def up(id)
@@ -20,7 +18,7 @@ class ActView
 
 	def update
 		if Gosu::milliseconds >= @animStart + @duration then
-			@view.returnToTitle
+			@view.controller.nextScene
 		else
 			@view.redraw = true
 		end
