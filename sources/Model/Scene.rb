@@ -16,11 +16,7 @@ class Scene
 	end
 
 	def responses #return array full of strings
-		text = []
-		for response in @responses
-			text.push(response.text)
-		end
-		text
+		@responses.map { |response| response.text }
 	end
 
 	def reaction #return string
