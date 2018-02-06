@@ -1,37 +1,39 @@
 
 require_relative 'Button'
+require_relative 'Birth'
 
 class Title
 	def initialize(view)
 		@view = view
 
-		@titleImg = Gosu::Image.from_text("Jewish Simulator", 50)
+		@birth = Birth.new(@view)
+
+		@titleImg = Gosu::Image.from_text("Random Life Simulator 2018", 50)
 		@backgroundImg = Gosu::Image.new("View/Assets/main_bg.png")
 
-		@newLifeBtn = Button.new("Nouvelle Vie", Proc.new { @view.controller.newLife }, 0.33, 0.32, 0.33, 0.16)
+		@newLifeBtn = Button.new("Nouvelle Vie", Proc.new { @view.current = @birth }, 0.33, 0.32, 0.33, 0.16)
 		@creditsBtn = Button.new("Crédits", Proc.new { puts "Crédits" }, 0.33, 0.50, 0.33, 0.16)
 
 		@view.redraw = true
 	end
 
 	def up(id)
-		if @newLifeBtn.hovered then
-			@newLifeBtn.trigger
-		elsif @creditsBtn.hovered then
-			@creditsBtn.trigger
-		end
+		@newLifeBtn.trigger if @newLifeBtn.hovered
+		@creditsBtn.trigger if @creditsBtn.hovered
 	end
 
 	def down(id)
-		puts "Down"
 	end
 
 	def update
 		mx = @view.mouse_x / @view.width
 		my = @view.mouse_y / @view.height
 
-		@newLifeBtn.update(mx, my)
-		@creditsBtn.update(mx, my)
+		if mx >= 0.30 && mx <= 0.7 && my >= 0.3 && my <= 0.7 then
+			@newLifeBtn.update(mx, my)
+			@creditsBtn.update(mx, my)
+			@view.redraw = true
+		end
 	end
 
 	def draw
@@ -43,5 +45,6 @@ class Title
 
 		@titleImg.draw((@view.width - @titleImg.width) / 2, @view.height / 6, 2, 1, 1, Gosu::Color::BLACK);
 	end
+
 end
 

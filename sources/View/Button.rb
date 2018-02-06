@@ -1,4 +1,6 @@
 
+require 'gosu'
+
 class Button
 	attr_reader :hovered
 
@@ -27,7 +29,13 @@ class Button
 		width = @dw * w
 		height = @dh * h
 
-		Gosu::draw_rect(x, y, width, height, Gosu::Color::BLUE)
+		if @hovered then
+			color = Gosu::Color::CYAN
+		else
+			color = Gosu::Color::BLUE
+		end
+
+		Gosu::draw_rect(x, y, width, height, color)
 		@textImg.draw((width - @textImg.width) / 2 + x, (height - @textImg.height) / 2 + y, 2, 1, 1, Gosu::Color::WHITE);
 	end
 end

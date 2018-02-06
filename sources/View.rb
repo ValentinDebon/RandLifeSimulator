@@ -8,14 +8,14 @@ class View < Gosu::Window
 	attr_reader :controller, :title
 
 	def initialize(controller)
-		super(800, 500, false, 500)#16.666)
+		super(800, 500, false, 16.666)
 
 		self.caption = "Random Life Simulator 2018 - GameJam IUT2 Edition GOTY Deluxe"
 
 		@controller = controller
 		@title = Title.new(self)
 
-		self.current = @title
+		self.returnToTitle
 	end
 
 	def button_up(id)
@@ -31,7 +31,6 @@ class View < Gosu::Window
 	end
 
 	def draw
-		puts "Redrawing"
 		@currentView.draw
 		@redraw = false
 	end
@@ -41,11 +40,17 @@ class View < Gosu::Window
 	end
 
 	def needs_redraw?
+		# So that we do not redraw when not needed
 		@redraw
 	end
 
 	def current=(newView)
 		@currentView = newView
+		@redraw = true
+	end
+
+	def returnToTitle
+		self.current = @title
 	end
 end
 

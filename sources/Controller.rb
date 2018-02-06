@@ -7,8 +7,8 @@ class Controller
 		@view.show
 	end
 
-	def newLife
-		puts "Starting a new life from scratch"
+	def newLife(name)
+		puts "Starting a new life for " + name
 	end
 end
 
