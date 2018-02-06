@@ -95,8 +95,21 @@ def initModel
 
     scenes[3].responses.push(Response.new('Jouer avec les éponges', Proc.new {
 			0 #art++ chomage++
-			}, ['Ce fut passionant.']))
+			}, ['Les petits rectangles jaunes et verts vous supplient de les utiliser. Vous les prenez en main et une vision vous envahi.\n
+				 Vous vous voyez peindre de grands tableaux et\n
+				 essuyer les taches de peinture avec les éponges.']))
 
-		scenes[3].reseponse.push(Response.new('Se cacher'))
+		scenes[3].responses.push(Response.new('Se cacher', Proc.new {
+			0
+			}, ['Personne ne pensera à vous chercher là dedans, vous décidez donc d’entrer dans ce fort imprenable.\n
+				 Vos parents ont mis deux jours à vous retrouver. ']))
+
+		scenes[3].responses.push(Response.new('Aller à Nyarnya', Proc.new {
+			0
+			}, ['Ce placard n’est pas comme les autres, vous le sentez.\n
+				En entrant à l’intérieur vous vous retrouvez dans un autre monde…\n
+				le monde de Nyarnya']))
+
+		scenes
 end
 #initModel
