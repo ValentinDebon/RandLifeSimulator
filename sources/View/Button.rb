@@ -39,4 +39,3 @@ class Button
 		@textImg.draw((width - @textImg.width) / 2 + x, (height - @textImg.height) / 2 + y, 2, 1, 1, Gosu::Color::WHITE);
 	end
 end
-
