@@ -2,6 +2,7 @@ require 'gosu'
 
 require_relative 'Controller'
 require_relative 'View/Title'
+require_relative 'View/ActView'
 
 class View < Gosu::Window
 	attr_accessor :redraw
@@ -16,6 +17,19 @@ class View < Gosu::Window
 		@title = Title.new(self)
 
 		self.returnToTitle
+	end
+
+	def current=(newView)
+		@currentView = newView
+		@redraw = true
+	end
+
+	def returnToTitle
+		self.current = @title
+	end
+
+	def newAct
+		self.current = ActView.new(self)
 	end
 
 	def button_up(id)
@@ -42,15 +56,6 @@ class View < Gosu::Window
 	def needs_redraw?
 		# So that we do not redraw when not needed
 		@redraw
-	end
-
-	def current=(newView)
-		@currentView = newView
-		@redraw = true
-	end
-
-	def returnToTitle
-		self.current = @title
 	end
 end
 

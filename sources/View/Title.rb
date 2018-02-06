@@ -18,11 +18,13 @@ class Title
 	end
 
 	def up(id)
-		@newLifeBtn.trigger if @newLifeBtn.hovered
-		@creditsBtn.trigger if @creditsBtn.hovered
 	end
 
 	def down(id)
+		if id == Gosu::MS_LEFT then
+			@newLifeBtn.trigger if @newLifeBtn.hovered
+			@creditsBtn.trigger if @creditsBtn.hovered
+		end
 	end
 
 	def update

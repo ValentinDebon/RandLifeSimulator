@@ -9,6 +9,11 @@ class Controller
 
 	def newLife(name)
 		puts "Starting a new life for " + name
+		@view.newAct
+	end
+
+	def act
+		"I"
 	end
 end
 

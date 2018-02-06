@@ -16,15 +16,19 @@ class Birth
 	end
 
 	def up(id)
-		@backBtn.trigger if @backBtn.hovered
-		@raiseBtn.trigger if @raiseBtn.hovered
 	end
 
 	def down(id)
-		if @nameTxtBox.hovered then
-			@view.text_input = @nameTxtBox
-		else
-			@view.text_input = nil
+
+		if id == Gosu::MS_LEFT then
+			@backBtn.trigger if @backBtn.hovered
+			@raiseBtn.trigger if @raiseBtn.hovered
+
+			if @nameTxtBox.hovered then
+				@view.text_input = @nameTxtBox
+			else
+				@view.text_input = nil
+			end
 		end
 	end
 
