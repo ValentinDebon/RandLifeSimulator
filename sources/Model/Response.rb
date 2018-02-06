@@ -1,27 +1,10 @@
+
 class Response
-	attr_accessor :text, :procSuite, :reactions, :nextScenes
-	def initialize(text, procSuite, reactions)
+	attr_reader :text, :proc
+
+	def initialize(text, _proc)
 		@text = text
-		@reactions = reactions
-		@scenes = []
-		@procSuite = procSuite
-		@destinyId
-	end
-
-	def text
-		@text
-	end
-
-	def findDestiny
-		@destinyId = @procSuite.call #returns int
-
-	end
-
-	def reaction
-		@reactions[@destinyId]
-	end
-
-	def scene
-		@scene[@destinyId]
+		@proc = _proc
 	end
 end
+

@@ -3,18 +3,72 @@ require_relative 'Controller'
 require_relative 'Model/Response'
 require_relative 'Model/Scene'
 
-def initModel
+class Model
+	attr_reader :controller, :scenes
+
+	def first
+		@scenes[0..0].sample
+	end
+
+	def initialize(controller)
+		@controller = controller
+
+		@scenes = [
+			Scene.new("Vous voyez un caillou",
+				"View/Assets/Caillou.jpg", [
+					Response.new("Manger le caillou.",
+						Proc.new {
+							if Random.rand() > 0.3 then
+								@controller.response = "Cela n'a aucun goût, vous êtes un peu déçu."
+							else
+								@controller.response = "Vous vous étouffez avec."
+							end
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Jeter le caillou sur Billy.",
+						Proc.new {
+							@controller.response = "Tel un lanceur de baseball professionnel,\nvous lancez la balle à toute vitesse.\n" +
+								"Cette dernière heurte violemment la tête de Billy, qui se met à pleurer."
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Cacher le caillou.",
+						Proc.new {
+							@controller.response = "Ce caillou vous semble être très précieux.\n" +
+								"Vous décidez de le cacher afin que personne ne vous le vole."
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Ignorer le caillou.",
+						Proc.new {
+							@controller.response = "C’est un simple caillou, pourquoi lui porter de l’attention?"
+
+							@controller.currentScene = nil
+						}
+					)
+				]
+			)
+
+		]
+	end
+end
+
+=begin
+def Model(controller)
 	scenes = []
 
-	scenes.push(Scene.new(1, 'Assets/Cailloux.png', 'Vous voyez un cailloux'))
-	scenes.push(Scene.new(1, 'Assets/Tapis.png', 'Vous vous trouvez sur le magnifique\n tapis oriental de mamie <Mamie>.'))
-	scenes.push(Scene.new(1, 'Assets/PremierMot', 'Vous le sentez au plus profond de votre être,\n vous êtes prêt !\n Vous allez dire votre premier mot !'))
-	scenes.push(Scene.new(1, 'Assets/Placard', 'En partant travailler, maman a oublié de fermer le fameux placard interdit.'))
+	scenes.push(Scene.new(1, 'View/Assets/Cailloux.jpg', 'Vous voyez un cailloux'))
+	scenes.push(Scene.new(1, 'View/Assets/Tapis.jpg', 'Vous vous trouvez sur le magnifique\n tapis oriental de mamie <Mamie>.'))
+	scenes.push(Scene.new(1, 'View/Assets/PremierMot.jpg', 'Vous le sentez au plus profond de votre être,\n vous êtes prêt !\n Vous allez dire votre premier mot !'))
+	scenes.push(Scene.new(1, 'View/Assets/Placard.jpg', 'En partant travailler, maman a oublié de fermer le fameux placard interdit.'))
 
 
 	scenes[0].responses.push(Response.new('Le manger', Proc.new {
-		randy = Random.rand()
-		if randy > 0.3 then
+		if Random.rand() > 0.3 then
 			0 #suite narmol
 		else
 			1 #RIP in Pepperonis
@@ -33,7 +87,7 @@ def initModel
 
 	scenes[0].responses.push(Response.new('L\'ignorer', Proc.new {
 		0
-		}, ['C’est un simple caillou, pourquoi lui porter de l’attention ?']))
+		}, ['']))
 
 
 	scenes[1].responses.push(Response.new('Lui déféquer Dessus', Proc.new {
@@ -85,7 +139,7 @@ def initModel
 
 
 
-  scenes[3].responses.push(Response.new('Boire de l\'Eau de Javel', Proc.new {
+	scenes[3].responses.push(Response.new('Boire de l\'Eau de Javel', Proc.new {
 		randy = Random.rand()
 		if randy > 0.7 then
 			0 #suite narmol Fertilité--
@@ -95,23 +149,23 @@ def initModel
 		}, ['La Javel n\'était pas si bonne que ça.', 'Vous ne vous sentez pas super bien après avoir ingurgité le liquide.\n
 			 Vous vous sentez différent aux alentours de vos membres inférieurs comme si quelque chose avait brûlé.']))
 
-    scenes[3].responses.push(Response.new('Jouer avec les éponges', Proc.new {
-			0 #art++ chomage++
-			}, ['Les petits rectangles jaunes et verts vous supplient de les utiliser. Vous les prenez en main et une vision vous envahi.\n
-				 Vous vous voyez peindre de grands tableaux et\n
-				 essuyer les taches de peinture avec les éponges.']))
+	scenes[3].responses.push(Response.new('Jouer avec les éponges', Proc.new {
+		0 #art++ chomage++
+		}, ['Les petits rectangles jaunes et verts vous supplient de les utiliser. Vous les prenez en main et une vision vous envahi.\n
+			 Vous vous voyez peindre de grands tableaux et\n
+			 essuyer les taches de peinture avec les éponges.']))
 
-		scenes[3].responses.push(Response.new('Se cacher', Proc.new {
-			0
-			}, ['Personne ne pensera à vous chercher là dedans, vous décidez donc d’entrer dans ce fort imprenable.\n
-				 Vos parents ont mis deux jours à vous retrouver. ']))
+	scenes[3].responses.push(Response.new('Se cacher', Proc.new {
+		0
+		}, ['Personne ne pensera à vous chercher là dedans, vous décidez donc d’entrer dans ce fort imprenable.\n
+			 Vos parents ont mis deux jours à vous retrouver. ']))
 
-		scenes[3].responses.push(Response.new('Aller à Nyarnya', Proc.new {
-			0
-			}, ['Ce placard n’est pas comme les autres, vous le sentez.\n
-				En entrant à l’intérieur vous vous retrouvez dans un autre monde…\n
-				le monde de Nyarnya']))
+	scenes[3].responses.push(Response.new('Aller à Nyarnya', Proc.new {
+		0
+		}, ['Ce placard n’est pas comme les autres, vous le sentez.\n
+			En entrant à l’intérieur vous vous retrouvez dans un autre monde…\n
+			le monde de Nyarnya']))
 
-		scenes
+	scenes
 end
-#initModel
+=end

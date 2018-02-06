@@ -21,21 +21,25 @@ class View < Gosu::Window
 		self.returnToTitle
 	end
 
-	def current=(newView)
-		@currentView = newView
-		@redraw = true
+	def presentDeath
+		self.returnToTitle
+	end
+
+	def presentScene
+		if @controller.currentScene == nil then
+			self.presentDeath
+		else
+			self.current = SceneView.new(self)
+		end
 	end
 
 	def returnToTitle
 		self.current = @title
 	end
 
-	def newAct
-		self.current = ActView.new(self)
-	end
-
-	def newScene
-		self.current = SceneView.new(self)
+	def current=(newView)
+		@currentView = newView
+		@redraw = true
 	end
 
 	def button_up(id)

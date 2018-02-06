@@ -2,34 +2,27 @@ require_relative 'View'
 require_relative 'Model'
 
 class Controller
+	attr_accessor :currentScene, :response
+
 	def initialize 
 		@view = View.new(self)
+		@model = Model.new(self)
+
+		@currentScene = nil
+		@response = nil
 
 		@view.show
 	end
 
 	def newLife(name)
-		@view.newAct
-	end
+		@currentScene = @model.first
 
-	def nextScene
-		@view.newScene
-	end
-
-	def sceneText
-		"Je suis un caillou bordel de merde"
-	end
-
-	def sceneResponses
-		[ "Vrai", "Faux" , "Peut être", "Chat de shrodinger", "Pute", "Sodomie fraiche"]
-	end
-
-	def sceneChose(index)
-		puts "Selected " + index.to_s
+		@view.presentScene
 	end
 
 	def death(type)
-		puts "Died with Pas de bol"
+		puts type
+		currentScene = nil
 	end
 
 	def act
