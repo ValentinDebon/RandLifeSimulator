@@ -13,7 +13,7 @@ class Controller
 
 	def nextScene
 		if Random.rand() <= 0.05 then
-			@death = "Darwin"
+			self.death = "Darwin"
 		end
 
 		if @oldAct != self.act then
