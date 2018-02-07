@@ -8,14 +8,14 @@ class Controller
 		@view = View.new(self)
 		@model = Model.new(self)
 
-		@currentScene = nil
-		@_response = nil
-		@oldAct = nil
-
 		@view.show
 	end
 
 	def nextScene
+		if Random.rand() <= 0.05 then
+			@death = "Darwin"
+		end
+
 		if @oldAct != self.act then
 			@oldAct = self.act
 			@view.presentAct
@@ -54,6 +54,15 @@ class Controller
 		}
 	end
 
+	def death=(value)
+		@_death = value
+		@currentScene = nil
+	end
+
+	def death
+		@_death
+	end
+
 	def response=(value)
 		@_response = self.formatText(value)
 	end
@@ -63,19 +72,22 @@ class Controller
 	end
 
 	def stats
-		@model.life.name + " est mort à " + @model.life.age.to_s + " ans\n"
+		@model.life.name + " est mort à " + @model.life.age.to_s + " ans\n" +
+		"Pour cause de " + @_death
 	end
 
 	def endLife
 		@model.endLife
-		@currentScene = nil
-		@response = nil
-		@oldAct = nil
 
 		@view.returnToTitle
 	end
 
 	def newLife(name)
+		@currentScene = nil
+		@_response = nil
+		@_death = nil
+		@oldAct = nil
+
 		@model.newLife(name)
 		@currentScene = @model.first
 
