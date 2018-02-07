@@ -10,12 +10,18 @@ class Controller
 
 		@currentScene = nil
 		@response = nil
+		@oldAct = nil
 
 		@view.show
 	end
 
 	def nextScene
-		@view.presentScene
+		if @oldAct != self.act then
+			@oldAct = self.act
+			@view.presentAct
+		else
+			@view.presentScene
+		end
 	end
 
 	def sceneText
@@ -34,6 +40,7 @@ class Controller
 		@model.endLife
 		@currentScene = nil
 		@response = nil
+		@oldAct = nil
 
 		@view.returnToTitle
 	end
@@ -42,7 +49,7 @@ class Controller
 		@model.newLife(name)
 		@currentScene = @model.first
 
-		@view.presentAct
+		self.nextScene
 	end
 
 	def death(type)
@@ -51,7 +58,12 @@ class Controller
 	end
 
 	def act
-		"I"
+		case @model.life.age
+			when 0..14 then "I"
+			when 15..25 then "II"
+			when 26..60 then "III"
+			else "IV"
+		end
 	end
 end
 
