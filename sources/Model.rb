@@ -9,7 +9,7 @@ class Model
 	attr_reader :controller, :scenes
 
 	def first
-		@scenes[0..3].sample
+		[@scenes[0],@scenes[1],@scenes[2]].sample
 	end
 
 	def newLife(name)
@@ -32,12 +32,12 @@ class Model
 						Proc.new {
 							if Random.rand() > 0.3 then
 								@controller.response = "Cela n'a aucun goût, vous êtes un peu déçu."
+								@life.age += 5
+								@controller.currentScene = [@scenes[1],@scenes[2],@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 							else
 								@controller.response = "Vous vous étouffez avec."
+								@controller.death = "Caillou"
 							end
-
-							@life.age += 5
-							@controller.currentScene = @scenes.sample
 						}
 					),
 					Response.new("Jeter le caillou sur petit <enfant>.",
@@ -46,7 +46,7 @@ class Model
 								"Cette dernière heurte violemment petit <enfant>, il se met à pleurer."
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[1],@scenes[2],@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					),
 					Response.new("Cacher le caillou.",
@@ -55,7 +55,7 @@ class Model
 								"Vous décidez de le cacher afin que personne ne vous le vole."
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[1],@scenes[2],@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					),
 					Response.new("Ignorer le caillou.",
@@ -63,7 +63,7 @@ class Model
 							@controller.response = "C’est un simple caillou, pourquoi lui porter de l’attention?"
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[1],@scenes[2],@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					)
 				]
@@ -75,12 +75,12 @@ class Model
 						Proc.new {
 							if Random.rand() > 0.4 then
 								@controller.response = "La diarrhée a été plus forte que vous."
+								@controller.death = "Déshydratation"
 							else
 								@controller.response = "Votre Mamie est revenue,\n vous avez le droit à une belle engueulade."
+								@life.age += 5
+								@controller.currentScene = @scenes.sample
 							end
-
-							@life.age += 5
-							@controller.currentScene = @scenes.sample
 						}
 					),
 					Response.new("Rouler dessus.",
@@ -90,7 +90,7 @@ class Model
 								"Néanmoins, une fois enroulé, la poussière vous fait éternuer à foison."
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[0],@scenes[2],@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					),
 					Response.new("Dormir.",
@@ -99,7 +99,7 @@ class Model
 								"lentement vous vous sentez partir vers le pays des rêves."
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[0],@scenes[2],@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					)
 				]
@@ -114,7 +114,7 @@ class Model
 								"plus de nourriture à vos esclaves nommés parents. "
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					),
 					Response.new("Ah!",
@@ -123,7 +123,7 @@ class Model
 								"c’est comme si ce nom vous parlait."
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					),
 					Response.new("Caca",
@@ -133,7 +133,7 @@ class Model
 								"Mais bon ça finira par passer avec le temps."
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					),
 					Response.new("Papa",
@@ -144,7 +144,7 @@ class Model
 								"Maman est un peu jalouse mais vous vous en fichez un peu."
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					),
 					Response.new("Maman",
@@ -155,7 +155,7 @@ class Model
 								"Papa est un peu jaloux mais vous vous en fichez un peu."
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					)
 				]
@@ -167,12 +167,12 @@ class Model
 						Proc.new {
 							if Random.rand() > 0.3 then
 								@controller.response = "Ce n'était peut-être pas une si bonne idée."
+								@controller.death = "Empoisonnement"
 							else
 								@controller.response = "Le goût est attroce et vous met K.O pour un certain temps."
+								@life.age += 5
+								@controller.currentScene = [@scenes[4],@scenes[5],@scenes[7]].sample
 							end
-
-							@life.age += 5
-							@controller.currentScene = @scenes.sample
 						}
 					),
 					Response.new("Jouer avec les éponges",
@@ -184,7 +184,7 @@ class Model
 								"les taches de peinture avec les éponges."
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					),
 					Response.new("Se cacher",
@@ -194,7 +194,7 @@ class Model
 								"Vos parents ont mis deux jours à vous retrouver."
 
 							@life.age += 5
-							@controller.currentScene = @scenes.sample
+							@controller.currentScene = [@scenes[4],@scenes[5],@scenes[7]].sample
 						}
 					),
 					Response.new("Nyarnya",
@@ -248,13 +248,13 @@ class Model
 			),
 			Scene.new("A l’école vous vous trouvez dans la classe de Mme <maitresse>",
 				"maitresse",
-				"View/Assets/Bedroom.jpg", [
+				"View/Assets/ClassRoom.jpg", [
 					Response.new("La mater",
 						Proc.new {
 							@controller.response = "Vous reluquez d’un air presque obscène votre maîtresse,\n" +
 								"si bien que celle-ci le remarque et vous envoie chez le proviseur."
 
-							@controller.currentScene = @scenes[0]
+							@controller.currentScene = @scenes[6]
 						}
 					),
 					Response.new("Suivre la leçon",
@@ -271,14 +271,14 @@ class Model
 								"Vous décidez donc de vous amusez en lançant des trucs.\n" +
 								"On vous envoie chez le proviseur."
 
-							@controller.currentScene = @scenes[3]
+							@controller.currentScene = @scenes[6]
 						}
 					)
 				]
 			),
-			Scene.new("Monsieur <proviseur> n’est pas très fier de votre comportement.",
+			Scene.new("Proviseur <proviseur> n’est pas très fier de votre comportement.",
 				"proviseur",
-				"View/Assets/Bedroom.jpg", [
+				"View/Assets/HeadMasterOffice.jpg", [
 					Response.new("S’excuser",
 						Proc.new {
 							@controller.response = "Vous excusez et promettez de ne plus recommencer."
@@ -314,7 +314,7 @@ class Model
 			),
 			Scene.new("Durant l’activité arts plastiques vous devez chercher les fournitures\ndont vous avez besoin dans le bac de la classe.",
 				nil,
-				"View/Assets/Bedroom.jpg", [
+				"View/Assets/ClassRoom.jpg", [
 					Response.new("Sniffer la colle",
 						Proc.new {
 							@controller.response = "Vous avez vu certaines personnes cool de la classe\n" +
