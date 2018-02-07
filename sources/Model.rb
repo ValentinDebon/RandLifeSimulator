@@ -403,33 +403,32 @@ class Model
 					),
 					Response.new("Jouer avec le ciseau",
 						Proc.new {
-							if Random.rand() > 0.5 then
-								@controller.response = "Vous trouvez un morceau de papier pas\n" +
-									"loin et décidez de faire une jolie ribambelle."
-								@life.age += 5
-								case @life.age
-									when 5..14
-										@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5]].sample
-									else
-										@controller.currentScene = @scenes.sample #TODO scenes acte 2
-								end
-							else
-								if Random.rand() > 0.5 then
-									@controller.response = "Oh non, vous avez trébuché en courant avec le ciseau\n" +
-										"et avez poignardé <enfant> !"
-									@life.age += 5
-									case @life.age
-										when 5..14
-											@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5]].sample
-										else
-											@controller.currentScene = @scenes.sample #TODO scenes acte 2
+								case Random.rand()
+									when 0.0..0.5
+										@controller.response = "Vous trouvez un morceau de papier pas\n" +
+											"loin et décidez de faire une jolie ribambelle."
+										@life.age += 5
+										case @life.age
+											when 5..14
+												@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5]].sample
+											else
+												@controller.currentScene = @scenes.sample #TODO scenes acte 2
+										end
+									when 0.5..0.75
+										@controller.response = "Oh non, vous avez trébuché en courant avec le ciseau\n" +
+											"et avez poignardé <enfant> !"
+										@life.age += 5
+										case @life.age
+											when 5..14
+												@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5]].sample
+											else
+												@controller.currentScene = @scenes.sample #TODO scenes acte 2
+										end
+									when 0.75..1.0
+										@controller.response = "Oh non, vous êtes tombé sur le ciseau alors\n" +
+											"que vous courriez avec, vous êtes mort."
+										@controller.death = "Ciseau"
 									end
-								else
-									@controller.response = "Oh non, vous êtes tombé sur le ciseau alors\n" +
-										"que vous courriez avec, vous êtes mort."
-									@controller.death = "Ciseau"
-								end
-							end
 						}
 					),
 					Response.new("Manger les crayons",
@@ -448,13 +447,13 @@ class Model
 					)
 				]
 			),
-			Scene.new("Mamie <mamie> n’est pas très contente que son magnifique tapis oriental\nait été souillé par vos excréments.",
+			Scene.new("Mamie <mamie> n’est pas très contente que son magnifique tapis\noriental ait été souillé par vos excréments.",
 				"mamie",
 				"View/Assets/Tapis.jpg", [
 					Response.new("La Manger",
 						Proc.new {
-							@controller.response = "Elle n’avait que la peau sur les os et\n" +
-							"avait comme un goût de verveine. C’était pas très bon."
+							@controller.response = "Elle n’avait que la peau sur les os et avait comme un goût\n" +
+							"de verveine. C’était pas très bon."
 							case @life.age
 								when 5..14
 									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
@@ -479,8 +478,7 @@ class Model
 					Response.new("Débattre",
 						Proc.new {
 							@controller.response = "Vous expliquez à votre mamie <mamie> que vos actions\n" +
-							 	"ont bien plus de sens qu’un simple caca\n" +
-								"sur un tapis."
+							 	"ont bien plus de sens qu’un simple caca sur un tapis."
 								case @life.age
 									when 5..14
 										@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
