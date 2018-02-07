@@ -35,7 +35,7 @@ class Model
 								@controller.response = "Vous vous étouffez avec."
 							end
 
-							@controller.currentScene = 1
+							@controller.currentScene = @scenes[1]
 						}
 					),
 					Response.new("Jeter le caillou sur petit <Billy>.",
@@ -43,7 +43,7 @@ class Model
 							@controller.response = "Tel un lanceur de baseball professionnel,\nvous lancez la balle à toute vitesse.\n" +
 								"Cette dernière heurte violemment petit <Billy>, il se met à pleurer."
 
-							@controller.currentScene = 2
+							@controller.currentScene = @scenes[2]
 						}
 					),
 					Response.new("Cacher le caillou.",
@@ -51,14 +51,14 @@ class Model
 							@controller.response = "Ce caillou vous semble être très précieux.\n" +
 								"Vous décidez de le cacher afin que personne ne vous le vole."
 
-							@controller.currentScene = 3
+							@controller.currentScene = @scenes[3]
 						}
 					),
 					Response.new("Ignorer le caillou.",
 						Proc.new {
 							@controller.response = "C’est un simple caillou, pourquoi lui porter de l’attention?"
 
-							@controller.currentScene = 2
+							@controller.currentScene = @scenes[2]
 						}
 					)
 				]
@@ -73,7 +73,7 @@ class Model
 								@controller.response = "Votre Mamie est revenue,\n vous avez le droit à une belle engueulade."
 							end
 
-							@controller.currentScene = 0
+							@controller.currentScene = @scenes[0]
 						}
 					),
 					Response.new("Rouler dessus.",
@@ -82,7 +82,7 @@ class Model
 								"Vous décidez donc de vous rouler dedans tel un petit sushi.\n" +
 								"Néanmoins, une fois enroulé, la poussière vous fait éternuer à foison."
 
-							@controller.currentScene = 2
+							@controller.currentScene = @scenes[2]
 						}
 					),
 					Response.new("Dormir.",
@@ -90,7 +90,7 @@ class Model
 							@controller.response = "La douceur du tapis est apaisante,\n" +
 								"lentement vous vous sentez partir vers le pays des rêves."
 
-							@controller.currentScene = 3
+							@controller.currentScene = @scenes[3]
 						}
 					)
 				]
@@ -104,7 +104,7 @@ class Model
 							"vous avez choisi votre premier mot afin de réclamer trois fois\n" +
 							"plus de nourriture à vos esclaves nommés parents. "
 
-							@controller.currentScene = 0
+							@controller.currentScene = @scenes[0]
 						}
 					),
 					Response.new("<NomRandom>",
@@ -112,7 +112,7 @@ class Model
 							@controller.response = "Vous ne savez pas pourquoi vous avez dit ça,\n" +
 							"c’est comme si ce nom vous parlait."
 
-							@controller.currentScene = 0
+							@controller.currentScene = @scenes[0]
 						}
 					),
 					Response.new("Caca",
@@ -121,7 +121,7 @@ class Model
 							"vos parents ont un peu honte de vous.\n" +
 							"Mais bon ça finira par passer avec le temps."
 
-							@controller.currentScene = 3
+							@controller.currentScene = @scenes[3]
 						}
 					),
 					Response.new("Papa",
@@ -131,7 +131,7 @@ class Model
 							"votre modèle !\n" +
 							"Maman est un peu jalouse mais vous vous en fichez un peu."
 
-							@controller.currentScene = 2
+							@controller.currentScene = @scenes[2]
 						}
 					),
 					Response.new("Maman",
@@ -141,7 +141,7 @@ class Model
 							"votre inspiration !\n" +
 							"Papa est un peu jaloux mais vous vous en fichez un peu."
 
-							@controller.currentScene = 3
+							@controller.currentScene = @scenes[3]
 						}
 					)
 				]
@@ -156,7 +156,7 @@ class Model
 								@controller.response = "Le goût est attroce et vous met K.O pour un certain temps."
 							end
 
-							@controller.currentScene = 1
+							@controller.currentScene = @scenes[1]
 						}
 					),
 					Response.new("Jouer avec les éponges",
@@ -167,7 +167,7 @@ class Model
 							"Vous vous voyez peindre de grands tableaux et essuyer\n " +
 							"les taches de peinture avec les éponges."
 
-							@controller.currentScene = 1
+							@controller.currentScene = @scenes[1]
 						}
 					),
 					Response.new("Se cacher",
@@ -176,7 +176,7 @@ class Model
 							"vous décidez donc d’entrer dans ce fort imprenable.\n " +
 							"Vos parents ont mis deux jours à vous retrouver."
 
-							@controller.currentScene = 0
+							@controller.currentScene = @scenes[0]
 						}
 					),
 					Response.new("Nyarnya",
@@ -184,7 +184,7 @@ class Model
 							@controller.response = "Ce placard n’est pas comme les autres, vous le sentez.\n" +
 							"En entrant à l’intérieur vous vous retrouvez dans un autre monde…\n " + " le monde de Nyarnya."
 
-							@controller.currentScene = 1
+							@controller.currentScene = @scenes[1]
 						}
 					)
 				]
