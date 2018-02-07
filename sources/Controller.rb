@@ -63,8 +63,8 @@ class Controller
 		@_death
 	end
 
-	def playSong(filename)
-		@view.playSong(filename)
+	def playSound(filename)
+		@view.playSound(filename)
 	end
 
 	def response=(value)

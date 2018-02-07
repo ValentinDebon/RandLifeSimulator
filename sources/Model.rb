@@ -9,7 +9,7 @@ class Model
 	attr_reader :controller, :scenes
 
 	def first
-		[@scenes[0],@scenes[1],@scenes[2]].sample
+		@scenes[0..2].sample
 	end
 
 	def newLife(name)
@@ -188,7 +188,7 @@ class Model
 						Proc.new {
 							if Random.rand() > 0.3 then
 								@controller.response = "Ce n'était peut-être pas une si bonne idée."
-								@controller.death = "Empoisonnement"
+								@controller.death = "Javel"
 							else
 								@controller.response = "Le goût est attroce et vous met K.O pour un certain temps."
 								@life.age += 5

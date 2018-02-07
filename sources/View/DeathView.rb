@@ -13,10 +13,22 @@ class DeathView
 		case @view.controller.death
 			when "Darwin"
 				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/darwin.jpg")
+				@view.playSound("View/Assets/Musics/Wasted.mp3")
+			when "Javel"
+				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/javel.jpg")
+				@view.playSound("View/Assets/Musics/Marche Funèbre.mp3")
+			when "Camionette"
+				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/camionette.jpg")
+				@view.playSound("View/Assets/Musics/Marche Funèbre.mp3")
+			when "Ciseau"
+				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/ciseaux.jpg")
+				@view.playSound("View/Assets/Musics/Marche Funèbre.mp3")
 			when "Caillou"
 				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/faucheuse2.gif")
+				@view.playSound("View/Assets/Musics/Marche Funèbre.mp3")
 			else
 				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/faucheuse2.gif")
+				@view.playSound("View/Assets/Musics/Wasted.mp3")
 		end
 
 		@animStart = Gosu::milliseconds
