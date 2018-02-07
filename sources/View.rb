@@ -17,7 +17,6 @@ class View < Gosu::Window
 		self.caption = "Random Life Simulator 2018 - GameJam IUT2 Edition GOTY Deluxe"
 
 		@controller = controller
-		@title = Title.new(self)
 
 		self.returnToTitle
 	end
@@ -39,7 +38,7 @@ class View < Gosu::Window
 	end
 
 	def returnToTitle
-		self.current = @title
+		self.current = Title.new(self)
 	end
 
 	def current=(newView)

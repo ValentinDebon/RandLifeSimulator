@@ -94,11 +94,6 @@ class Controller
 		self.nextScene
 	end
 
-	def death(type)
-		puts type
-		currentScene = nil
-	end
-
 	def act
 		case @model.life.age
 			when 0..14 then "I"

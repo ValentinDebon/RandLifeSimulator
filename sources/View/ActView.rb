@@ -8,8 +8,7 @@ class ActView
 
 		@actImg = Gosu::Image.from_text("Acte " + @view.controller.act, 100)
 		@animStart = Gosu::milliseconds
-		#@duration = 5000
-		@duration = 1000
+		@duration = 5000
 	end
 
 	def up(id)

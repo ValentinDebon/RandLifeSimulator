@@ -1,13 +1,12 @@
 
 require_relative 'Button'
 require_relative 'Birth'
+require_relative 'Credits'
 require_relative 'Depth'
 
 class Title
 	def initialize(view)
 		@view = view
-
-		@birth = Birth.new(@view)
 
 		backgrounds = ["View/Assets/ArtsPlastiques.jpg",
 				"View/Assets/Concert.jpg",
@@ -28,8 +27,8 @@ class Title
 		@titleImg = Gosu::Image.from_text("Random Life Simulator 2018", 50)
 		@backgroundImg = Gosu::Image.new(backgrounds.sample)
 
-		@newLifeBtn = Button.new("Nouvelle Vie", Proc.new { @view.current = @birth }, 0.33, 0.32, 0.33, 0.16)
-		@creditsBtn = Button.new("Crédits", Proc.new { puts "Crédits" }, 0.33, 0.50, 0.33, 0.16)
+		@newLifeBtn = Button.new("Nouvelle Vie", Proc.new { @view.current = Birth.new(@view) }, 0.33, 0.32, 0.33, 0.16)
+		@creditsBtn = Button.new("Crédits", Proc.new { @view.current = Credits.new(@view) }, 0.33, 0.50, 0.33, 0.16)
 	end
 
 	def up(id)
