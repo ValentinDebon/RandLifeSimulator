@@ -1,5 +1,6 @@
 
 require 'gosu'
+require_relative 'Depth'
 
 class ActView
 	def initialize(view)
@@ -27,7 +28,7 @@ class ActView
 
 	def draw
 		alpha = Float(Gosu::milliseconds - @animStart) / @duration
-		@actImg.draw((@view.width - @actImg.width) / 2, (@view.height - @actImg.height) / 2, 0, 1, 1,
+		@actImg.draw((@view.width - @actImg.width) / 2, (@view.height - @actImg.height) / 2, Depth::TEXT, 1, 1,
 			Gosu::Color.new(alpha * 255, 255, 255, 255))
 	end
 

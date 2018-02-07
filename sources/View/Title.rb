@@ -1,6 +1,7 @@
 
 require_relative 'Button'
 require_relative 'Birth'
+require_relative 'Depth'
 
 class Title
 	def initialize(view)
@@ -38,13 +39,13 @@ class Title
 	end
 
 	def draw
-		@backgroundImg.draw(0, 0, -1, Float(@view.width)/Float(@backgroundImg.width),
+		@backgroundImg.draw(0, 0, Depth::BACKGROUND, Float(@view.width)/Float(@backgroundImg.width),
 			Float(@view.height)/Float(@backgroundImg.height))
 
 		@newLifeBtn.draw(@view.width, @view.height)
 		@creditsBtn.draw(@view.width, @view.height)
 
-		@titleImg.draw((@view.width - @titleImg.width) / 2, @view.height / 6, 2, 1, 1, Gosu::Color::BLACK)
+		@titleImg.draw((@view.width - @titleImg.width) / 2, @view.height / 6, Depth::TEXT, 1, 1, Gosu::Color::BLACK)
 	end
 
 end

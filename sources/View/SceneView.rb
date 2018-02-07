@@ -18,6 +18,12 @@ class SceneView
 
 		@backgroundImg = Gosu::Image.new(@view.controller.currentScene.bg)
 
+		@sceneCharacter = @view.controller.sceneCharacter
+		if @sceneCharacter != nil then
+			@sceneBodyImg = Gosu::Image.new("View/Assets/Characters/" + @sceneCharacter.character + ".png")
+			@sceneHeadImg = Gosu::Image.new("View/Assets/Identities/" + @sceneCharacter.identity + ".png")
+		end
+
 		@textImg = Gosu::Image.from_text("", 50)
 		@textIterator = 0
 		@textLastIteration = 0
@@ -48,7 +54,9 @@ class SceneView
 		if @state == State::Narrating then
 			@state = State::Choosing
 		elsif @state == State::Choosing then
-			@responseBtns.map { |btn| btn.trigger if btn.hovered }
+			if id == Gosu::MS_LEFT then
+				@responseBtns.map { |btn| btn.trigger if btn.hovered }
+			end
 		elsif @state == State::Responding then
 			@state = State::Waiting
 		elsif @state == State::Waiting then
@@ -66,7 +74,7 @@ class SceneView
 	end
 
 	def draw
-		@backgroundImg.draw(0, 0, -1, Float(@view.width)/Float(@backgroundImg.width),
+		@backgroundImg.draw(0, 0, Depth::BACKGROUND, Float(@view.width)/Float(@backgroundImg.width),
 			Float(@view.height)/Float(@backgroundImg.height))
 
 		if (@state == State::Narrating || @state == State::Responding) && (Gosu::milliseconds - @textLastIteration) >= 30 then
@@ -84,9 +92,17 @@ class SceneView
 			@responseBtns.map { |btn| btn.draw(@view.width, @view.height) } if @state == State::Choosing
 		end
 
+		if @sceneCharacter != nil then
+			posx = @view.width / 2
+			posy = @view.height / 10
+			scale = (Float(@view.width) / Float(@sceneBodyImg.width)) / 2.0
+			@sceneBodyImg.draw(posx, posy, Depth::BODY, scale, scale)
+			@sceneHeadImg.draw(posx, posy, Depth::HEAD, scale, scale)
+		end
+
 		Gosu::draw_rect(@view.width / 10 - 10, @view.height / 2 - 10,
-			8 * @view.width / 10 + 20, @view.height / 6 + 20, Color::TextBackground, 1)
-		@textImg.draw(@view.width / 10, @view.height / 2, 2, 1, 1, Gosu::Color::WHITE)
+			8 * @view.width / 10 + 20, @view.height / 6 + 20, Color::TextBackground, Depth::RECTANGLE)
+		@textImg.draw(@view.width / 10, @view.height / 2, Depth::TEXT, 1, 1, Gosu::Color::WHITE)
 	end
 end
 

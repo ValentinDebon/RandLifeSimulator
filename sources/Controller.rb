@@ -24,6 +24,16 @@ class Controller
 		end
 	end
 
+	def sceneCharacter
+		character = nil
+
+		for c in @model.life.characters do
+			character = c if c.character == @currentScene.character
+		end
+
+		character
+	end
+
 	def formatText(text)
 		@model.life.characters.map {
 			|persona|

@@ -49,7 +49,7 @@ class DeathView
 			@stats.draw(@view.width, @view.height)
 		end
 
-		@backgroundImg.draw(0, 0, -1, Float(@view.width)/Float(@backgroundImg.width),
+		@backgroundImg.draw(0, 0, Depth::BACKGROUND, Float(@view.width)/Float(@backgroundImg.width),
 			Float(@view.height)/Float(@backgroundImg.height),
 			Gosu::Color.new(step * 255, 255, step * 255, step * 255))
 	end

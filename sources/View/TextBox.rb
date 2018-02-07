@@ -1,5 +1,6 @@
 
 require 'gosu'
+require_relative 'Depth'
 
 class TextBox < Gosu::TextInput
 	attr_reader :hovered
@@ -31,9 +32,9 @@ class TextBox < Gosu::TextInput
 		width = @dw * w
 		height = @dh * h
 
-		Gosu::draw_rect(x, y, width, height, Gosu::Color::BLACK)
+		Gosu::draw_rect(x, y, width, height, Gosu::Color::BLACK, Depth::RECTANGLE)
 		textImg = Gosu::Image.from_text(self.text, @font_size)
-		textImg.draw((width - textImg.width) / 2 + x, (height - textImg.height) / 2 + y, 2, 1, 1, Gosu::Color::WHITE)
+		textImg.draw((width - textImg.width) / 2 + x, (height - textImg.height) / 2 + y, Depth::TEXT, 1, 1, Gosu::Color::WHITE)
 	end
 end
 

@@ -1,6 +1,7 @@
 
 require_relative 'TextBox'
 require_relative 'Button'
+require_relative 'Depth'
 
 class Birth
 	def initialize(view)
@@ -21,7 +22,6 @@ class Birth
 	end
 
 	def down(id)
-
 		if id == Gosu::MS_LEFT then
 			@backBtn.trigger if @backBtn.hovered
 			@raiseBtn.trigger if @raiseBtn.hovered
@@ -45,7 +45,7 @@ class Birth
 	end
 
 	def draw
-		@backgroundImg.draw(0, 0, -1, Float(@view.width)/Float(@backgroundImg.width),
+		@backgroundImg.draw(0, 0, Depth::BACKGROUND, Float(@view.width)/Float(@backgroundImg.width),
 			Float(@view.height)/Float(@backgroundImg.height))
 
 		@backBtn.draw(@view.width, @view.height)

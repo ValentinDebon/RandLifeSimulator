@@ -26,6 +26,7 @@ class Model
 		@life = nil
 		@scenes = [
 			Scene.new("Vous voyez un caillou.",
+				"enfant",
 				"View/Assets/Caillou.jpg", [
 					Response.new("Manger le caillou.",
 						Proc.new {
@@ -68,6 +69,7 @@ class Model
 				]
 			),
 			Scene.new("Vous vous trouvez sur le magnifique tapis oriental de mamie <mamie>.",
+				nil,
 				"View/Assets/Tapis.jpg", [
 					Response.new("Déféquer dessus.",
 						Proc.new {
@@ -103,6 +105,7 @@ class Model
 				]
 			),
 			Scene.new("Vous le sentez au plus profond de votre être, vous êtes prêt !\nVous allez dire votre premier mot !",
+				nil,
 				"View/Assets/PremierMot.jpg", [
 					Response.new("Manger",
 						Proc.new {
@@ -158,6 +161,7 @@ class Model
 				]
 			),
 			Scene.new("En partant travailler, maman a oublié de fermer le fameux placard interdit.",
+				nil,
 				"View/Assets/Placard.jpg", [
 					Response.new("Boire de l’eau de javel",
 						Proc.new {
@@ -206,6 +210,7 @@ class Model
 				]
 			),
 			Scene.new("Vous êtes chez vous un samedi après-midi,\naprès une longue semaine d’école.",
+				nil,
 				"View/Assets/Bedroom.jpg", [
 					Response.new("Prendre de l’avance sur les devoirs",
 						Proc.new {
@@ -241,7 +246,8 @@ class Model
 					)
 				]
 			),
-			Scene.new("A l’école vous vous trouvez dans la classe de Mme <Maitresse>",
+			Scene.new("A l’école vous vous trouvez dans la classe de Mme <maitresse>",
+				"maitresse",
 				"View/Assets/Bedroom.jpg", [
 					Response.new("La mater",
 						Proc.new {
@@ -271,6 +277,7 @@ class Model
 				]
 			),
 			Scene.new("Monsieur <proviseur> n’est pas très fier de votre comportement.",
+				"proviseur",
 				"View/Assets/Bedroom.jpg", [
 					Response.new("S’excuser",
 						Proc.new {
@@ -306,6 +313,7 @@ class Model
 				]
 			),
 			Scene.new("Durant l’activité arts plastiques vous devez chercher les fournitures\ndont vous avez besoin dans le bac de la classe.",
+				nil,
 				"View/Assets/Bedroom.jpg", [
 					Response.new("Sniffer la colle",
 						Proc.new {
@@ -354,7 +362,6 @@ class Model
 					)
 				]
 			)
-
 		]
 	end
 end
