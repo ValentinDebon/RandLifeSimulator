@@ -9,7 +9,7 @@ class Model
 	attr_reader :controller, :scenes
 
 	def first
-		@scenes[0..1].sample
+		@scenes[0..4].sample
 	end
 
 	def newLife(name)
@@ -193,4 +193,3 @@ class Model
 		]
 	end
 end
-
