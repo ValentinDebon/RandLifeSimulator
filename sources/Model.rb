@@ -188,6 +188,161 @@ class Model
 						}
 					)
 				]
+			),
+			Scene.new("Vous êtes chez vous un samedi après-midi après une longue semaine d’école.",
+				"View/Assets/Bedroom.jpg", [
+					Response.new("Prendre de l’avance sur les devoirs",
+					    Proc.new {
+					         if Random.rand() > 0.5 then
+					         	@controller.response = "Vous êtes surpris de la simplicité du programme.\n" +
+					                    			   "Vous avez tout compris à la leçon suivante sans\n" +
+					                    			   "l’aide de la maîtresse."
+					         else
+					                    @controller.response = "Les leçons suivantes sont très difficiles à comprendre sans\n" +
+					                    "l’aide de la maîtresse. Vous attrapez une migraine et avez même\n" +
+					                    "l’impression de vous être embrouillé avec les leçons actuelles."
+					                end
+
+					                @controller.currentScene = @scenes[0]
+					            }
+					        ),
+					        Response.new("Jouer à Raiemanne 3",
+					            Proc.new {
+					                @controller.response = "Vous n’avez pas envie d’être productif aujourd’hui.\n" +
+					                "Vous décidez donc de jouer à votre jeu vidéo préféré : Raiemanne 3."
+
+					                @controller.currentScene = @scenes[0]
+					            }
+					        ),
+					        Response.new("Faire du sport",
+					            Proc.new {
+					                @controller.response = "Vous avez l’âme d’un sportif et le week-end est\n" +
+					                "le moment parfait pour vous exercer.\n" +
+					                "Vous sortez faire un jogging."
+
+					                @controller.currentScene = @scenes[3]
+					            }
+					        )
+					    ]
+					),
+					Scene.new("A l’école vous vous trouvez dans la classe de Mme <Maitresse>",
+					    "View/Assets/Bedroom.jpg", [
+					        Response.new("La mater",
+					            Proc.new {
+					                @controller.response = "Vous reluquez d’un air presque obscène votre maîtresse,\n" +
+					                "si bien que celle-ci le remarque et vous envoie chez le proviseur."
+
+					                @controller.currentScene = @scenes[0]
+					            }
+					        ),
+					        Response.new("Suivre la leçon",
+					            Proc.new {
+					                @controller.response = "Vous vous concentrez sur ce qu’elle dit,\n" +
+					                "après tout vous êtes là pour ça."
+
+					                @controller.currentScene = @scenes[0]
+					            }
+					        ),
+					        Response.new("Être turbulent",
+					            Proc.new {
+					                @controller.response = "La leçon est ennuyeuse au possible.\n" +
+					                "Vous décidez donc de vous amusez en lançant des trucs.\n" +
+					                "On vous envoie chez le proviseur."
+
+					                @controller.currentScene = @scenes[3]
+					            }
+					        )
+					    ]
+					),
+					Scene.new("Monsieur <proviseur> n’est pas très fier de votre comportement.",
+					    "View/Assets/Bedroom.jpg", [
+					        Response.new("S’excuser",
+					            Proc.new {
+					                @controller.response = "Vous excusez et promettez de ne plus recommencer."
+
+					                @controller.currentScene = @scenes[0]
+					            }
+					        ),
+					        Response.new("Supplier de ne pas renvoyer ",
+					            Proc.new {
+					                @controller.response = "Vous vous mettez à genoux et pleurez pour votre avenir."
+
+					                @controller.currentScene = @scenes[0]
+					            }
+					        ),
+					        Response.new("L’insulter",
+					            Proc.new {
+					                @controller.response = "Vous lui répondez avec véhémence qu’il peut se mettre\n" +
+					                "ce qu’il pense de vous là où il le pense."
+
+					                @controller.currentScene = @scenes[0]
+					            }
+					        ),
+					        Response.new("Débattre",
+					            Proc.new {
+					                @controller.response = "Vous débattez alors du mal fondé de vos actions,\n" +
+					                "ce qui fait traîner la réunion\n" +
+					                "et vous permet d’échapper à la punition."
+
+					                @controller.currentScene = @scenes[3]
+					            }
+					        )
+					    ]
+					),
+					Scene.new("Durant l’activité arts plastiques vous devez chercher les fournitures\n" +
+					    "dont vous avez besoin dans le bac de la classe.",
+					    "View/Assets/Bedroom.jpg", [
+					        Response.new("Sniffer la colle",
+					            Proc.new {
+					                @controller.response = "Vous avez vu certaines personnes cool de la classe\n" +
+					                "le faire. L’odeur est enivrante et addictive,\n" +
+					                "elle vous fait réfléchir au sens de la vie."
+
+					                @controller.currentScene = @scenes[0]
+					            }
+					        ),
+					        Response.new("Jouer avec le ciseau",
+					            Proc.new {
+					                if Random.rand() > 0.5 then
+					                    @controller.response = "Vous trouvez un morceau de papier pas\n" +
+					                    "loin et décidez de faire une jolie ribambelle."
+
+					                else
+					                    if Random.rand() > 0.5 then
+					                        @controller.response = "Oh non, vous avez trébuché en courant avec le ciseau\n" +
+					                        "et avez poignardé <Billy> ! Il est mort à présent."
+
+
+					                    else
+					                        @controller.response = "Oh non, vous êtes tombé sur le ciseau alors\n" +
+					                        "que vous courriez avec, vous êtes mort."
+
+					                    end
+					                end
+
+					                @controller.currentScene = @scenes[0]
+					            }
+					        ),
+					        Response.new("L’insulter",
+					            Proc.new {
+					                @controller.response = "Vous lui répondez avec véhémence qu’il peut se mettre\n" +
+					                "ce qu’il pense de vous là où il le pense."
+
+					                @controller.currentScene = @scenes[0]
+					            }
+					        ),
+					        Response.new("Débattre",
+					            Proc.new {
+					                @controller.response = "Vous débattez alors du mal fondé de vos actions,\n" +
+					                "ce qui fait traîner la réunion\n" +
+					                "et vous permet d’échapper à la punition."
+
+					                @controller.currentScene = @scenes[3]
+					            }
+					        )
+					    ]
+					)
+				]
 			)
 
 		]
