@@ -94,6 +94,100 @@ class Model
 						}
 					)
 				]
+			),
+			Scene.new("Vous le sentez au plus profond de votre être, vous êtes prêt !\n" +
+				" Vous allez dire votre premier mot !",
+				"View/Assets/PremierMot.jpg", [
+					Response.new("Manger",
+						Proc.new {
+							@controller.response = "Tel l’estomac sur patte que vous êtes,\n" +
+							"vous avez choisi votre premier mot afin de réclamer trois fois\n" +
+							"plus de nourriture à vos esclaves nommés parents. "
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("<NomRandom>",
+						Proc.new {
+							@controller.response = "Vous ne savez pas pourquoi vous avez dit ça,\n" +
+							"c’est comme si ce nom vous parlait."
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Caca",
+						Proc.new {
+							@controller.response = "Ah bah bonjour la maturité,  " +
+							"vos parents ont un peu honte de vous.\n" +
+							"Mais bon ça finira par passer avec le temps."
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Papa",
+						Proc.new {
+							@controller.response = "Vous avez choisi votre camp," +
+							"votre papa est votre champion,\n" +
+							"votre modèle !\n" +
+							"Maman est un peu jalouse mais vous vous en fichez un peu."
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Maman",
+						Proc.new {
+							@controller.response = "Vous avez choisi votre camp, " +
+							"votre maman est votre reine,\n" +
+							"votre inspiration !\n" +
+							"Papa est un peu jaloux mais vous vous en fichez un peu."
+
+							@controller.currentScene = nil
+						}
+					)
+				]
+			),
+			Scene.new("En partant travailler, maman a oublié de fermer le fameux placard interdit.",
+				"View/Assets/Placard.jpg", [
+					Response.new("Boire de l’eau de javel",
+						Proc.new {
+							if Random.rand() > 0.3 then
+								@controller.response = "Ce n'était peut-être pas une si bonne idée."
+							else
+								@controller.response = "Le goût est attroce et vous met K.O pour un certain temps."
+							end
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Jouer avec les éponges",
+						Proc.new {
+							@controller.response = "Les petits rectangles jaunes et verts " +
+							"vous supplient de les utiliser.\n" +
+							"Vous les prenez en main et une vision vous envahi.\n" +
+							"Vous vous voyez peindre de grands tableaux et essuyer\n " +
+							"les taches de peinture avec les éponges."
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Se cacher",
+						Proc.new {
+							@controller.response = "Personne ne pensera à vous chercher là dedans,\n " +
+							"vous décidez donc d’entrer dans ce fort imprenable.\n " +
+							"Vos parents ont mis deux jours à vous retrouver."
+
+							@controller.currentScene = nil
+						}
+					),
+					Response.new("Nyarnya",
+						Proc.new {
+							@controller.response = "Ce placard n’est pas comme les autres, vous le sentez.\n" +
+							"En entrant à l’intérieur vous vous retrouvez dans un autre monde…\n " + " le monde de Nyarnya."
+
+							@controller.currentScene = nil
+						}
+					)
+				]
 			)
 
 		]
