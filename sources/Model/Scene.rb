@@ -1,6 +1,6 @@
 
 class Scene
-	attr_reader :text, :bg, :responses
+	attr_reader :text, :bg
 
 	def initialize(text, bg, responses)
 		@text = text

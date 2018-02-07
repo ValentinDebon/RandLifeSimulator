@@ -1,11 +1,26 @@
 
+require_relative 'Persona'
+
 class Life
-	attr_reader :name
+	attr_reader :name, :characters
 	attr_accessor :age
 
 	def initialize(name)
 		@name = name
 		@age = 0
+
+		listIdentities = ['Hervé', 'Cthulhu',
+			'Emmanuel', 'Mekayak', 'Sandrine',
+			'Sauron', 'Sphinx']
+		listCharacters = ['ado', 'adulte',
+			'dealer', 'enfant', 'maitresse',
+			'mamie', 'mariee', 'pervers',
+			'professeur', 'proviseur']
+
+		@characters = Array.new(listCharacters).map {
+			|characters|
+			Persona.new(characters, listIdentities.sample)
+		}
 
 		@art = 0
 		@doubt = 0

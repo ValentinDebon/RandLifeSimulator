@@ -2,14 +2,14 @@ require_relative 'View'
 require_relative 'Model'
 
 class Controller
-	attr_accessor :currentScene, :response
+	attr_accessor :currentScene
 
 	def initialize 
 		@view = View.new(self)
 		@model = Model.new(self)
 
 		@currentScene = nil
-		@response = nil
+		@_response = nil
 		@oldAct = nil
 
 		@view.show
@@ -24,12 +24,32 @@ class Controller
 		end
 	end
 
+	def formatText(text)
+		@model.life.characters.map {
+			|persona|
+			text = text.gsub(/<#{persona.character}>/, persona.identity)
+		}
+
+		text
+	end
+
 	def sceneText
-		@currentScene.text
+		self.formatText(@currentScene.text)
 	end
 
 	def responsesText
-		@currentScene.responsesText
+		@currentScene.responsesText.map {
+			|text|
+			self.formatText(text)
+		}
+	end
+
+	def response=(value)
+		@_response = self.formatText(value)
+	end
+
+	def response
+		@_response
 	end
 
 	def stats

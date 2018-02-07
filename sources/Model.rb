@@ -38,10 +38,10 @@ class Model
 							@controller.currentScene = @scenes[1]
 						}
 					),
-					Response.new("Jeter le caillou sur petit <Billy>.",
+					Response.new("Jeter le caillou sur petit <enfant>.",
 						Proc.new {
 							@controller.response = "Tel un lanceur de baseball professionnel,\nvous lancez la balle à toute vitesse.\n" +
-								"Cette dernière heurte violemment petit <Billy>, il se met à pleurer."
+								"Cette dernière heurte violemment petit <enfant>, il se met à pleurer."
 
 							@controller.currentScene = @scenes[2]
 						}
@@ -63,7 +63,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous vous trouvez sur le magnifique tapis oriental de mamie <Mamy>.",
+			Scene.new("Vous vous trouvez sur le magnifique tapis oriental de mamie <mamie>.",
 				"View/Assets/Tapis.jpg", [
 					Response.new("Déféquer dessus.",
 						Proc.new {
@@ -107,7 +107,7 @@ class Model
 							@controller.currentScene = @scenes[0]
 						}
 					),
-					Response.new("<NomRandom>",
+					Response.new("Ah!",
 						Proc.new {
 							@controller.response = "Vous ne savez pas pourquoi vous avez dit ça,\n" +
 							"c’est comme si ce nom vous parlait."
