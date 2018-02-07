@@ -31,7 +31,7 @@ class TextBox < Gosu::TextInput
 		width = @dw * w
 		height = @dh * h
 
-		Gosu::draw_rect(x, y, width, height, Gosu::Color::BLUE)
+		Gosu::draw_rect(x, y, width, height, Gosu::Color::BLACK)
 		textImg = Gosu::Image.from_text(self.text, @font_size)
 		textImg.draw((width - textImg.width) / 2 + x, (height - textImg.height) / 2 + y, 2, 1, 1, Gosu::Color::WHITE)
 	end

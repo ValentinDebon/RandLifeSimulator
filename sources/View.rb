@@ -4,6 +4,7 @@ require_relative 'Controller'
 require_relative 'View/Title'
 require_relative 'View/ActView'
 require_relative 'View/SceneView'
+require_relative 'View/DeathView'
 
 class View < Gosu::Window
 	attr_accessor :redraw
@@ -22,7 +23,7 @@ class View < Gosu::Window
 	end
 
 	def presentDeath
-		self.returnToTitle
+		self.current = DeathView.new(self)
 	end
 
 	def presentScene
@@ -31,6 +32,10 @@ class View < Gosu::Window
 		else
 			self.current = SceneView.new(self)
 		end
+	end
+
+	def presentAct
+		self.current = ActView.new(self)
 	end
 
 	def returnToTitle

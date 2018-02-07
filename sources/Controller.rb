@@ -14,10 +14,27 @@ class Controller
 		@view.show
 	end
 
+	def nextScene
+		@view.presentScene
+	end
+
+	def stats
+		@model.life.name + " est mort à " + @model.life.age.to_s + " ans\n"
+	end
+
+	def endLife
+		@model.endLife
+		@currentScene = nil
+		@response = nil
+
+		@view.returnToTitle
+	end
+
 	def newLife(name)
+		@model.newLife(name)
 		@currentScene = @model.first
 
-		@view.presentScene
+		@view.presentAct
 	end
 
 	def death(type)

@@ -19,7 +19,7 @@ class ActView
 
 	def update
 		if Gosu::milliseconds >= @animStart + @duration then
-			@view.presentScene
+			@view.controller.nextScene
 		else
 			@view.redraw = true
 		end

@@ -1,18 +1,29 @@
 
 require_relative 'Controller'
-require_relative 'Model/Response'
+require_relative 'Model/Life'
 require_relative 'Model/Scene'
+require_relative 'Model/Response'
 
 class Model
+	attr_accessor :life
 	attr_reader :controller, :scenes
 
 	def first
 		@scenes[0..1].sample
 	end
 
+	def newLife(name)
+		@life = Life.new(name)
+	end
+
+	def endLife
+		@life = nil
+	end
+
 	def initialize(controller)
 		@controller = controller
 
+		@life = nil
 		@scenes = [
 			Scene.new("Vous voyez un caillou.",
 				"View/Assets/Caillou.jpg", [

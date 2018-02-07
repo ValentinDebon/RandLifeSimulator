@@ -2,6 +2,10 @@
 require_relative 'Button'
 
 class SceneView
+	module Color
+		TextBackground = Gosu::Color.new(224, 0, 0, 0)
+	end
+
 	module State
 		Narrating = 0
 		Choosing = 1
@@ -11,6 +15,8 @@ class SceneView
 
 	def initialize(view)
 		@view = view
+
+		@backgroundImg = Gosu::Image.new(@view.controller.currentScene.bg)
 
 		@textImg = Gosu::Image.from_text("", 50)
 		@textIterator = 0
@@ -27,7 +33,6 @@ class SceneView
 					@view.controller.currentScene.respond(i)
 					@textIterator = 0
 					@text = @view.controller.response
-					@view.controller.response = nil
 					@state = State::Responding
 				},
 				0.15, 0.70 + (0.26 / btnCount) * i, 0.7, (0.26 / btnCount), @textHeight)
@@ -47,7 +52,7 @@ class SceneView
 		elsif @state == State::Responding then
 			@state = State::Waiting
 		elsif @state == State::Waiting then
-			@view.presentScene
+			@view.controller.nextScene
 		end
 	end
 
@@ -61,6 +66,9 @@ class SceneView
 	end
 
 	def draw
+		@backgroundImg.draw(0, 0, -1, Float(@view.width)/Float(@backgroundImg.width),
+			Float(@view.height)/Float(@backgroundImg.height))
+
 		if (@state == State::Narrating || @state == State::Responding) && (Gosu::milliseconds - @textLastIteration) >= 30 then
 			@textIterator += 1
 			@textLastIteration = Gosu::milliseconds
@@ -77,7 +85,7 @@ class SceneView
 		end
 
 		Gosu::draw_rect(@view.width / 10 - 10, @view.height / 2 - 10,
-			8 * @view.width / 10 + 20, @view.height / 6 + 20, Gosu::Color::BLUE, 1)
+			8 * @view.width / 10 + 20, @view.height / 6 + 20, Color::TextBackground, 1)
 		@textImg.draw(@view.width / 10, @view.height / 2, 2, 1, 1, Gosu::Color::WHITE)
 	end
 end

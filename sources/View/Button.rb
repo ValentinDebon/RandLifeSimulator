@@ -2,6 +2,10 @@
 require 'gosu'
 
 class Button
+	module Color
+		Normal = Gosu::Color.new(192, 0, 0, 0)
+		Hovered = Gosu::Color::BLACK
+	end
 	attr_reader :hovered
 
 	def initialize(text, procedure, dx, dy, dw, dh, font_size = 50)
@@ -30,9 +34,9 @@ class Button
 		height = @dh * h
 
 		if @hovered then
-			color = Gosu::Color::CYAN
+			color = Color::Hovered
 		else
-			color = Gosu::Color::BLUE
+			color = Color::Normal
 		end
 
 		Gosu::draw_rect(x, y, width, height, color)
