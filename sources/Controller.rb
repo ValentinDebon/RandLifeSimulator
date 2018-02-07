@@ -18,6 +18,14 @@ class Controller
 		@view.presentScene
 	end
 
+	def sceneText
+		@currentScene.text
+	end
+
+	def responsesText
+		@currentScene.responsesText
+	end
+
 	def stats
 		@model.life.name + " est mort à " + @model.life.age.to_s + " ans\n"
 	end

@@ -21,10 +21,10 @@ class SceneView
 		@textImg = Gosu::Image.from_text("", 50)
 		@textIterator = 0
 		@textLastIteration = 0
-		@text = @view.controller.currentScene.text
+		@text = @view.controller.sceneText
 		@textHeight = @view.height / 20
 
-		btnTexts = @view.controller.currentScene.responsesText
+		btnTexts = @view.controller.responsesText
 		btnCount = btnTexts.length
 		@responseBtns = Array.new(btnCount) {
 			|i|

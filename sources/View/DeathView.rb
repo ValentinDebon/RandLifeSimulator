@@ -12,7 +12,7 @@ class DeathView
 
 		@backgroundImg = Gosu::Image.new("View/Assets/birth.jpg")
 		@animStart = Gosu::milliseconds
-		@duration = 4000
+		@duration = 3000
 		@stats = Button.new(@view.controller.stats,
 			Proc.new { },
 			0.1, 0.1, 0.8, 0.8, @view.height / 20)
