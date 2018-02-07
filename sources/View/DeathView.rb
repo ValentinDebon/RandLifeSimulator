@@ -10,7 +10,7 @@ class DeathView
 	def initialize(view)
 		@view = view
 
-		@backgroundImg = Gosu::Image.new("View/Assets/birth.jpg")
+		@backgroundImg = Gosu::Image.new("View/Assets/Birth.jpg")
 		@animStart = Gosu::milliseconds
 		@duration = 3000
 		@stats = Button.new(@view.controller.stats,

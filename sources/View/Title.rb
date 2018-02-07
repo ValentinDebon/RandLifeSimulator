@@ -9,7 +9,22 @@ class Title
 
 		@birth = Birth.new(@view)
 
-		backgrounds = ["View/Assets/birth.jpg"]
+		backgrounds = ["View/Assets/ArtsPlastiques.jpg",
+				"View/Assets/Concert.jpg",
+				"View/Assets/Pop.jpg",
+				"View/Assets/Bedroom.jpg",
+				"View/Assets/Crush.jpg",
+				"View/Assets/PremierMot.jpg",
+				"View/Assets/Birth.jpg",
+				"View/Assets/Diplome.jpg",
+				"View/Assets/Rue.jpg",
+				"View/Assets/Caillou.jpg",
+				"View/Assets/HeadMasterOffice.jpg",
+				"View/Assets/Tapis.jpg",
+				"View/Assets/Camionette.jpg",
+				"View/Assets/Lessive.jpg",
+				"View/Assets/ClassRoom.jpg",
+				"View/Assets/Placard.jpg"]
 		@titleImg = Gosu::Image.from_text("Random Life Simulator 2018", 50)
 		@backgroundImg = Gosu::Image.new(backgrounds.sample)
 
