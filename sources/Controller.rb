@@ -4,7 +4,7 @@ require_relative 'Model'
 class Controller
 	attr_accessor :currentScene
 
-	def initialize 
+	def initialize
 		@view = View.new(self)
 		@model = Model.new(self)
 
@@ -86,4 +86,3 @@ class Controller
 		end
 	end
 end
-
