@@ -24,11 +24,12 @@ class Title
 				"View/Assets/Lessive.jpg",
 				"View/Assets/ClassRoom.jpg",
 				"View/Assets/Placard.jpg"]
-		@titleImg = Gosu::Image.from_text("Random Life Simulator 2018", 50)
+		@titleImg = Gosu::Image.new("View/Assets/logo.png")
+		@titleScale = Float(@view.width / @titleImg.width) / 2.0
 		@backgroundImg = Gosu::Image.new(backgrounds.sample)
 
-		@newLifeBtn = Button.new("Nouvelle Vie", Proc.new { @view.current = Birth.new(@view) }, 0.33, 0.32, 0.33, 0.16)
-		@creditsBtn = Button.new("Crédits", Proc.new { @view.current = Credits.new(@view) }, 0.33, 0.50, 0.33, 0.16)
+		@newLifeBtn = Button.new("Nouvelle Vie", Proc.new { @view.current = Birth.new(@view) }, 0.33, 0.50, 0.33, 0.16)
+		@creditsBtn = Button.new("Crédits", Proc.new { @view.current = Credits.new(@view) }, 0.33, 0.68, 0.33, 0.16)
 	end
 
 	def up(id)
@@ -45,11 +46,9 @@ class Title
 		mx = @view.mouse_x / @view.width
 		my = @view.mouse_y / @view.height
 
-		if mx >= 0.30 && mx <= 0.7 && my >= 0.3 && my <= 0.7 then
-			@newLifeBtn.update(mx, my)
-			@creditsBtn.update(mx, my)
-			@view.redraw = true
-		end
+		@newLifeBtn.update(mx, my)
+		@creditsBtn.update(mx, my)
+		@view.redraw = true
 	end
 
 	def draw
@@ -59,7 +58,7 @@ class Title
 		@newLifeBtn.draw(@view.width, @view.height)
 		@creditsBtn.draw(@view.width, @view.height)
 
-		@titleImg.draw((@view.width - @titleImg.width) / 2, @view.height / 6, Depth::TEXT, 1, 1, Gosu::Color::BLACK)
+		@titleImg.draw((@view.width - @titleImg.width * @titleScale) / 2, @view.height / 6, Depth::TEXT, @titleScale, @titleScale)
 	end
 
 end

@@ -63,6 +63,10 @@ class Controller
 		@_death
 	end
 
+	def playSong(filename)
+		@view.playSong(filename)
+	end
+
 	def response=(value)
 		@_response = self.formatText(value)
 	end

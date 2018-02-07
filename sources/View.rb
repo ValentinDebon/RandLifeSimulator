@@ -46,6 +46,11 @@ class View < Gosu::Window
 		@redraw = true
 	end
 
+	def playSong(filename)
+		@song = Gosu::Song.new(filename)
+		@song.play(true)
+	end
+
 	def button_up(id)
 		@currentView.up(id)
 	end
