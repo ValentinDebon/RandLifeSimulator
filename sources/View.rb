@@ -38,7 +38,6 @@ class View < Gosu::Window
 		if @song == nil then
 			@song = Gosu::Song.new(["View/Assets/Musics/Act Like You Know.mp3",
 				"View/Assets/Musics/Gimme! Gimme! Gimme!.mp3",
-				"View/Assets/Musics/Brittle Rille.mp3",
 				"View/Assets/Musics/Sexual Healing.mp3",
 				"View/Assets/Musics/Do I Wanna Know.mp3",
 				"View/Assets/Musics/Prison Architect.mp3"].sample)
@@ -88,4 +87,3 @@ class View < Gosu::Window
 		@redraw
 	end
 end
-
