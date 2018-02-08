@@ -71,7 +71,11 @@ class SceneView
 
 		@responseBtns.each { |btn| btn.update(mx, my) }
 
-		@view.redraw = true if @state != State::Waiting
+		if (@state == State::Narrating || @state == State::Responding &&
+				(Gosu::milliseconds - @textLastIteration) >= 30) ||
+			(@state == State::Choosing && my >= 0.5) then
+			@view.redraw = true
+		end
 	end
 
 	def draw
