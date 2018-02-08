@@ -39,6 +39,8 @@ class Title
 		if id == Gosu::MS_LEFT then
 			@newLifeBtn.trigger if @newLifeBtn.hovered
 			@creditsBtn.trigger if @creditsBtn.hovered
+		elsif id == Gosu::KB_ESCAPE then
+			@view.close
 		end
 	end
 
