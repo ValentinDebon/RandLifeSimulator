@@ -53,6 +53,7 @@ class SceneView
 	def down(id)
 		if @state == State::Narrating then
 			@state = State::Choosing
+			@view.redraw = true
 		elsif @state == State::Choosing then
 			if id == Gosu::MS_LEFT then
 				@responseBtns.each { |btn| btn.trigger if btn.hovered }
@@ -100,6 +101,10 @@ class SceneView
 		if @sceneCharacter != nil then
 			posx = @view.width / 2
 			posy = @view.height / 10
+
+			if @state == State::Narrating || @state == State::Responding then
+				posy += Math.sin(Gosu::milliseconds / 100) * Float(@view.height / 60.0)
+			end
 			scale = (Float(@view.width) / Float(@sceneBodyImg.width)) / 2.0
 			@sceneBodyImg.draw(posx, posy, Depth::BODY, scale, scale)
 			@sceneHeadImg.draw(posx, posy, Depth::HEAD, scale, scale)
