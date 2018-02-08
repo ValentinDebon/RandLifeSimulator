@@ -1657,8 +1657,8 @@ class Model
 							@controller.response = "Vous n’en pouvez plus de votre vie actuelle\n" +
 							"et décidez de tout plaquer pour partir en Mongolie élever des yaks."
 							@life.violence -= 4
-							@life.car = "yak"
-							@life.age = 60
+							@life.car = "Yak"
+							@life.age = 61
 							@controller.currentScene = @scenes[33..40].sample
 						}
 					),
