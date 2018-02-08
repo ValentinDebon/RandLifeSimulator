@@ -978,7 +978,7 @@ class Model
 									"Bah bravo maintenant vous allez en prison."
 								@life.age = 26
 								@life.prison = true
-								@controller.currentScene = @scenes.sample #TODO acte 3 prison
+								@controller.currentScene = @scenes[23]
 							else
 								@controller.response = "Mais pourquoi vous avez fait ça ?!\n" +
 									"Du coup, il ne vous embêtera plus avec vos absences."
@@ -1020,7 +1020,7 @@ class Model
 								@life.drugs += 2
 								@life.age = 26
 								@life.prison = true
-				 				@controller.currentScene = @scenes.sample #TODO scenes acte 3 prison
+								@controller.currentScene = @scenes[23]
 							else
 								@controller.response = "Vous récupérez la marchandise et profitez de votre jeunesse"
 								@life.drugs += 3
@@ -1043,7 +1043,7 @@ class Model
 								@life.wealth += 1
 								@life.age = 26
 								@life.prison = true
-								@controller.currentScene = @scenes.sample #TODO scenes acte 3 prison
+								@controller.currentScene = @scenes[23]
 							else
 								@controller.response = "Vous lui vendez une bonne quantité de votre stock\n" +
 									"et profitez de votre argent."
@@ -1067,7 +1067,7 @@ class Model
 									"Ils arrivent et vous embarque tous les deux."
 								@life.age = 26
 								@life.prison = true
-								@controller.currentScene = @scenes.sample #TODO scenes acte 3 prison
+								@controller.currentScene = @scenes[23]
 							else
 								@controller.response = "Vous prévenez la police de\n" +
 									"l’activité illicite de <dealer>.\n" +
@@ -1164,6 +1164,313 @@ class Model
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
 							end
+						}
+					)
+				]
+			),
+			Scene.new("C’est l’heure de se décrasser.\nVous êtes dans les douches communes\nlorsque soudain vous faites tomber votre savonnette.",
+				nil,
+				"View/Assets/Douche.jpg", [
+					Response.new("Manger la Savonnette.",
+						Proc.new {
+							if Random.rand() > 0.9 then
+								@controller.response = "Ce n’est pas très bon!\n" +
+									"Et en plus, vous n’avez plus de quoi vous doucher. Bravo !"
+								@life.age += 1
+								@life.instability += 2
+								@life.cleanliness -= 2
+				 				@controller.currentScene = @scenes[24]
+							else
+								@controller.response += "Vous vous étouffez avec le savon et mourrez.\n"
+								@controller.death = "Savon"
+							end
+						}
+					),
+					Response.new("Ramasser la Savonnette.",
+						Proc.new {
+							@controller.response = "Vous êtes propre comme un sou neuf !"
+							@life.cleanliness += 3
+							@life.age += 2
+							@controller.currentScene = @scenes[24]
+						}
+					)
+				]
+			),
+			Scene.new("C’est l’heure des activités !",
+				nil,
+				"View/Assets/Prison.jpg", [
+					Response.new("Participer à l’activité tricot.",
+						Proc.new {
+							@controller.response = "Vous êtes le détenu le plus doué de la prison.\n" +
+							"Tout le monde vous demande des conseils !"
+							@life.age += 2
+							@life.art += 2
+			 				@controller.currentScene = @scenes[22]
+						}
+					),
+					Response.new("Se battre avec vos co-détenus.",
+						Proc.new {
+							if Random.rand() > 0.5 then
+								@controller.response = "Ils sont des adversaires redoutables.\n" +
+									"Mais ils ne sont pas de taille face à vos prouesses au combat."
+								@life.violence += 3
+								@life.sport += 2
+							else
+								@controller.response = "Vous n'auriez pas dû... Ils vous battent à plates coutures."
+								@life.blackSheep += 3
+							end
+							@life.age += 1
+							@life.instability += 2
+							@controller.currentScene = @scenes[22]
+						}
+					),
+					Response.new("Se repentir et réfléchir au sens de la vie.",
+						Proc.new {
+							@controller.response = "Vous passez l’après-midi sur votre lit à réfléchir\n" +
+								"à ce que vous avez fait et\n" +
+								"sentez que vous devenez quelqu’un de plus respectable. "
+							@life.age += 1
+							@life.instability -= 2
+							@life.violence -= 1
+							@life.doubt += 1
+							@controller.currentScene = @scenes[22]
+						}
+					)
+				]
+			),
+			Scene.new("Vous êtes enfin sortie ! Que faire désormais ?",
+				nil,
+				"View/Assets/Rue.jpg", [
+					Response.new("Aller chez ses parents",
+						Proc.new {
+							@controller.response = "Votre mère vous accueille à bras ouvert."
+							@life.age += 2
+							@life.love += 2
+			 				@controller.currentScene = @scenes.sample #TODO acte 3
+						}
+					),
+					Response.new("Rejoindre la vie active.",
+						Proc.new {
+							@controller.response = "Un ancien détenu vous embauche pour\n" +
+							"faire la plonge dans son restaurant."
+							@life.age += 1
+							@life.wealth += 1
+							@life.employment = true
+							@controller.currentScene = @scenes.sample #TODO acte 3
+						}
+					),
+					Response.new("Adopter un chien",
+						Proc.new {
+							@controller.response = "Vous adoptez un énorme toutou trop mignon."
+							@life.age += 1
+							@life.dog = true
+							@life.instability -= 2
+							@life.violence -= 1
+							@controller.currentScene = @scenes.sample #TODO acte 3
+						}
+					)
+				]
+			),
+			Scene.new("Votre instabilité psychologique vous a mener en hôpital psychatrique.\nQue faites-vous ?",
+				nil,
+				"View/Assets/Hospital Psy.jpg", [
+					Response.new("Discuter de la psychanalyse Freudienne.",
+						Proc.new {
+							@controller.response = "La discussion est très intéressante.\n" +
+								"Freud est de loin l'une des personnes les plus haït\n" +
+								"dans le domaine de la psychatrie !"
+							@life.age += 2
+							@life.instability -= 2
+							@life.doubt +=1
+							@controller.currentScene = @scenes[22]
+						}
+					),
+					Response.new("Prendre vos médicaments.",
+						Proc.new {
+							@controller.response = "Les petites pilules rouges ressemblent à des bonbons et s’avalent sans problème."
+							@life.age += 1
+							@life.instability -= 1
+							@controller.currentScene = @scenes[22]
+						}
+					),
+					Response.new("Voler dans les affaires de votre voisin de chambre.",
+						Proc.new {
+							if Random.rand() > 0.5
+								@controller.response = "Vous fouillez dans ses affaires\n" +
+									"et récupérez des objets qui vous intéressent."
+							else
+								@controller.response = "Vous vous faites attraper la main dans le sac.\n" +
+									"Vous ne prenez rien mais il n'a plus grand confiance en vous."
+							end
+							@life.age += 1
+							@life.instability += 2
+							@controller.currentScene = @scenes[22]
+						}
+					)
+				]
+			),
+			Scene.new("Vous recherchez un emploi. Dans quel domaine ?",
+				nil,
+				"View/Assets/Chomage.jpg", [
+					Response.new("Domaine de l’art.",
+						Proc.new {
+							if Random.rand() > 0.4 then
+								@controller.response = "Poursuivant votre inspiration sans fin,\n" +
+									"vous décidez de vous lancer dans l’art ! "
+								@life.art += 2
+								@life.wealth += 1
+								@life.employment = true
+							else
+								@controller.response = "Les recherches sont infructueuses."
+							end
+							@life.age += 2
+							@controller.currentScene = @scenes[22] #TODO acte 3 employé
+						}
+					),
+					Response.new("Domaine de la science.",
+						Proc.new {
+							if Random.rand() > 0.8 then
+								@controller.response = "Poursuivant votre soif de découverte et de logique,\n" +
+									"vous rejoignez le monde des sciences."
+								@life.intelligence += 2
+								@life.wealth += 3
+								@life.employment = true
+							else
+								@controller.response = "Les recherches sont infructueuses."
+							end
+							@life.age += 2
+							@controller.currentScene = @scenes[22] #TODO acte 3 employé
+						}
+					),
+					Response.new("Domaine psychologique",
+						Proc.new {
+							if Random.rand() > 0.5 then
+								@controller.response = "Poursuivant votre quête de la compréhension de l’être humain,\n" +
+									"vous décidez de devenir psychologue à plein temps."
+								@life.doubt += 5
+								@life.wealth += 2
+								@life.instability -= 3
+								@life.employment = true
+							else
+								@controller.response = "Les recherches sont infructueuses.\n" +
+								 "En même temps, vous vous attendiez à quoi avec ce domaine ?"
+							end
+							@life.age += 2
+							@controller.currentScene = @scenes[22] #TODO acte 3 employé
+						}
+					)
+				]
+			),
+			Scene.new("C’est le jour de votre mariage. Votre futur femme <mariee> vous attend devant l’autel.",
+				"mariee",
+				"View/Assets/Eglise.jpg", [
+					Response.new("Manger l’alliance.",
+						Proc.new {
+							if Random.rand() > 0.4 then
+								@controller.response = "Vous manger votre alliance devant les yeux ébahis de vos invités.\n" +
+									"Ils ont interprété ça comme le fait que vous vouliez garder\n" +
+									"votre amour au plus profond de votre être."
+								@life.love += 2
+								@life.marriedTo = @controller.formatText("<mariee>")
+								@life.age += 2
+								@controller.currentScene = @scenes[22] #TODO acte 3 employé
+							else
+								@controller.response = "Vous vous étouffer sur l'alliance et mourrez."
+								@controller.death = "Alliance"
+							end
+						}
+					),
+					Response.new("Donner un discours émouvant.",
+						Proc.new {
+							@controller.response = "Vous surprenez tout le monde avec vos talents d’orateur\n" +
+								"et faites pleurer l’amour de votre vie. "
+							@life.art += 2
+							@life.marriedTo = @controller.formatText("<mariee>")
+							@life.age += 2
+							@controller.currentScene = @scenes[22] #TODO acte 3 employé
+						}
+					),
+					Response.new("Pleurer de joie",
+						Proc.new {
+							@controller.response = "Vous pleurez devant devant tout le monde\n" +
+								"telle la grosse victime que vous êtes."
+							@life.blackSheep += 3
+							@life.marriedTo = @controller.formatText("<mariee>")
+							@life.age += 2
+							@controller.currentScene = @scenes[22] #TODO acte 3 employé
+						}
+					)
+				]
+			),
+			Scene.new("Vous décidez d’avoir un enfant nommé <enfant> avec <mariee>",
+				"enfant",
+				"View/Assets/Birth.jpg", [
+					Response.new("Manger l’enfant.",
+						Proc.new {
+							if Random.rand() > 0.7 then
+								@controller.response = "Bah bravo ! Vous allez en prison."
+								@life.instability += 4
+								@life.age += 2
+								@controller.currentScene = @scenes[23] #TODO acte 3 employé
+							else
+								@controller.response = "Génial !\n" +
+									"Vous n’avez plus besoin de payer pour cette espèce de sangsue."
+								@life.wealth += 1
+								@controller.currentScene = @scenes[22] #TODO acte 3 employé
+							end
+						}
+					),
+					Response.new("L’abandonner.",
+						Proc.new {
+							@controller.response = "<enfant> était tellement fan du petit poucet\n" +
+								" que vous avez décidé de faire de son rêve une réalité.\n" +
+								"Vous l’abandonnez dans la forêt la plus proche."
+							@life.violence += 4
+							@life.age += 2
+							@controller.currentScene = @scenes[22] #TODO acte 3 employé
+						}
+					),
+					Response.new("L’élever avec amour.",
+						Proc.new {
+							@controller.response = "Vous êtes un vrai parent poule et êtes\n" +
+								"aux petits soins pour votre progéniture."
+							@life.blackSheep += 3
+							@life.child = @controller.formatText("<enfant>")
+							@life.age += 2
+							@controller.currentScene = @scenes[22] #TODO acte 3 employé
+						}
+					)
+				]
+			),
+			Scene.new("Vous vous réveillez un matin, avec l’impression d’être un être\ntotalement inutile.\nVous faites une crise de la quarantaine.",
+				nil,
+				"View/Assets/House.jpg", [
+					Response.new("Acheter une parsche.",
+						Proc.new {
+							@controller.response = "Une nouvelle voiture pourrait vous remonter le morale !"
+							@life.wealth -= 5
+							@life.car = "parsche"
+							@life.age += 2
+							@controller.currentScene = @scenes[23] #TODO acte 3 employé
+						}
+					),
+					Response.new("Elever des yaks en Mongolie.",
+						Proc.new {
+							@controller.response = "Vous n’en pouvez plus de votre vie actuelle\n" +
+							"et décidez de tout plaquer pour partir en Mongolie élever des yaks."
+							@life.violence -= 4
+							@life.car = "yak"
+							@life.age = 60
+							@controller.currentScene = @scenes[22] #TODO acte 4
+						}
+					),
+					Response.new("Tromper son conjoint.",
+						Proc.new {
+							@controller.response = "Vous avez besoin de changement et décidez de\n" +
+								"tromper votre conjoint avec <maitresse>."
+							@life.love -= 3
+							@life.age += 2
+							@controller.currentScene = @scenes[22] #TODO acte 3 employé
 						}
 					)
 				]
