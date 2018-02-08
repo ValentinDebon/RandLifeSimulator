@@ -55,10 +55,11 @@ class SceneView
 			@state = State::Choosing
 		elsif @state == State::Choosing then
 			if id == Gosu::MS_LEFT then
-				@responseBtns.map { |btn| btn.trigger if btn.hovered }
+				@responseBtns.each { |btn| btn.trigger if btn.hovered }
 			end
 		elsif @state == State::Responding then
 			@state = State::Waiting
+			@view.redraw = true
 		elsif @state == State::Waiting then
 			@view.controller.nextScene
 		end
@@ -68,9 +69,9 @@ class SceneView
 		mx = @view.mouse_x / @view.width
 		my = @view.mouse_y / @view.height
 
-		@responseBtns.map { |btn| btn.update(mx, my) }
+		@responseBtns.each { |btn| btn.update(mx, my) }
 
-		@view.redraw = true
+		@view.redraw = true if @state != State::Waiting
 	end
 
 	def draw
