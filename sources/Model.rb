@@ -235,7 +235,7 @@ class Model
 						Proc.new {
 							@controller.response = "Ce placard n’est pas comme les autres, vous le sentez.\n" +
 								"En entrant à l’intérieur vous vous retrouvez dans un autre monde…\n" +
-								"le monde de Nyarnya. Vous ne voyez pas le temps passé."
+								"le monde de Nyarnya. Vous ne voyez pas le temps passer."
 
 							@life.age = 26
 							@controller.currentScene = @scenes[25]
