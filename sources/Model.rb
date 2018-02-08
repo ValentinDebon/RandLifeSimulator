@@ -235,7 +235,7 @@ class Model
 						Proc.new {
 							@controller.response = "Ce placard n’est pas comme les autres, vous le sentez.\n" +
 								"En entrant à l’intérieur vous vous retrouvez dans un autre monde…\n" +
-								"le monde de Nyarnya. Vous ne voyez pas le temps passé."
+								"le monde de Nyarnya. Vous ne voyez pas le temps passer."
 
 							@life.age = 26
 							@controller.currentScene = @scenes[25]
@@ -1169,7 +1169,9 @@ class Model
 					)
 				]
 			),
-			Scene.new("C’est l’heure de se décrasser.\nVous êtes dans les douches communes\nlorsque soudain vous faites tomber votre savonnette.",
+			Scene.new("C’est l’heure de se décrasser.\n" +
+				"Vous êtes dans les douches communes\n" +
+				"lorsque soudain vous faites tomber votre savonnette.",
 				nil,
 				"View/Assets/Douche.jpg", [
 					Response.new("Manger la Savonnette.",
@@ -1334,7 +1336,8 @@ class Model
 					),
 					Response.new("Prendre vos médicaments.",
 						Proc.new {
-							@controller.response = "Les petites pilules rouges ressemblent à des bonbons et s’avalent sans problème."
+							@controller.response = "Les petites pilules rouges ressemblent à des bonbons\n" +
+							 	"et s’avalent sans problème."
 							@life.age += 1
 							@life.instability -= 1
 							@controller.currentScene = @scenes[22]
@@ -1618,7 +1621,9 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous vous réveillez un matin, avec l’impression d’être un être\ntotalement inutile.\nVous faites une crise de la quarantaine.",
+			Scene.new("Vous vous réveillez un matin, avec l’impression d’être un être\n" +
+				"totalement inutile.\n" +
+				"Vous faites une crise de la quarantaine.",
 				nil,
 				"View/Assets/House.jpg", [
 					Response.new("Acheter une parsche.",
@@ -1685,7 +1690,8 @@ class Model
 					)
 				]
 			),
-			Scene.new("Au détour de votre immeuble, vous apercevez\nune camionnette blanche à la vente.",
+			Scene.new("Au détour de votre immeuble, vous apercevez\n" +
+				"une camionnette blanche à la vente.",
 				nil,
 				"View/Assets/Combi.jpg", [
 					Response.new("L’acheter.",
@@ -1938,7 +1944,7 @@ class Model
 						else
 							@controller.response = "<infirmiere> gagne la partie et vous vous mettez à pleurer \n"
 								+ "comme la grosse victime que vous êtes."
-								@controller.currentScene = (@scenes[34..40]).sample
+							@controller.currentScene = (@scenes[34..40]).sample
 						end
 					}
 				),
@@ -1986,7 +1992,8 @@ class Model
 				Response.new("Ne rien dire.",
 					Proc.new {
 						@life.age += 5
-						@controller.response = "Vous n’avez pas envie de vous énerver, mais vous savez qu’il recommencera sûrement."
+						@controller.response = "Vous n’avez pas envie de vous énerver,\n" +
+						 	"mais vous savez qu’il recommencera sûrement."
 						@controller.currentScene = (@scenes[35..40] + @scenes[33]).sample
 					}
 				)
@@ -2073,10 +2080,10 @@ class Model
 		),
 			Scene.new("Une grande partie des résidents de la maison de retraite\n" +
 				"s'est rassemblée pour regarder\n" +
-				"des rediffusions de \" Question pour un pochtron\"",
+				"des rediffusions de \" Question pour un pochtron\".",
 				nil,
 				"View/Assets/Hospital.jpg", [
-					Response.new("Vous connaissez les réponses et n'hésitez pas à le faire savoir",
+					Response.new("Vous donnez toutes les réponses",
 						Proc.new {
 							@life.age += 5
 							if Random.rand() > 0.7 then
@@ -2090,14 +2097,14 @@ class Model
 							end
 						}
 					),
-					Response.new("C'était mieux avant, le nouveau présentateur est peu charismatique",
+					Response.new("C'était mieux avant.",
 						Proc.new {
 							@life.age += 5
 							@controller.response = "Vous passez pour un gros rabas joie."
 							@controller.currentScene = (@scenes[37..40] + @scenes[33..36]).sample
 						}
 					),
-					Response.new("Vous vous en foutez royalement et retournez jouer à DOUM dans votre coin.",
+					Response.new("Vous retournez jouer à DOUM dans votre coin.",
 						Proc.new {
 							@life.age += 5
 							@life.violence += 2
@@ -2108,7 +2115,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Votre neveu <neveu> tente de vous tuer pour récupérer l'héritage plus tôt",
+			Scene.new("Votre neveu <neveu> tente de vous tuer pour récupérer l'héritage plus tôt.",
 			"neveu",
 			"View/Assets/Hospital.jpg", [
 					Response.new("Le frapper.",
