@@ -48,7 +48,7 @@ class ActView
 		@actImg.draw((@view.width - @actImg.width) / 2, (@view.height - @actImg.height) / 2, Depth::TEXT, 1, 1,
 			Gosu::Color.new(alpha * 255, 255, 255, 255))
 
-		@subImg.draw((@view.width - @subImg.width) / 2, (@view.height - @subImg.height) / 2 + 100, Depth::TEXT, 1, 1,
+		@subImg.draw((@view.width - @subImg.width) / 2, (@view.height - @subImg.height) / 2 + 60, Depth::TEXT, 1, 1,
 			Gosu::Color.new(alpha * 255, 255, 255, 255))
 	end
 
