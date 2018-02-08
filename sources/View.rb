@@ -40,7 +40,8 @@ class View < Gosu::Window
 				"View/Assets/Musics/Gimme! Gimme! Gimme!.mp3",
 				"View/Assets/Musics/Sexual Healing.mp3",
 				"View/Assets/Musics/Do I Wanna Know.mp3",
-				"View/Assets/Musics/Prison Architect.mp3"].sample)
+				"View/Assets/Musics/Prison Architect.mp3",
+				"View/Assets/Musics/YMCA.mp3"].sample)
 			@song.play(looping = false)
 		end
 

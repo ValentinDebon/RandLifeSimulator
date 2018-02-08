@@ -17,6 +17,7 @@ class Credits
 				"Nutcracker - Piotr Ilitch Tchaïkovsky\n" +
 				"Sexual Healing - Marvin Gaye\n" +
 				"Launch Music 2 - Prison Architect OST\n" +
+				"YMCA - Village People\n" +
 				"Gimme! Gimme! Gimme! - ABBA\n" +
 				"La marche Funèbre - Frédéric Chopin\n" +
 				"Wasted - GTA\n" +
@@ -41,4 +42,3 @@ class Credits
 		@credits.draw(@view.width, @view.height)
 	end
 end
-
