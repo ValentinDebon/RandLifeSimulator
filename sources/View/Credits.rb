@@ -11,6 +11,16 @@ class Credits
 				"GAISNE Anne - Graphiste (Grafayste)\n" +
 				"PASDELOUP Romain - Scénariste (Writer)\n" +
 				"SALMON Alexandre - Programme et Contenu additionnel\n" +
+				"\nBrittle Rille - Kevin McLeod\n" +
+				"Do I Wanna Know - Arctic Monkeys\n" +
+				"Act Like You Know - Fat Larry's Band\n" +
+				"Nutcracker - Piotr Ilitch Tchaïkovsky\n" +
+				"Sexual Healing - Marvin Gaye\n" +
+				"Launch Music 2 - Prison Architect OST\n" +
+				"Gimme! Gimme! Gimme! - ABBA\n" +
+				"La marche Funèbre - Frédéric Chopin\n" +
+				"Wasted - GTA\n" +
+				"Sad Trombone - Unknown\n" +
 				"\nRemerciements spéciaux à Hervé BLANCHON pour le doublage de Hervé\n" +
 				"\n" + Gosu::LICENSES,
 			Proc.new { },

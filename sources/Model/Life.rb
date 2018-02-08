@@ -3,7 +3,11 @@ require_relative 'Persona'
 
 class Life
 	attr_reader :name, :characters
-	attr_accessor :age
+	attr_accessor :age, :art, :doubt, :intelligence,
+		:sport, :cleanliness, :instability, :wealth,
+		:violence, :drugs, :love, :blackSheep, :laziness,
+		:prison, :hospital, :dog, :university, :employment,
+		:car, :child, :marriedTo
 
 	def initialize(name)
 		@name = name
@@ -27,13 +31,13 @@ class Life
 		@intelligence = 0
 		@sport = 0
 		@cleanliness = 0
-		@instabity = 0
+		@instability = 0
 		@wealth = 0
 		@violence = 0
 		@drugs = 0
 		@love = 0
 		@blackSheep = 0
-		@flemme = 0
+		@laziness = 0
 
 		@prison = false
 		@hospital = false
