@@ -11,7 +11,7 @@ class Credits
 				"GAISNE Anne - Graphiste (Grafayste)\n" +
 				"PASDELOUP Romain - Scénariste (Writer)\n" +
 				"SALMON Alexandre - Programme et Contenu additionnel\n" +
-				"\nBrittle Rille - Kevin McLeod\n" +
+				"\nStay - Talisco\n" +
 				"Do I Wanna Know - Arctic Monkeys\n" +
 				"Act Like You Know - Fat Larry's Band\n" +
 				"Nutcracker - Piotr Ilitch Tchaïkovsky\n" +

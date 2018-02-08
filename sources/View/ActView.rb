@@ -8,7 +8,7 @@ class ActView
 
 		case @view.controller.act
 			when "I"
-				@view.playSound("View/Assets/Musics/Brittle Rille.mp3")
+				@view.playSound("View/Assets/Musics/Stay.mp3")
 				@subImg = Gosu::Image.from_text("- Enfance -", 60)
 			when "II"
 				@view.playSound("View/Assets/Musics/Do I Wanna Know.mp3")
