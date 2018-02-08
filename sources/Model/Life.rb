@@ -19,7 +19,8 @@ class Life
 		listCharacters = ['ado', 'adulte',
 			'dealer', 'enfant', 'maitresse',
 			'mamie', 'mariee', 'pervers',
-			'professeur', 'proviseur']
+			'professeur', 'proviseur', 'neveu',
+			'infirmiere']
 
 		@characters = Array.new(listCharacters).map {
 			|characters|
