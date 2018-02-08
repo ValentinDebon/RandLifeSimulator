@@ -892,6 +892,12 @@ class Model
 					),
 					Response.new("Le mater.",
 						Proc.new {
+							if Random.rand() > 0.4 then
+								@controller.response = "Vous reluquez d’un air presque obscène votre maîtresse,\n" +
+									"si bien que celle-ci le remarque et vous envoie chez le proviseur."
+								@life.age += 5
+								@controller.currentScene = @scenes[6]
+
 							@controller.response = "Sa beauté indécente et son sex-appeal\n" +
 								"vous empêchent de le quitter du regard.\n" +
 								"Vous n’arrivez pas à vous concentrer sur le cours."
@@ -922,9 +928,71 @@ class Model
 					Response.new("Ne rien comprendre",
 						Proc.new {
 							@controller.response = "Vous ne savez pas pourquoi ce cours est dans votre cursus,\n" +
-								"il est bien trop compliqué pour que vous y comprenez quoi que ce soit." +
+								"il est trop compliqué pour que vous y compreniez quoi que ce soit."
+							@life.intelligence -= 1
+							@life.age += 1
+							case @life.age
+							when 18..25
+					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+					 			else
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+					 		end
+						}
+					)
+				]
+			),
+			Scene.new("Vous êtes en cours avec le merveilleux professeur <professeur>.",
+				"professeur",
+				"View/Assets/Amphi.jpg", [
+					Response.new("Dormir.",
+						Proc.new {
+							@controller.response = "Ses cours sont extrêmement soporifiques.\n" +
+								"Et si on faisait un petit somme ?"
+							@life.laziness += 2
+							@life.intelligence += 2
+							@life.age += 1
+							case @life.age
+								when 18..25
+					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+					 			else
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+					 		end
+						}
+					),
+					Response.new("Le mater.",
+						Proc.new {
+							@controller.response = "Sa beauté indécente et son sex-appeal\n" +
+								"vous empêchent de le quitter du regard.\n" +
+								"Vous n’arrivez pas à vous concentrer sur le cours."
+								@life.intelligence -= 2
+								@life.age += 1
+								case @life.age
+									when 18..25
+						 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+						 			else
+						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+						 		end
+						}
+					),
+					Response.new("Suivre le cours",
+						Proc.new {
+							@controller.response = "Vous êtes là pour étudier.\n" +
 								"Vous ne laisserez rien ni personne vous distraire."
 							@life.intelligence += 3
+							@life.age += 1
+							case @life.age
+							when 18..25
+					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+					 			else
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+					 		end
+						}
+					),
+					Response.new("Ne rien comprendre",
+						Proc.new {
+							@controller.response = "Vous ne savez pas pourquoi ce cours est dans votre cursus,\n" +
+								"il est trop compliqué pour que vous y compreniez quoi que ce soit."
+							@life.intelligence -= 1
 							@life.age += 1
 							case @life.age
 							when 18..25
