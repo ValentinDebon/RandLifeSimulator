@@ -11,8 +11,8 @@ class View < Gosu::Window
 	attr_reader :controller
 
 	def initialize(controller)
-		super(1200, 750, false, 16.666)
-		#super(Gosu::screen_width, Gosu::screen_height, true, 16.666)
+		#super(1200, 750, false, 16.666)
+		super(Gosu::screen_width, Gosu::screen_height, true, 16.666)
 
 		self.caption = "Random Life Simulator 2018 - GameJam IUT2 Edition GOTY Deluxe"
 
@@ -67,6 +67,7 @@ class View < Gosu::Window
 	end
 
 	def button_down(id)
+		self.close if id == Gosu::KB_ESCAPE
 		@currentView.down(id)
 	end
 

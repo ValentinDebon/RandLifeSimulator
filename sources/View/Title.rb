@@ -30,6 +30,7 @@ class Title
 
 		@newLifeBtn = Button.new("Nouvelle Vie", Proc.new { @view.current = Birth.new(@view) }, 0.33, 0.50, 0.33, 0.16)
 		@creditsBtn = Button.new("Crédits", Proc.new { @view.current = Credits.new(@view) }, 0.33, 0.68, 0.33, 0.16)
+		@escImgBtn = Button.new("[Esc] Quitter", Proc.new { }, 0.01, 0.01, 0.15, 0.075, @view.height / 20)
 	end
 
 	def up(id)
@@ -39,8 +40,6 @@ class Title
 		if id == Gosu::MS_LEFT then
 			@newLifeBtn.trigger if @newLifeBtn.hovered
 			@creditsBtn.trigger if @creditsBtn.hovered
-		elsif id == Gosu::KB_ESCAPE then
-			@view.close
 		end
 	end
 
@@ -59,6 +58,7 @@ class Title
 
 		@newLifeBtn.draw(@view.width, @view.height)
 		@creditsBtn.draw(@view.width, @view.height)
+		@escImgBtn.draw(@view.width, @view.height)
 
 		@titleImg.draw((@view.width - @titleImg.width * @titleScale) / 2, @view.height / 6, Depth::TEXT, @titleScale, @titleScale)
 	end
