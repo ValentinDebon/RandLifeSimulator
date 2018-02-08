@@ -1014,7 +1014,7 @@ class Model
 					Response.new("Acheter des stupéfiants.",
 						Proc.new {
 							if Random.rand() > 0.2 then
-								@controller.response = "Vous êtes sur le point de récupérer la marchandise\n" +
+								@controller.response = "Vous êtes sur le point de les récupérer\n" +
 									"quand la police arrive et vous arrête.\n" +
 									"Votre fournisseur arrive à s’enfuir avec votre argent."
 								@life.wealth -= 3
@@ -1064,7 +1064,7 @@ class Model
 							@life.drugs -= 2
 							if Random.rand() > 0.3 then
 								@controller.response = "Vous prévenez la police de\n" +
-									"l’activité illicite de <dealer>." +
+									"l’activité illicite de <dealer>.\n" +
 									"Ils arrivent et vous embarque tous les deux."
 								@life.age = 26
 								@life.prison = true

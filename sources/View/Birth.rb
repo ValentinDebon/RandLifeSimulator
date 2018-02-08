@@ -19,7 +19,13 @@ class Birth
 
 		@nameTxtBox = TextBox.new(0.2, 0.2, 0.6, 0.15)
 		@nameTxtBox.text = ["Gérard", "Alphonse", "Pablo",
-			"Winifred", "Adolphe", "Josiane"].sample
+			"Winifred", "Adolphe", "Josiane",
+			"Joseph", "Alexandre", "Valentin",
+			"Romain", "Anne", "Ken", "Barbie",
+			"Michel", "Sarah Connor", "John Connor",
+			"Marvin", "Rarity", "Link", "Jésus",
+			"Mohammed", "Bouddha", "David", "Moïse",
+			"Alice", "Сука Блят", "ㅗ.ㅗ"].sample
 		@nameTxtBox.activate(@view)
 	end
 
