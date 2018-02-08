@@ -45,10 +45,10 @@ class ActView
 
 	def draw
 		alpha = Float(Gosu::milliseconds - @animStart) / @duration
-		@actImg.draw((@view.width - @actImg.width) / 2, (@view.height - @actImg.height) / 2, Depth::TEXT, 1, 1,
+		@actImg.draw((@view.width - @actImg.width) / 2, (@view.height - @actImg.height) / 2 - 30, Depth::TEXT, 1, 1,
 			Gosu::Color.new(alpha * 255, 255, 255, 255))
 
-		@subImg.draw((@view.width - @subImg.width) / 2, (@view.height - @subImg.height) / 2 + 60, Depth::TEXT, 1, 1,
+		@subImg.draw((@view.width - @subImg.width) / 2, (@view.height - @subImg.height) / 2 + 30, Depth::TEXT, 1, 1,
 			Gosu::Color.new(alpha * 255, 255, 255, 255))
 	end
 

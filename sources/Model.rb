@@ -206,7 +206,7 @@ class Model
 					),
 					Response.new("Jouer avec les éponges",
 						Proc.new {
-							@controller.response = "Vous vous voyez peindre de grands tableaux et essuyer\n " +
+							@controller.response = "Vous vous voyez peindre de grands tableaux et essuyer\n" +
 								"les taches de peinture avec les éponges."
 
 							@life.age += 5
@@ -221,8 +221,8 @@ class Model
 					),
 					Response.new("Se cacher",
 						Proc.new {
-							@controller.response = "Personne ne pensera à vous chercher là dedans,\n " +
-								"vous décidez donc d’entrer dans ce fort imprenable.\n " +
+							@controller.response = "Personne ne pensera à vous chercher là dedans,\n" +
+								"vous décidez donc d’entrer dans ce fort imprenable.\n" +
 								"Vos parents ont mis deux jours à vous retrouver."
 
 							@life.age += 5
@@ -237,7 +237,7 @@ class Model
 					Response.new("Aller tout au fond du placard",
 						Proc.new {
 							@controller.response = "Ce placard n’est pas comme les autres, vous le sentez.\n" +
-								"En entrant à l’intérieur vous vous retrouvez dans un autre monde…\n " +
+								"En entrant à l’intérieur vous vous retrouvez dans un autre monde…\n" +
 								"le monde de Nyarnya."
 
 							@life.age = 26
@@ -596,7 +596,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Votre crush <ado> veut vous voir après les cours.\n Vous l’avez toujours aimé.",
+			Scene.new("Votre crush <ado> veut vous voir après les cours.\nVous l’avez toujours aimé.",
 				"ado",
 				"View/Assets/Crush.jpg", [
 					Response.new("Le Manger",
@@ -679,7 +679,7 @@ class Model
 					Response.new("Je me sens enfin moi-même.",
 						Proc.new {
 							@controller.response = "Vous vous mettez à porter que du noir,\n" +
-							 "écouter des musiques sombres et\n " +
+							 "écouter des musiques sombres et\n" +
 							 "écrire des poèmes reflétant le tréfond de votre âme."
 								@life.art += 2
 								@life.age += 1

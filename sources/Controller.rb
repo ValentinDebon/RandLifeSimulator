@@ -12,7 +12,7 @@ class Controller
 	end
 
 	def nextScene
-		if Random.rand() <= 0.05 then
+		if Random.rand() <= 0.02 then
 			self.death = "Darwin"
 		end
 
@@ -83,6 +83,7 @@ class Controller
 	def endLife
 		@model.endLife
 
+		@view.playSound(nil)
 		@view.returnToTitle
 	end
 

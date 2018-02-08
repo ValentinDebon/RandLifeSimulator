@@ -18,8 +18,8 @@ class DeathView
 			when "Javel"
 				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/javel.jpg")
 				@view.playSound("View/Assets/Musics/Sad Trombone.mp3")
-			when "Camionette"
-				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/camionette.jpg")
+			when "Camionnette"
+				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/camionnette.jpg")
 				@view.playSound("View/Assets/Musics/Marche Funèbre.mp3")
 			when "Ciseau"
 				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/ciseaux.jpg")
