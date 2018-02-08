@@ -19,7 +19,7 @@ class Birth
 
 		@nameTxtBox = TextBox.new(0.2, 0.2, 0.6, 0.15)
 		@nameTxtBox.text = ["Gérard", "Alphonse", "Pablo",
-			"Winifred", "Adolphe", "Josiane",
+			"Winifred", "Josiane",
 			"Joseph", "Alexandre", "Valentin",
 			"Romain", "Anne", "Ken", "Barbie",
 			"Michel", "Sarah Connor", "John Connor",
