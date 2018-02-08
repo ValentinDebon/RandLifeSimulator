@@ -22,7 +22,6 @@ class View < Gosu::Window
 	end
 
 	def presentScene
-		@song.stop if @song != nil
 		if @controller.currentScene == nil then
 			self.current = DeathView.new(self)
 		else
@@ -31,12 +30,12 @@ class View < Gosu::Window
 	end
 
 	def presentAct
-		@song.stop if @song != nil
+		self.playSound(nil)
 		self.current = ActView.new(self)
 	end
 
 	def returnToTitle
-		@song.stop if @song != nil
+		self.playSound(nil)
 		self.current = Title.new(self)
 	end
 
@@ -46,8 +45,12 @@ class View < Gosu::Window
 	end
 
 	def playSound(filename)
-		@song = Gosu::Song.new(filename)
-		@song.play(looping = false)
+		if filename != nil then
+			@song = Gosu::Song.new(filename)
+			@song.play(looping = false)
+		else
+			@song.stop if @song != nil
+		end
 	end
 
 	def button_up(id)

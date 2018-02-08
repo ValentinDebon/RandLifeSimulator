@@ -6,6 +6,19 @@ class ActView
 	def initialize(view)
 		@view = view
 
+		case @view.controller.act
+			when "I"
+				@view.playSound("View/Assets/Musics/Brittle Rille.mp3")
+			when "II"
+				@view.playSound("View/Assets/Musics/Do I Wanna Know.mp3")
+			when "III"
+				@view.playSound("View/Assets/Musics/Act Like You Know.mp3")
+			when "IV"
+				@view.playSound("View/Assets/Musics/Nutcracker.mp3")
+			else
+				@view.playSound(nil)
+		end
+
 		@actImg = Gosu::Image.from_text("Acte " + @view.controller.act, 100)
 		@animStart = Gosu::milliseconds
 		@duration = 5000
