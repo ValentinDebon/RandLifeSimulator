@@ -76,8 +76,34 @@ class Controller
 	end
 
 	def stats
-		@model.life.name + " est mort à " + @model.life.age.to_s + " ans\n" +
-		"Pour cause de " + @_death
+		realisations = false
+		money = @model.life.wealth * 10000 * Random.rand()
+		stat = @model.life.name + " est mort à " + @model.life.age.to_s + " ans\n" +
+		"Pour cause de " + @_death + "\n" +
+		"Votre fortune s'élève à : " + money.to_s + "€\n\n" +
+		"Vos réalisations:\n"
+
+		if @model.life.marriedTo != nil then
+			stat = stat + "\tVous avez épousé: " + @model.life.marriedTo + "\n"
+			realisations = true
+		end
+
+		if @model.life.child != nil then
+			stat = stat + "\tVous avez eut pour enfant: " + @model.life.child + "\n"
+			realisations = true
+		end
+
+		if @model.life.car != nil then
+			stat = stat + "\tVous avez eut pour voiture: " + @model.life.car + "\n"
+			realisations = true
+		end
+
+		if !realisations then
+			stat = stat + "\tQue Dalle."
+		end
+
+		puts stat
+		stat
 	end
 
 	def endLife
