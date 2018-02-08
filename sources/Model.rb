@@ -305,7 +305,7 @@ class Model
 					Response.new("La mater",
 						Proc.new {
 							@controller.response = "Vous reluquez d’un air presque obscène votre maîtresse,\n" +
-								"si bien que celle-ci le remarque et vous envoie chez le proviseur."
+								"Si bien que celle-ci le remarque et vous envoie chez le proviseur."
 							@controller.currentScene = @scenes[6]
 						}
 					),
@@ -1691,7 +1691,7 @@ class Model
 				]
 			),
 			Scene.new("Au détour de votre immeuble, vous apercevez\n" +
-				"une camionnette blanche à la vente.",
+				"une camionnette en vente.",
 				nil,
 				"View/Assets/Combi.jpg", [
 					Response.new("L’acheter.",
@@ -1972,7 +1972,7 @@ class Model
 				)
 			]
 		),
-		Scene.new("Votre neveu <neveu> a déféqué sur votre magnifique tapis oriental !",
+		Scene.new("Votre neveu <neveu> a déféqué sur votre magnifique\ntapis oriental !",
 			"neveu",
 			"View/Assets/Hospital.jpg", [
 				Response.new("Le réprimander.",
@@ -1985,7 +1985,7 @@ class Model
 						else
 							@controller.response = "<neveu> se met à pleurer mais au moins\n" +
 								"vous saurez qu’il ne recommencera plus.\n"
-							@controller.currentScene = (@scenes[35..40] + @scenes[33]).sample
+							@controller.currentScene = (@scenes[35..40] + [@scenes[33]]).sample
 						end
 					}
 				),
@@ -1994,7 +1994,7 @@ class Model
 						@life.age += 5
 						@controller.response = "Vous n’avez pas envie de vous énerver,\n" +
 						 	"mais vous savez qu’il recommencera sûrement."
-						@controller.currentScene = (@scenes[35..40] + @scenes[33]).sample
+						@controller.currentScene = (@scenes[35..40] + [@scenes[33]]).sample
 					}
 				)
 			]
@@ -2057,16 +2057,16 @@ class Model
 				Response.new("Manger.",
 					Proc.new {
 						@life.age += 5
-						randy = Random.rand()
-						if randy > 0.75 then
+						case Random.rand()
+						when 0.75..1.0
 							@controller.response = "Vous mangez votre infirmière car elle a refusé de\n" +
 								"jouer à la belotte avec vous."
 							@controller.currentScene = (@scenes[36..40] + @scenes[33..34]).sample
-						elsif randy > 0.5 && randy <= 0.75
+						when 0.5..0.75
 							@controller.response = "Vous mangez votre déambulateur.\n" +
 								"Vous espérez que ça comblera vos carences en fer."
 							@controller.currentScene = (@scenes[36..40] + @scenes[33..34]).sample
-						elsif randy > 0.25 && randy <= 0.5
+						when 0.25..0.5
 							@controller.response = "Vous mangez le caillou." +
 								"Ca passe mal..."
 							@controller.death = 'Caillou'

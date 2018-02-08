@@ -78,9 +78,13 @@ class Controller
 	def stats
 		realisations = false
 		money = @model.life.wealth * 10000 * Random.rand()
-		stat = @model.life.name + " est mort à " + @model.life.age.to_s + " ans\n" +
-		"Pour cause de " + @_death + "\n" +
-		"Votre fortune s'élève à : " + money.to_s + "€\n\n" +
+		if @model.life.age == 0 then
+			stat = @model.life.name + " est mort prématurément\n"
+		else
+			stat = @model.life.name + " est mort à " + @model.life.age.to_s + " ans\n"
+		end
+		stat += "Cause du décès: " + @_death + "\n" +
+		"Votre fortune s'élève à : " + Integer(money).to_s + "€\n\n" +
 		"Vos réalisations:\n"
 
 		if @model.life.marriedTo != nil then
@@ -102,7 +106,6 @@ class Controller
 			stat = stat + "\tQue Dalle."
 		end
 
-		puts stat
 		stat
 	end
 
