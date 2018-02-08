@@ -27,7 +27,7 @@ class Model
 		@scenes = [
 			Scene.new("Vous voyez un caillou.",
 				"enfant",
-				"View/Assets/Caillou.jpg", [
+				"View/Assets/Récré.jpg", [
 					Response.new("Manger le caillou.",
 						Proc.new {
 							@life.instability += 1
@@ -395,7 +395,7 @@ class Model
 			),
 			Scene.new("Durant l’activité arts plastiques vous devez chercher les fournitures\ndont vous avez besoin dans le bac de la classe.",
 				"enfant",
-				"View/Assets/ClassRoom.jpg", [
+				"View/Assets/ArtsPlastiques.jpg", [
 					Response.new("Sniffer la colle",
 						Proc.new {
 							@life.doubt += 2
@@ -545,7 +545,7 @@ class Model
 			),
 			Scene.new("Vous devez choisir une filière pour votre diplôme.",
 				nil,
-				"View/Assets/ClassRoom.jpg", [
+				"View/Assets/Bac.jpg", [
 					Response.new("Sciences",
 						Proc.new {
 							@controller.response = "Vous avez les capacités et la volonté de vous aventurer\n" +
@@ -598,7 +598,7 @@ class Model
 			),
 			Scene.new("Votre crush <ado> veut vous voir après les cours.\n Vous l’avez toujours aimé.",
 				"ado",
-				"View/Assets/ClassRoom.jpg", [
+				"View/Assets/Crush.jpg", [
 					Response.new("Le Manger",
 						Proc.new {
 							@controller.response = "Lors de votre tête à tête, vous avez paniqué et l’avez mangé.\n" +
@@ -643,7 +643,7 @@ class Model
 			),
 			Scene.new("Tokyo Hauntel a sorti un nouvel album !",
 				nil,
-				"View/Assets/ClassRoom.jpg", [
+				"View/Assets/Concert.jpg", [
 					Response.new("C’est génial ! Je l’achète en 50 exemplaires !",
 						Proc.new {
 							@controller.response = "Vous adorez Tokyo Hauntel au plus haut point\n"
@@ -675,7 +675,7 @@ class Model
 			),
 			Scene.new("Vous vous métamorphosez en une créature\ntourmentée par ses émotions.",
 				nil,
-				"View/Assets/ClassRoom.jpg", [
+				"View/Assets/Emo.jpg", [
 					Response.new("Je me sens enfin moi-même.",
 						Proc.new {
 							@controller.response = "Vous vous mettez à porter que du noir,\n" +
@@ -711,7 +711,7 @@ class Model
 			),
 			Scene.new("Vous n’avez que 17 ans et êtes jeune et beau.",
 				nil,
-				"View/Assets/ClassRoom.jpg", [
+				"View/Assets/Pop.jpg", [
 					Response.new("Tant mieux !",
 						Proc.new {
 							@controller.response = "Vous le savez mieux que quiconque."
@@ -754,7 +754,7 @@ class Model
 			),
 			Scene.new("Vous vous questionnez sur l’orientation Omo.",
 				nil,
-				"View/Assets/ClassRoom.jpg", [
+				"View/Assets/Lessive.jpg", [
 					Response.new("Cela vous correspond.",
 						Proc.new {
 							@controller.response = "Vous achetez donc de la lessive Omo pour votre mère."
