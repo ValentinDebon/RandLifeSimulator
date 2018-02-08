@@ -27,7 +27,7 @@ class Model
 		@scenes = [
 			Scene.new("Vous voyez un caillou.",
 				"enfant",
-				"View/Assets/Récré.jpg", [
+				"View/Assets/Caillou.jpg", [
 					Response.new("Manger le caillou.",
 						Proc.new {
 							@life.instability += 1
@@ -395,7 +395,7 @@ class Model
 			),
 			Scene.new("Durant l’activité arts plastiques vous devez chercher les fournitures\ndont vous avez besoin dans le bac de la classe.",
 				"enfant",
-				"View/Assets/ArtsPlastiques.jpg", [
+				"View/Assets/ClassRoom.jpg", [
 					Response.new("Sniffer la colle",
 						Proc.new {
 							@life.doubt += 2
@@ -545,7 +545,7 @@ class Model
 			),
 			Scene.new("Vous devez choisir une filière pour votre diplôme.",
 				nil,
-				"View/Assets/Bac.jpg", [
+				"View/Assets/ClassRoom.jpg", [
 					Response.new("Sciences",
 						Proc.new {
 							@controller.response = "Vous avez les capacités et la volonté de vous aventurer\n" +
@@ -556,7 +556,7 @@ class Model
 							@life.age += 1
 							case @life.age
 								when 15..18
-									@controller.currentScene = [@scenes[11],@scenes[12]].sample
+									@controller.currentScene = [@scenes[11..12] + @scenes[15..16]].sample
 								else
 									@controller.currentScene = @scenes.sample #TODO scenes acte 3
 							end
@@ -572,7 +572,7 @@ class Model
 							@life.age += 1
 							case @life.age
 								when 15..18
-									@controller.currentScene = [@scenes[11],@scenes[12]].sample
+									@controller.currentScene = [@scenes[11..12] + @scenes[15..16]].sample
 								else
 									@controller.currentScene = @scenes.sample #TODO scenes acte 3
 							end
@@ -588,7 +588,7 @@ class Model
 							@life.age += 1
 							case @life.age
 								when 15..18
-									@controller.currentScene = [@scenes[11],@scenes[12]].sample
+									@controller.currentScene = [@scenes[11..12] + @scenes[15..16]].sample
 								else
 									@controller.currentScene = @scenes.sample #TODO scenes acte 3
 							end
@@ -598,7 +598,7 @@ class Model
 			),
 			Scene.new("Votre crush <ado> veut vous voir après les cours.\n Vous l’avez toujours aimé.",
 				"ado",
-				"View/Assets/Crush.jpg", [
+				"View/Assets/ClassRoom.jpg", [
 					Response.new("Le Manger",
 						Proc.new {
 							@controller.response = "Lors de votre tête à tête, vous avez paniqué et l’avez mangé.\n" +
@@ -608,7 +608,7 @@ class Model
 							@life.age += 1
 							case @life.age
 								when 15..18
-									@controller.currentScene = [@scenes[10],@scenes[12]].sample
+									@controller.currentScene = [@scenes[10],@scenes[12], @scenes[15], @scenes[16]].sample
 								else
 									@controller.currentScene = @scenes.sample #TODO scenes acte 3
 							end
@@ -617,13 +617,13 @@ class Model
 					Response.new("Déclarer sa flamme",
 						Proc.new {
 							@controller.response = "Vous avez pris votre courage en main,\n" +
-								" vous l’aimez depuis trop longtemps il est tant qu’il le sache !\n" +
-								" Et il a dit oui !"
+								"vous l’aimez depuis trop longtemps il est tant qu’il le sache !\n" +
+								"Et il a dit oui !"
 							@life.love += 3
 							@life.age += 1
 							case @life.age
 								when 15..18
-									@controller.currentScene = [@scenes[10],@scenes[12]].sample
+									@controller.currentScene = [@scenes[10],@scenes[12], @scenes[15], @scenes[16]].sample
 								else
 									@controller.currentScene = @scenes.sample #TODO scenes acte 3
 							end
@@ -643,7 +643,7 @@ class Model
 			),
 			Scene.new("Tokyo Hauntel a sorti un nouvel album !",
 				nil,
-				"View/Assets/Concert.jpg", [
+				"View/Assets/ClassRoom.jpg", [
 					Response.new("C’est génial ! Je l’achète en 50 exemplaires !",
 						Proc.new {
 							@controller.playSound('View/Assets/Musics/Sexual Healing.mp3')
@@ -667,7 +667,7 @@ class Model
 							 @life.age += 1
 					 		case @life.age
 					 			when 15..18
-					 				@controller.currentScene = [@scenes[10],@scenes[11],scenes[15]].sample
+					 				@controller.currentScene = [@scenes[10],@scenes[11],scenes[15], @scenes[16]].sample
 					 			else
 					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 					 		end
@@ -677,7 +677,7 @@ class Model
 			),
 			Scene.new("Vous vous métamorphosez en une créature\ntourmentée par ses émotions.",
 				nil,
-				"View/Assets/Emo.jpg", [
+				"View/Assets/ClassRoom.jpg", [
 					Response.new("Je me sens enfin moi-même.",
 						Proc.new {
 							@controller.response = "Vous vous mettez à porter que du noir,\n" +
@@ -687,7 +687,7 @@ class Model
 							@life.age += 1
 							case @life.age
 					 			when 15..18
-					 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15]].sample
+					 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15], @scenes[16]].sample
 					 			else
 					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 					 		end
@@ -703,7 +703,7 @@ class Model
 								@life.age += 1
 								case @life.age
 						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15]].sample
+						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15], @scenes[16]].sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
@@ -713,14 +713,14 @@ class Model
 			),
 			Scene.new("Vous n’avez que 17 ans et êtes jeune et beau.",
 				nil,
-				"View/Assets/Pop.jpg", [
+				"View/Assets/ClassRoom.jpg", [
 					Response.new("Tant mieux !",
 						Proc.new {
 							@controller.response = "Vous le savez mieux que quiconque."
 								@life.age += 1
 								case @life.age
 						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15]].sample
+						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15], @scenes[16]].sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
@@ -733,7 +733,7 @@ class Model
 								@life.age += 1
 								case @life.age
 						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15]].sample
+						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15], @scenes[16]].sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
@@ -746,7 +746,7 @@ class Model
 								@life.age += 1
 								case @life.age
 						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15]].sample
+						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15], @scenes[16]].sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
@@ -756,14 +756,14 @@ class Model
 			),
 			Scene.new("Vous vous questionnez sur l’orientation Omo.",
 				nil,
-				"View/Assets/Lessive.jpg", [
+				"View/Assets/ClassRoom.jpg", [
 					Response.new("Cela vous correspond.",
 						Proc.new {
 							@controller.response = "Vous achetez donc de la lessive Omo pour votre mère."
 								@life.age += 1
 								case @life.age
 						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[12]].sample
+						 				@controller.currentScene = [@scenes[10..12] + @scenes[16]].sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
 						 		end
@@ -776,7 +776,7 @@ class Model
 								@life.age += 1
 								case @life.age
 						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[12]].sample
+						 				@controller.currentScene = [@scenes[10..12] + @scenes[16]].sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
 						 		end
@@ -789,27 +789,134 @@ class Model
 				"View/Assets/ClassRoom.jpg", [
 					Response.new("Le frapper.",
 						Proc.new {
-							@controller.response = "Vous achetez donc de la lessive Omo pour votre mère."
+							@controller.response = "Vous n’aimez pas sa tête\n" +
+								"et vous êtes décidé à lui faire savoir." +
+								"Vous le frappez donc violemment."
+							@life.violence += 2
+							@life.age += 1
+							case @life.age
+					 			when 15..18
+					 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample
+					 			else
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+					 		end
+						}
+					),
+					Response.new("Lui parler.",
+						Proc.new {
+							if Random.rand() > 0.5 then
+									@controller.response = "Il n’aime pas votre tête\n" +
+										"et a décidé à vous le faire savoir. Il vous frappe donc violemment."
+									@life.blackSheep += 2
+							else
+									@controller.response = "La conversation se fait facilement, vous flirtez innocemment."
+									@life.love += 2
+							end
+							@life.age += 1
+							case @life.age
+								when 15..18
+									@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample
+								else
+									@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+							end
+						}
+					),
+					Response.new("L'ignorer.",
+						Proc.new {
+							@controller.response = "Vous n’avez pas de temps à lui consacrez et poursuivez votre chemin."
+							@life.age += 1
+							case @life.age
+					 			when 15..18
+					 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample
+					 			else
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+					 		end
+						}
+					)
+				]
+			),
+			Scene.new("Que souhaitez-vous faire après la fac ?",
+				nil,
+				"View/Assets/ClassRoom.jpg", [
+					Response.new("Une ecole d’ingénieur.",
+						Proc.new {
+							@controller.response = "Vous souhaitez un métier bien payé et un avenir radieux,\n" +
+								"l’école d’ingénieur semble être une bonne perspective."
+							@life.wealth += 2
+							@life.intelligence += 2
+							@life.age = 26
+					 		@controller.currentScene = @scenes.sample #TODO scenes acte 3
+						}
+					),
+					Response.new("Allez dans la vie active.",
+						Proc.new {
+							@controller.response = "Vous avez fait assez d’études comme ça!\n" +
+								"Il est temps d’aller travailler !"
+							@life.age = 26
+							@controller.currentScene = @scenes.sample #TODO scenes acte 3
+						}
+					),
+					Response.new("Continuer en Master.",
+						Proc.new {
+							@controller.response = "La fac, au final, ce n'est pas si mal.\n" +
+								"Vous décidez d’y rester encore un peu en poursuivant en Master. "
+							@life.intelligence += 3
+							@life.age += 1
+							case @life.age
+								when 18..25
+					 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample #TODO acte 2 university
+					 			else
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+					 		end
+						}
+					)
+				]
+			),
+			Scene.new("Vous êtes en cours avec le merveilleux professeur <professeur>.",
+				"professeur",
+				"View/Assets/Amphi.jpg", [
+					Response.new("Dormir.",
+						Proc.new {
+							@controller.response = "Ses cours sont extrêmement soporifiques.\n" +
+								"Et si on faisait un petit somme ?"
+							@life.laziness += 2
+							@life.intelligence += 2
+							@life.age += 1
+							case @life.age
+								when 18..25
+					 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample #TODO acte 2 university
+					 			else
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+					 		end
+						}
+					),
+					Response.new("Le mater.",
+						Proc.new {
+							@controller.response = "Sa beauté indécente et son sex-appeal\n" +
+								"vous empêchent de le quitter du regard.\n" +
+								"Vous n’arrivez pas à vous concentrer sur le cours."
+								@life.intelligence -= 2
 								@life.age += 1
 								case @life.age
-						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[12]].sample
+									when 18..25
+						 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample #TODO acte 2 university
 						 			else
-						 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
 						}
 					),
-					Response.new("Cela ne vous correspond pas.",
+					Response.new("Suivre le cours",
 						Proc.new {
-							@controller.response = "Vous décidez d’acheter de la lessive Bonne-ux pour votre mère."
-								@life.sport += 1
-								@life.age += 1
-								case @life.age
-						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[12]].sample
-						 			else
-						 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
-						 		end
+							@controller.response = "Vous êtes là pour étudier.\n" +
+								"Vous ne laisserez rien ni personne vous distraire."
+							@life.intelligence += 3
+							@life.age += 1
+							case @life.age
+							when 18..25
+					 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample #TODO acte 2 university
+					 			else
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+					 		end
 						}
 					)
 				]
