@@ -32,7 +32,7 @@ class Model
 						Proc.new {
 							@life.instability += 1
 							if Random.rand() > 0.3 then
-								@controller.response = "Cela n'a aucun goût, vous êtes un peu déçu."
+								@controller.response = "Cela n'a aucun goût. Vous êtes un peu déçu."
 								@life.age += 5
 								case @life.age
 									when 5..14
@@ -51,7 +51,6 @@ class Model
 						Proc.new {
 							@controller.response = "Tel un lanceur de baseball professionnel,\nvous lancez le caillou à toute vitesse.\n" +
 								"Ce dernier heurte violemment petit <enfant>, il se met à pleurer."
-
 							@life.age += 5
 							@life.violence += 2
 							case @life.age
@@ -66,7 +65,6 @@ class Model
 						Proc.new {
 							@controller.response = "Ce caillou vous semble être très précieux.\n" +
 								"Vous décidez de le cacher afin que personne ne vous le vole."
-
 							@life.age += 5
 							case @life.age
 								when 5..14
@@ -78,8 +76,7 @@ class Model
 					),
 					Response.new("Ignorer le caillou.",
 						Proc.new {
-							@controller.response = "C’est un simple caillou, pourquoi lui porter de l’attention?"
-
+							@controller.response = "C’est un simple caillou. Pourquoi lui porter de l’attention?"
 							@life.age += 5
 							case @life.age
 								when 5..14
@@ -118,8 +115,8 @@ class Model
 					),
 					Response.new("Dormir.",
 						Proc.new {
-							@controller.response = "La douceur du tapis est apaisante,\n" +
-								"lentement vous vous sentez partir vers le pays des rêves."
+							@controller.response = "La douceur du tapis est apaisante.\n" +
+								"Lentement, vous vous sentez partir vers le pays des rêves."
 
 							@life.age += 5
 							@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
@@ -143,8 +140,8 @@ class Model
 					),
 					Response.new("Ah!",
 						Proc.new {
-							@controller.response = "Vous ne savez pas pourquoi vous avez dit ça,\n" +
-								"c’est comme si ce nom vous parlait."
+							@controller.response = "Vous ne savez pas pourquoi vous avez dit ça.\n" +
+								"C’est comme si ce nom vous parlait."
 
 							@life.age += 5
 							@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
@@ -152,8 +149,8 @@ class Model
 					),
 					Response.new("Caca",
 						Proc.new {
-							@controller.response = "Ah bah bonjour la maturité,  " +
-								"vos parents ont un peu honte de vous.\n" +
+							@controller.response = "Ah bah bonjour la maturité !\n" +
+								"Vos parents ont un peu honte de vous.\n" +
 								"Mais bon ça finira par passer avec le temps."
 
 							@life.age += 5
@@ -193,7 +190,7 @@ class Model
 								@controller.response = "Ce n'était peut-être pas une si bonne idée."
 								@controller.death = "Javel"
 							else
-								@controller.response = "Le goût est attroce et vous met K.O pour un certain temps."
+								@controller.response = "Le goût est atroce et vous met K.O pour un certain temps."
 								@life.age += 5
 								case @life.age
 									when 5..14
@@ -207,7 +204,7 @@ class Model
 					Response.new("Jouer avec les éponges",
 						Proc.new {
 							@controller.response = "Vous vous voyez peindre de grands tableaux et essuyer\n" +
-								"les taches de peinture avec les éponges."
+								"les taches de peinture avec ces éponges."
 
 							@life.age += 5
 							@life.art += 2
@@ -221,8 +218,8 @@ class Model
 					),
 					Response.new("Se cacher",
 						Proc.new {
-							@controller.response = "Personne ne pensera à vous chercher là dedans,\n" +
-								"vous décidez donc d’entrer dans ce fort imprenable.\n" +
+							@controller.response = "Personne ne pensera à vous chercher là dedans.\n" +
+								"Vous décidez donc d’entrer dans ce fort imprenable.\n" +
 								"Vos parents ont mis deux jours à vous retrouver."
 
 							@life.age += 5
@@ -302,7 +299,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("A l’école vous vous trouvez dans la classe de Mme <maitresse>",
+			Scene.new("A l’école, vous vous trouvez dans la classe de Mme <maitresse>.",
 				"maitresse",
 				"View/Assets/ClassRoom.jpg", [
 					Response.new("La mater",
@@ -314,8 +311,8 @@ class Model
 					),
 					Response.new("Suivre la leçon",
 						Proc.new {
-							@controller.response = "Vous vous concentrez sur ce qu’elle dit,\n" +
-								"après tout vous êtes là pour ça."
+							@controller.response = "Vous vous concentrez sur ce qu’elle dit.\n" +
+								"Après tout, vous êtes là pour ça."
 							@life.age += 5
 							case @life.age
 								when 5..14
@@ -340,7 +337,7 @@ class Model
 				"View/Assets/HeadMasterOffice.jpg", [
 					Response.new("S’excuser",
 						Proc.new {
-							@controller.response = "Vous excusez et promettez de ne plus recommencer."
+							@controller.response = "Vous vous excusez et promettez de ne plus recommencer."
 							@life.age += 5
 							case @life.age
 								when 5..14
@@ -395,16 +392,16 @@ class Model
 					)
 				]
 			),
-			Scene.new("Durant l’activité arts plastiques vous devez chercher les fournitures\ndont vous avez besoin dans le bac de la classe.",
+			Scene.new("Durant l’activité arts plastiques, vous devez chercher les fournitures\ndont vous avez besoin dans le bac de la classe.",
 				"enfant",
 				"View/Assets/ArtsPlastiques.jpg", [
 					Response.new("Sniffer la colle",
 						Proc.new {
 							@life.doubt += 2
 							@life.drugs += 2
-							@controller.response = "Vous avez vu certaines personnes cool de la classe\n" +
-								"le faire. L’odeur est enivrante et addictive,\n" +
-								"elle vous fait réfléchir au sens de la vie."
+							@controller.response = "Vous avez vu certaines personnes cool de la classe le faire." +
+								"L’odeur est enivrante et addictive.\n" +
+								"Elle vous fait réfléchir au sens de la vie."
 								@life.age += 5
 								case @life.age
 									when 5..14
@@ -418,8 +415,8 @@ class Model
 						Proc.new {
 								case Random.rand()
 									when 0.0..0.5
-										@controller.response = "Vous trouvez un morceau de papier pas\n" +
-											"loin et décidez de faire une jolie ribambelle."
+										@controller.response = "Vous trouvez un morceau de papier pas loin\n" +
+											"et décidez de faire une jolie ribambelle."
 										@life.age += 5
 										@life.art += 2
 										case @life.age
@@ -440,7 +437,8 @@ class Model
 										end
 									when 0.75..1.0
 										@controller.response = "Oh non, vous êtes tombé sur le ciseau alors\n" +
-											"que vous courriez avec, vous êtes mort."
+											"que vous courriez avec.\n" +
+											"Vous êtes mort."
 										@controller.death = "Ciseau"
 									end
 						}
@@ -448,8 +446,8 @@ class Model
 					Response.new("Manger les crayons",
 						Proc.new {
 							@controller.response = "Vous n’avez pas envie de faire de l’art plastique.\n" +
-								"Vous mangez donc tous les crayons afin\n" +
-								"que l’activité soit annulée."
+								"Vous mangez donc tous les crayons afin que\n" +
+								"l’activité soit annulée."
 							@life.age += 5
 							@life.art -= 2
 								case @life.age
@@ -512,8 +510,8 @@ class Model
 				"View/Assets/Camionette.jpg", [
 					Response.new("Monter dedans",
 						Proc.new {
-							@controller.response = "<pervers> est en réalité un ami de votre père,\n" +
-							"il décide donc de vous ramener chez vous."
+							@controller.response = "<pervers> est en réalité un ami de votre père.\n" +
+							"Il décide donc de vous ramener chez vous."
 								@life.age += 5
 							case @life.age
 								when 5..14
@@ -538,7 +536,7 @@ class Model
 									end
 							else
 								@controller.response = "Vous traversez sans regarder et êtes percuté par\n" +
-									"une camionnette"
+									"une camionnette."
 								@controller.death = "Camionnette"
 							end
 						}
@@ -618,8 +616,8 @@ class Model
 					),
 					Response.new("Déclarer sa flamme",
 						Proc.new {
-							@controller.response = "Vous avez pris votre courage en main,\n" +
-								"vous l’aimez depuis trop longtemps il est tant qu’il le sache !\n" +
+							@controller.response = "Vous avez pris votre courage à deux main.\n" +
+								"Vous l’aimez depuis trop longtemps et il est tant qu’il le sache !\n" +
 								"Et il a dit oui !"
 							@life.love += 3
 							@life.age += 1
@@ -792,7 +790,7 @@ class Model
 					Response.new("Le frapper.",
 						Proc.new {
 							@controller.response = "Vous n’aimez pas sa tête\n" +
-								"et vous êtes décidé à lui faire savoir." +
+								"et vous êtes décidé à le lui faire savoir." +
 								"Vous le frappez donc violemment."
 							@life.violence += 2
 							@life.age += 1
@@ -811,7 +809,7 @@ class Model
 										"et a décidé de vous le faire savoir. Il vous frappe donc violemment."
 									@life.blackSheep += 2
 							else
-									@controller.response = "La conversation se fait facilement, vous flirtez innocemment."
+									@controller.response = "La conversation se fait facilement. Vous flirtez innocemment."
 									@life.love += 2
 							end
 							@life.age += 1
@@ -842,8 +840,8 @@ class Model
 				"View/Assets/Diplome.jpg", [
 					Response.new("Une école d’ingénieur.",
 						Proc.new {
-							@controller.response = "Vous souhaitez un métier bien payé et un avenir radieux,\n" +
-								"l’école d’ingénieur semble être une bonne perspective."
+							@controller.response = "Vous souhaitez un métier bien payé et un avenir radieux.\n" +
+								"L’école d’ingénieur semble être une bonne perspective."
 							@life.wealth += 2
 							@life.intelligence += 2
 							@life.age = 26
@@ -863,7 +861,7 @@ class Model
 							@controller.response = "La fac, au final, ce n'est pas si mal.\n" +
 								"Vous décidez d’y rester encore un peu en poursuivant en Master. "
 							@life.intelligence += 3
-							@life.age += 1
+							@life.age += 2
 							case @life.age
 								when 17..25
 									@controller.currentScene = ([@scenes[18]] + @scenes[20..21]).sample
@@ -883,7 +881,7 @@ class Model
 								"Et si on faisait un petit somme ?"
 							@life.laziness += 2
 							@life.intelligence += 2
-							@life.age += 1
+							@life.age += 2
 							case @life.age
 								when 17..25
 									@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
@@ -905,7 +903,7 @@ class Model
 									"vous empêchent de le quitter du regard.\n" +
 									"Vous n’arrivez pas à vous concentrer sur le cours."
 								@life.intelligence -= 2
-								@life.age += 1
+								@life.age += 2
 								case @life.age
 									when 17..25
 										@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
@@ -920,7 +918,7 @@ class Model
 							@controller.response = "Vous êtes là pour étudier.\n" +
 								"Vous ne laisserez rien ni personne vous distraire."
 							@life.intelligence += 3
-							@life.age += 1
+							@life.age += 2
 							case @life.age
 							when 17..25
 								@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
@@ -931,10 +929,10 @@ class Model
 					),
 					Response.new("Ne rien comprendre",
 						Proc.new {
-							@controller.response = "Vous ne savez pas pourquoi ce cours est dans votre cursus,\n" +
-								"il est trop compliqué pour que vous y compreniez quoi que ce soit."
+							@controller.response = "Vous ne savez pas pourquoi ce cours est dans votre cursus.\n" +
+								"Il est trop compliqué pour que vous y compreniez quoi que ce soit."
 							@life.intelligence -= 1
-							@life.age += 1
+							@life.age += 2
 							case @life.age
 							when 17..25
 								@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
@@ -947,7 +945,7 @@ class Model
 			),
 			Scene.new("Vous êtes convoqué dans le bureau du directeur <proviseur>\nà cause de votre grand nombre d’absences.",
 				"proviseur",
-				"View/Assets/Amphi.jpg", [
+				"View/Assets/HeadMasterOffice.jpg", [
 					Response.new("Ne pas y aller.",
 						Proc.new {
 							if Random.rand() > 0.8 then
@@ -955,7 +953,7 @@ class Model
 									"la convocation et de faire une grasse matinée."
 								@life.laziness += 2
 								@life.intelligence -= 2
-								@life.age += 1
+								@life.age += 2
 								case @life.age
 									when 17..25
 										@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
@@ -984,7 +982,7 @@ class Model
 							else
 								@controller.response = "Mais pourquoi vous avez fait ça ?!\n" +
 									"Du coup, il ne vous embêtera plus avec vos absences."
-								@life.age += 1
+								@life.age += 2
 								case @life.age
 									when 17..25
 										@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
@@ -998,7 +996,7 @@ class Model
 						Proc.new {
 							@controller.response = "Vous décidez de tout remettre\n" +
 								"à plat et de justifier vos absences."
-							@life.age += 1
+							@life.age += 2
 							case @life.age
 							when 17..25
 									@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
@@ -1009,7 +1007,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous rencontrez votre fournisseur <dealer> au coin d’une ruelle sombre.",
+			Scene.new("Vous rencontrez votre fournisseur <dealer>\nau coin d’une ruelle sombre.",
 				"dealer",
 				"View/Assets/Ruelle.jpg", [
 					Response.new("Acheter des stupéfiants.",
@@ -1027,7 +1025,7 @@ class Model
 								@controller.response = "Vous récupérez la marchandise et profitez de votre jeunesse"
 								@life.drugs += 3
 								@life.wealth -= 2
-								@life.age += 1
+								@life.age += 2
 								case @life.age
 								when 17..25
 										@controller.currentScene = (@scenes[17..18] + [@scenes[21]]).sample
@@ -1047,9 +1045,10 @@ class Model
 								@life.prison = true
 								@controller.currentScene = @scenes.sample #TODO scenes acte 3 prison
 							else
-								@controller.response = "Vous lui vendez une bonne quantité de votre stock et profitez de votre argent."
+								@controller.response = "Vous lui vendez une bonne quantité de votre stock\n" +
+									"et profitez de votre argent."
 								@life.wealth += 3
-								@life.age += 1
+								@life.age += 2
 								case @life.age
 								when 17..25
 										@controller.currentScene = (@scenes[17..18] + [@scenes[21]]).sample
@@ -1073,7 +1072,7 @@ class Model
 								@controller.response = "Vous prévenez la police de\n" +
 									"l’activité illicite de <dealer>.\n" +
 									"Ils arrivent et l’embarque."
-								@life.age += 1
+								@life.age += 2
 								case @life.age
 								when 17..25
 										@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
@@ -1090,7 +1089,7 @@ class Model
 				"View/Assets/Canapé.jpg", [
 					Response.new("Jouer au loto.",
 						Proc.new {
-							if Random.rand() > 0.1 then
+							if Random.rand() > 0.005 then
 								@controller.response = "Vous avez gagné le gros lot ! Félicitations !\n"
 								@life.wealth += 8
 								if Random.rand() > 0.5 then
@@ -1110,7 +1109,7 @@ class Model
 								end
 							else
 								@controller.response = "Vous avez perdu."
-								@life.age += 1
+								@life.age += 2
 								case @life.age
 								when 17..25
 										@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
@@ -1123,9 +1122,9 @@ class Model
 					Response.new("Dormir.",
 						Proc.new {
 							@controller.response = "Vous ne vous sentez pas productif aujourd’hui.\n" +
-							"Vous décidez de faire un petit somme sur le canapé."
+								"Vous décidez de faire un petit somme sur le canapé."
 							@life.laziness += 1
-							@life.age += 1
+							@life.age += 2
 							case @life.age
 							when 17..25
 									@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
@@ -1138,7 +1137,7 @@ class Model
 						Proc.new {
 							@controller.response = "Le goût salé des chips vous remonte\n" +
 								"un peu le moral et vous aide à affronter cette journée."
-							@life.age += 1
+							@life.age += 2
 							case @life.age
 							when 17..25
 									@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
@@ -1157,7 +1156,7 @@ class Model
 				 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 							else
 								@controller.response = "Votre recherche ne porte pas ses fruits"
-								@life.age += 1
+								@life.age += 2
 								case @life.age
 								when 17..25
 										@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
