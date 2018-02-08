@@ -572,7 +572,7 @@ class Model
 							@life.age += 1
 							case @life.age
 								when 15..18
-									@controller.currentScene = [@scenes[11..12] + @scenes[15..16]].sample
+									@controller.currentScene = (@scenes[11..12] + @scenes[15..16]).sample
 								else
 									@controller.currentScene = @scenes.sample #TODO scenes acte 3
 							end
@@ -588,7 +588,7 @@ class Model
 							@life.age += 1
 							case @life.age
 								when 15..18
-									@controller.currentScene = [@scenes[11..12] + @scenes[15..16]].sample
+									@controller.currentScene = (@scenes[11..12] + @scenes[15..16]).sample
 								else
 									@controller.currentScene = @scenes.sample #TODO scenes acte 3
 							end
@@ -763,7 +763,7 @@ class Model
 								@life.age += 1
 								case @life.age
 						 			when 15..18
-						 				@controller.currentScene = [@scenes[10..12] + @scenes[16]].sample
+						 				@controller.currentScene = (@scenes[10..12] + [@scenes[16]]).sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
 						 		end
@@ -776,7 +776,7 @@ class Model
 								@life.age += 1
 								case @life.age
 						 			when 15..18
-						 				@controller.currentScene = [@scenes[10..12] + @scenes[16]].sample
+						 				@controller.currentScene = (@scenes[10..12] + [@scenes[16]]).sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
 						 		end
@@ -796,7 +796,7 @@ class Model
 							@life.age += 1
 							case @life.age
 					 			when 15..18
-					 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample
+					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample
 					 			else
 					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
 					 		end
@@ -815,7 +815,7 @@ class Model
 							@life.age += 1
 							case @life.age
 								when 15..18
-									@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample
+									@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample
 								else
 									@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
 							end
@@ -827,7 +827,7 @@ class Model
 							@life.age += 1
 							case @life.age
 					 			when 15..18
-					 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample
+					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample
 					 			else
 					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
 					 		end
@@ -864,7 +864,7 @@ class Model
 							@life.age += 1
 							case @life.age
 								when 18..25
-					 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample #TODO acte 2 university
+					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
 					 			else
 					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
 					 		end
@@ -884,7 +884,7 @@ class Model
 							@life.age += 1
 							case @life.age
 								when 18..25
-					 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample #TODO acte 2 university
+					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
 					 			else
 					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 					 		end
@@ -899,7 +899,7 @@ class Model
 								@life.age += 1
 								case @life.age
 									when 18..25
-						 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample #TODO acte 2 university
+						 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
@@ -913,7 +913,22 @@ class Model
 							@life.age += 1
 							case @life.age
 							when 18..25
-					 				@controller.currentScene = [@scenes[10..12] + @scenes[15]].sample #TODO acte 2 university
+					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+					 			else
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+					 		end
+						}
+					),
+					Response.new("Ne rien comprendre",
+						Proc.new {
+							@controller.response = "Vous ne savez pas pourquoi ce cours est dans votre cursus,\n" +
+								"il est bien trop compliqué pour que vous y comprenez quoi que ce soit." +
+								"Vous ne laisserez rien ni personne vous distraire."
+							@life.intelligence += 3
+							@life.age += 1
+							case @life.age
+							when 18..25
+					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
 					 			else
 					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
 					 		end
