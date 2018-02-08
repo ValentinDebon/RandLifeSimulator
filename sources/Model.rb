@@ -1515,8 +1515,7 @@ class Model
 
 
 
-
-			Scene.new("L’Infirmière <infirmiere> vous a rendu visite et veut repartir."),
+			Scene.new("L’Infirmière <infirmiere> vous a rendu visite et veut repartir.",
 				"infirmiere",
 				"View/Assets/Hospital.jpg", [
 				Response.new("Jouer aux dominos avec elle.",
@@ -1552,7 +1551,6 @@ class Model
 						@life.age += 1
 						@life.violence += 2
 						@controller.currentScene = @scenes.sample #TODO scenes acte 4
-						end
 					}
 				)
 			]
@@ -1659,188 +1657,192 @@ class Model
 							@controller.currentScene = @scenes.sample #TODO suite Acte IV
 						end
 					}
-				),
-				Scene.new("Une grande partie des résidents de la maison de retraite\n" +
-					"s'est rassemblée pour regarder\n" +
-					"des rediffusions de \" Question pour un pochtron\"",
-					nil,
-					"View/Assets/Hospital.jpg", [
-						Response.new("Vous connaissez les réponses et n'hésitez pas à le faire savoir",
-							Proc.new {
-								@life.age += 5
-								if Random.rand() > 0.7 then
-									@controller.response = "Sérieux, vous êtes lourd,\n" +
-										"vous vous prennez un coup de déambulateur"
-									@controller.death = 'Déambulateur'
-								else
-									@controller.response = "Vous êtes un puit de culture,\n" +
-										"tout le monde apprécie."
-									@controller.currentScene = @scenes.sample #TODO suite Acte IV
-								end
-							}
-						),
-						Response.new("C'était mieux avant, le nouveau présentateur est peu charismatique",
-							Proc.new {
-								@life.age += 5
-								@controller.response = "Vous passez pour un gros rabas joie."
+				)
+			],
+		),
+			Scene.new("Une grande partie des résidents de la maison de retraite\n" +
+				"s'est rassemblée pour regarder\n" +
+				"des rediffusions de \" Question pour un pochtron\"",
+				nil,
+				"View/Assets/Hospital.jpg", [
+					Response.new("Vous connaissez les réponses et n'hésitez pas à le faire savoir",
+						Proc.new {
+							@life.age += 5
+							if Random.rand() > 0.7 then
+								@controller.response = "Sérieux, vous êtes lourd,\n" +
+									"vous vous prennez un coup de déambulateur"
+								@controller.death = 'Déambulateur'
+							else
+								@controller.response = "Vous êtes un puit de culture,\n" +
+									"tout le monde apprécie."
 								@controller.currentScene = @scenes.sample #TODO suite Acte IV
-							}
-						),
-						Response.new("Vous vous en foutez royalement et retournez jouer à DOUM dans votre coin.",
-							Proc.new {
+							end
+						}
+					),
+					Response.new("C'était mieux avant, le nouveau présentateur est peu charismatique",
+						Proc.new {
+							@life.age += 5
+							@controller.response = "Vous passez pour un gros rabas joie."
+							@controller.currentScene = @scenes.sample #TODO suite Acte IV
+						}
+					),
+					Response.new("Vous vous en foutez royalement et retournez jouer à DOUM dans votre coin.",
+						Proc.new {
+							@life.age += 5
+							@life.violence += 2
+							@controller.response = "Vous avez bien fait, le nouveau présentateur" +
+								"est ennuyant de toute façon."
+							@controller.currentScene = @scenes.sample #TODO suite Acte IV
+						}
+					)
+				]
+			),
+			Scene.new("Votre neveu <neveu> tente de vous tuer pour récupérer l'héritage plus tôt",
+			"neveu",
+			"View/Assets/Hospital.jpg", [
+					Response.new("Le frapper.",
+						Proc.new {
+							@life.age += 5
+							@life.violence += 5
+							@controller.response = "Vous avez bien fait de faire du judo enfant."
+							@controller.currentScene = @scenes.sample #TODO suite Acte IV
+						}
+					),
+					Response.new("Fuir ce monde de brutes",
+						Proc.new {
+							if Random.rand > 0.3 then
+								@controller.response = "Vous vous prennez les pieds dans le tapis et mourrez."
+								@controller.death = 'meurtre'
+							else
 								@life.age += 5
-								@life.violence += 2
-								@controller.response = "Vous avez bien fait, le nouveau présentateur" +
-									"est ennuyant de toute façon."
+								@controller.response = "Vous fuyez en hurlant,\n"
+									+ "la sécurité ne tarde pas à maitriser l'aggresseur."
 								@controller.currentScene = @scenes.sample #TODO suite Acte IV
-							}
-						)
-					]
-				),
-				Scene.new("Votre neveu <neveu> tente de vous tuer pour récupérer l'héritage plus tôt",
+							end
+						}
+					),
+					Response.new("Il oserai tout de même pas...",
+						Proc.new {
+							if Random.rand > 0.5 then
+								@controller.response = "Il a osé."
+								@controller.death = 'meurtre'
+							else
+								@life.age += 5
+								@controller.response = "En effet, il est faible, à l'image de son père."
+								@controller.currentScene = @scenes.sample #TODO suite Acte IV
+							end
+						}
+					)
+				]
+			),
+			Scene.new("Vous retrouvez votre \"ami\" d'antan <dealer>,\n" +
+				"il continue, même à son grand age, \n" +
+				"ses activités légalement discutables.",
+				"dealer",
+				"View/Assets/Hospital.jpg", [
+					Response.new("Faire tourner un sucre d'orge.",
+						Proc.new {
+							@life.age += 5
+							@controller.response = "Le \"sucre\" vous fait tourner la tête\n" +
+								"une bonne soirée en perspective."
+							@controller.currentScene = @scenes.sample #TODO suite Acte IV
+						}
+					),
+					Response.new("Prendre un buvard de grenadine.",
+						Proc.new {
+							@life.age += 5
+							@controller.response = "C'est de la bonne grenadine.\n" +
+								"Cependant vous vous méfiez du dragon près du frigo."
+							@controller.currentScene = @scenes.sample #TODO suite Acte IV
+						}
+					),
+					Response.new("Gober un Tac-Tac.",
+						Proc.new {
+							@life.age += 5
+							@controller.response = "Vous n'avez jamais eut une telle énergie,\n" +
+								"vous faites la fête toute la nuit."
+							@controller.currentScene = @scenes.sample #TODO suite Acte IV
+						}
+					),
+					Response.new("À votre âge ce n'est pas sérieux.",
+						Proc.new {
+							@life.age += 5
+							@controller.response = "<dealer> s'en va dépité."
+							@controller.currentScene = @scenes.sample #TODO suite Acte IV
+						}
+					)
+				]
+			),
+			Scene.new("C'est l'anniversaire de votre neveu <neveu>.",
 				"neveu",
 				"View/Assets/Hospital.jpg", [
-						Response.new("Le frapper.",
-							Proc.new {
-								@life.age += 5
-								@life.violence += 5
-								@controller.response = "Vous avez bien fait de faire du judo enfant."
+					Response.new("Lui envoyer une lettre et un peu d'argent.",
+						Proc.new {
+							@life.age += 5
+							if Random.rand() > 0.5 then
+								@controller.response = "Comme d'habitude, il ne vous réponds pas."
 								@controller.currentScene = @scenes.sample #TODO suite Acte IV
-							}
-						),
-						Response.new("Fuir ce monde de brutes",
-							Proc.new {
-								if Random.rand > 0.3 then
-									@controller.response = "Vous vous prennez les pieds dans le tapis et mourrez."
-									@controller.death = 'meurtre'
-								else
-									@life.age += 5
-									@controller.response = "Vous fuyez en hurlant,\n"
-										+ "la sécurité ne tarde pas à maitriser l'aggresseur."
-									@controller.currentScene = @scenes.sample #TODO suite Acte IV
-								end
-							}
-						),
-						Response.new("Il oserai tout de même pas...",
-							Proc.new {
-								if Random.rand > 0.5 then
-									@controller.response = "Il a osé."
-									@controller.death = 'meurtre'
-								else
-									@life.age += 5
-									@controller.response = "En effet, il est faible, à l'image de son père."
-									@controller.currentScene = @scenes.sample #TODO suite Acte IV
-								end
-							}
-						)
-					]
-				),
-				Scene.new("Vous retrouvez votre \"ami\" d'antan <dealer>,\n" +
-					"il continue, même à son grand age, \n" +
-					"ses activités légalement discutables.",
-					"dealer",
-					"View/Assets/Hospital.jpg", [
-						Response.new("Faire tourner un sucre d'orge.",
-							Proc.new {
-								@life.age += 5
-								@controller.response = "Le \"sucre\" vous fait tourner la tête\n" +
-									"une bonne soirée en perspective."
+							else
+								@controller.response = "Vous recevez quelques jours plus tard une lettre de remerciement."
 								@controller.currentScene = @scenes.sample #TODO suite Acte IV
-							}
-						),
-						Response.new("Prendre un buvard de grenadine.",
-							Proc.new {
-								@life.age += 5
-								@controller.response = "C'est de la bonne grenadine.\n" +
-									"Cependant vous vous méfiez du dragon près du frigo."
+							end
+						}
+					),
+					Response.new("Lui envoyer un colis rempli de CD.",
+						Proc.new {
+							@life.age += 5
+							@controller.response = "Pas de réponse.... Justin Lieber est sans doute passé de mode."
+							@controller.currentScene = @scenes.sample #TODO suite Acte IV
+						}
+					),
+					Response.new("Lui envoyer un beau pull tricoté par vos soins.",
+						Proc.new {
+							@life.age += 5
+							if Random.rand() > 0.5 then
+								@controller.response = "Vous ne tardez pas à recevoir un lettre de remerciement,\n" +
+									"vous commencez à croire qu'il aime vraiment vos immondes pulls."
 								@controller.currentScene = @scenes.sample #TODO suite Acte IV
-							}
-						),
-						Response.new("Gober un Tac-Tac.",
-							Proc.new {
-								@life.age += 5
-								@controller.response = "Vous n'avez jamais eut une telle énergie,\n" +
-									"vous faites la fête toute la nuit."
+							else
+								@controller.response = "Il ne répondes pas, c'était peut être le pull de trop?"
 								@controller.currentScene = @scenes.sample #TODO suite Acte IV
-							}
-						),
-						Response.new("À votre âge ce n'est pas sérieux.",
-							Proc.new {
-								@life.age += 5
-								@controller.response = "<dealer> s'en va dépité."
-								@controller.currentScene = @scenes.sample #TODO suite Acte IV
-							}
-						)
-					]
-				),
-				Scene.new("C'est l'anniversaire de votre neveu <neveu>.",
-					"neveu",
-					"View/Assets/Hospital.jpg", [
-						Response.new("Lui envoyer une lettre et un peu d'argent.",
-							Proc.new {
-								@life.age += 5
-								if Random.rand() > 0.5 then
-									@controller.response = "Comme d'habitude, il ne vous réponds pas."
-									@controller.currentScene = @scenes.sample #TODO suite Acte IV
-								else
-									@controller.response = "Vous recevez quelques jours plus tard une lettre de remerciement."
-									@controller.currentScene = @scenes.sample #TODO suite Acte IV
-							}
-						),
-						Response.new("Lui envoyer un colis rempli de CD.",
-							Proc.new {
-								@life.age += 5
-								@controller.response = "Pas de réponse.... Justin Lieber est sans doute passé de mode."
-								@controller.currentScene = @scenes.sample #TODO suite Acte IV
-							}
-						),
-						Response.new("Lui envoyer un beau pull tricoté par vos soins.",
-							Proc.new {
-								@life.age += 5
-								if Random.rand() > 0.5 then
-									@controller.response = "Vous ne tardez pas à recevoir un lettre de remerciement,\n" +
-										"vous commencez à croire qu'il aime vraiment vos immondes pulls."
-									@controller.currentScene = @scenes.sample #TODO suite Acte IV
-								else
-									@controller.response = "Il ne répondes pas, c'était peut être le pull de trop?"
-									@controller.currentScene = @scenes.sample #TODO suite Acte IV
 
-								end
-							}
-						),
-						Response.new("Quel neveu? celui qui est déshérité?",
-							Proc.new {
-								@life.age += 5
-								@controller.response = "Vous avez bien fait de ne rien lui envoyer,\n" +
-									"c'est un petit con."
-								@controller.currentScene = @scenes.sample #TODO suite Acte IV
-							}
-						)
-					]
-				),
-				Scene.new("Vous sentez que c'est l'heure de votre  dernier mot.",
-					nil,
-					"View/Assets/Hospital.jpg", [
-						Response.new("Dites à mon conjoint que je l'ai aimé.",
-							Proc.new {
-								if @life.marriedTo != nil then
-									@controller.response = "On lui dira"
-									@controller.death = 'Vieillesse'
-								else
-									@controller.response = "Ces belles paroles tomberont dans l'oubli,\n" +
-										"vous n'êtes pas marrié."
-										@controller.death = 'Vieillesse'
-								end
-							}
-						),
-						Response.new("Allez vous faire...",
-							Proc.new {
-								@controller.response = "La mort vous prends de court"
+							end
+						}
+					),
+					Response.new("Quel neveu? celui qui est déshérité?",
+						Proc.new {
+							@life.age += 5
+							@controller.response = "Vous avez bien fait de ne rien lui envoyer,\n" +
+								"c'est un petit con."
+							@controller.currentScene = @scenes.sample #TODO suite Acte IV
+						}
+					)
+				]
+			),
+			Scene.new("Vous sentez que c'est l'heure de votre  dernier mot.",
+				nil,
+				"View/Assets/Hospital.jpg", [
+					Response.new("Dites à mon conjoint que je l'ai aimé.",
+						Proc.new {
+							if @life.marriedTo != nil then
+								@controller.response = "On lui dira"
 								@controller.death = 'Vieillesse'
-							}
-						)
-					]
-				)
-			]
+							else
+								@controller.response = "Ces belles paroles tomberont dans l'oubli,\n" +
+									"vous n'êtes pas marrié."
+									@controller.death = 'Vieillesse'
+							end
+						}
+					),
+					Response.new("Allez vous faire...",
+						Proc.new {
+							@controller.response = "La mort vous prends de court"
+							@controller.death = 'Vieillesse'
+						}
+					)
+				]
+			)
+		]
+
 	end
 end
