@@ -27,6 +27,15 @@ class DeathView
 			when "Caillou"
 				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/faucheuse2.gif")
 				@view.playSound("View/Assets/Musics/Marche Funèbre.mp3")
+			when "Déshydratation"
+				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/desert.jpg")
+				@view.playSound("View/Assets/Musics/Sad Trombone.mp3")
+			when "Déambulateur"
+				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/déambulateur.jpg")
+				@view.playSound("View/Assets/Musics/Wasted.mp3")
+			when "Vieillesse"
+				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/vieux.jpg")
+				@view.playSound("View/Assets/Musics/Marche Funèbre.mp3")
 			else
 				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/faucheuse2.gif")
 				@view.playSound("View/Assets/Musics/Wasted.mp3")
@@ -75,4 +84,3 @@ class DeathView
 			Gosu::Color.new(step * 255, 255, step * 255, step * 255))
 	end
 end
-
