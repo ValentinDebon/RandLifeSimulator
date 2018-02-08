@@ -11,7 +11,7 @@ class Life
 
 		listIdentities = ['Hervé', 'Cthulhu',
 			'Emmanuel', 'Mekayak', 'Sandrine',
-			'Sauron', 'Sphinx']
+			'Sauron', 'Sphinx', 'Gayel']
 		listCharacters = ['ado', 'adulte',
 			'dealer', 'enfant', 'maitresse',
 			'mamie', 'mariee', 'pervers',
