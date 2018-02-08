@@ -873,7 +873,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous êtes en cours avec le merveilleux professeur <professeur>.",
+			Scene.new("Vous êtes en cours avec le merveilleux professeur <professeur>.", #18
 				"professeur",
 				"View/Assets/Amphi.jpg", [
 					Response.new("Dormir.",
@@ -944,7 +944,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous êtes convoqué dans le bureau du directeur <proviseur>\nà cause de votre grand nombre d’absences.",
+			Scene.new("Vous êtes convoqué dans le bureau du directeur <proviseur>\nà cause de votre grand nombre d’absences.", #19
 				"proviseur",
 				"View/Assets/HeadMasterOffice.jpg", [
 					Response.new("Ne pas y aller.",
@@ -1008,7 +1008,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous rencontrez votre fournisseur <dealer>\nau coin d’une ruelle sombre.",
+			Scene.new("Vous rencontrez votre fournisseur <dealer>\nau coin d’une ruelle sombre.", #20
 				"dealer",
 				"View/Assets/Ruelle.jpg", [
 					Response.new("Acheter des stupéfiants.",
@@ -1085,7 +1085,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous déprimez sur votre canapé\ncar vous avez des problèmes à la fac.",
+			Scene.new("Vous déprimez sur votre canapé\ncar vous avez des problèmes à la fac.", #21
 				nil,
 				"View/Assets/Canapé.jpg", [
 					Response.new("Jouer au loto.",
@@ -1169,7 +1169,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("C’est l’heure de se décrasser.\n" +
+			Scene.new("C’est l’heure de se décrasser.\n" + #22
 				"Vous êtes dans les douches communes\n" +
 				"lorsque soudain vous faites tomber votre savonnette.",
 				nil,
@@ -1199,7 +1199,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("C’est l’heure des activités !",
+			Scene.new("C’est l’heure des activités !", #23
 				nil,
 				"View/Assets/Prison.jpg", [
 					Response.new("Participer à l’activité tricot.",
@@ -1241,7 +1241,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous êtes enfin sortie ! Que faire désormais ?",
+			Scene.new("Vous êtes enfin sortie ! Que faire désormais ?", #24
 				nil,
 				"View/Assets/Rue.jpg", [
 					Response.new("Aller chez ses parents",
@@ -1320,7 +1320,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Votre instabilité psychologique vous a mener en hôpital psychatrique.\nQue faites-vous ?",
+			Scene.new("Votre instabilité psychologique vous a mener en hôpital psychatrique.\nQue faites-vous ?", #25
 				nil,
 				"View/Assets/Hospital Psy.jpg", [
 					Response.new("Discuter de la psychanalyse Freudienne.",
@@ -1359,7 +1359,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous recherchez un emploi. Dans quel domaine ?",
+			Scene.new("Vous recherchez un emploi. Dans quel domaine ?", #26
 				nil,
 				"View/Assets/Chomage.jpg", [
 					Response.new("Domaine de l’art.",
@@ -1456,7 +1456,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("C’est le jour de votre mariage.\nVotre futur femme <mariee> vous attend devant l’autel.",
+			Scene.new("C’est le jour de votre mariage.\nVotre futur femme <mariee> vous attend devant l’autel.", #27
 				"mariee",
 				"View/Assets/Eglise.jpg", [
 					Response.new("Manger l’alliance.",
@@ -1539,7 +1539,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous décidez d’avoir un enfant nommé <enfant> avec <mariee>",
+			Scene.new("Vous décidez d’avoir un enfant nommé <enfant> avec <mariee>", #28
 				"enfant",
 				"View/Assets/Birth.jpg", [
 					Response.new("Manger l’enfant.",
@@ -1621,7 +1621,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous vous réveillez un matin, avec l’impression d’être un être\n" +
+			Scene.new("Vous vous réveillez un matin, avec l’impression d’être un être\n" + #29
 				"totalement inutile.\n" +
 				"Vous faites une crise de la quarantaine.",
 				nil,
@@ -1690,7 +1690,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Au détour de votre immeuble, vous apercevez\n" +
+			Scene.new("Au détour de votre immeuble, vous apercevez\n" + #30
 				"une camionnette blanche à la vente.",
 				nil,
 				"View/Assets/Combi.jpg", [
@@ -1774,7 +1774,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous n’êtes pas satisfait du travail de <adulte>.",
+			Scene.new("Vous n’êtes pas satisfait du travail de <adulte>.", #31
 				"adulte",
 				"View/Assets/Office.jpg", [
 					Response.new("Le virer.",
@@ -1837,7 +1837,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous demandez une augmentation dans le bureau du patron <proviseur>.",
+			Scene.new("Vous demandez une augmentation dans le bureau du patron <proviseur>.", #32
 				"proviseur",
 				"View/Assets/OfficePromotion.jpg", [
 					Response.new("Passer sous le bureau.",
@@ -1932,7 +1932,7 @@ class Model
 				]
 			),
 
-			Scene.new("L’Infirmière <infirmiere> vous a rendu visite et veut repartir.",
+			Scene.new("L’Infirmière <infirmiere> vous a rendu visite et veut repartir.", #33
 				"infirmiere",
 				"View/Assets/Hospital.jpg", [
 				Response.new("Jouer aux dominos avec elle.",
@@ -1972,7 +1972,7 @@ class Model
 				)
 			]
 		),
-		Scene.new("Votre neveu <neveu> a déféqué sur votre magnifique tapis oriental !",
+		Scene.new("Votre neveu <neveu> a déféqué sur votre magnifique tapis oriental !", #34
 			"neveu",
 			"View/Assets/Hospital.jpg", [
 				Response.new("Le réprimander.",
@@ -1999,7 +1999,7 @@ class Model
 				)
 			]
 		),
-		Scene.new("Vous êtes en maison de retraite.",
+		Scene.new("Vous êtes en maison de retraite.", #35
 		nil,
 		"View/Assets/Hospital.jpg", [
 				Response.new("Jouer à la pétanque.",
@@ -2078,7 +2078,7 @@ class Model
 				)
 			],
 		),
-			Scene.new("Une grande partie des résidents de la maison de retraite\n" +
+			Scene.new("Une grande partie des résidents de la maison de retraite\n" + #36
 				"s'est rassemblée pour regarder\n" +
 				"des rediffusions de \" Question pour un pochtron\".",
 				nil,
@@ -2115,7 +2115,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Votre neveu <neveu> tente de vous tuer pour récupérer l'héritage plus tôt.",
+			Scene.new("Votre neveu <neveu> tente de vous tuer pour récupérer l'héritage plus tôt.", #37
 			"neveu",
 			"View/Assets/Hospital.jpg", [
 					Response.new("Le frapper.",
@@ -2153,7 +2153,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous retrouvez votre \"ami\" d'antan <dealer>,\n" +
+			Scene.new("Vous retrouvez votre \"ami\" d'antan <dealer>,\n" + #38
 				"il continue, même à son grand age, \n" +
 				"ses activités légalement discutables.",
 				"dealer",
@@ -2191,7 +2191,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("C'est l'anniversaire de votre neveu <neveu>.",
+			Scene.new("C'est l'anniversaire de votre neveu <neveu>.", #39
 				"neveu",
 				"View/Assets/Hospital.jpg", [
 					Response.new("Lui envoyer une lettre et un peu d'argent.",
@@ -2236,7 +2236,7 @@ class Model
 					)
 				]
 			),
-			Scene.new("Vous sentez que c'est l'heure de votre dernier mot.",
+			Scene.new("Vous sentez que c'est l'heure de votre dernier mot.", #40
 				nil,
 				"View/Assets/Hospital.jpg", [
 					Response.new("Dites à mon conjoint que je l'ai aimé.",
