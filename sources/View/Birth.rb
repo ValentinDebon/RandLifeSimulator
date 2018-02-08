@@ -7,15 +7,20 @@ class Birth
 	def initialize(view)
 		@view = view
 
-		names = ["Gérard", "Alphonse", "Pablo", "Winifred", "Adolphe", "Josiane"]
-
 		@backgroundImg = Gosu::Image.new("View/Assets/Birth.jpg")
-		@backBtn = Button.new("Retour", Proc.new { @view.returnToTitle }, 0.10, 0.80, 0.20, 0.15)
-		@raiseBtn = Button.new("Naître", Proc.new { @view.controller.newLife(@nameTxtBox.text) if @nameTxtBox.text.length != 0 },
-			0.70, 0.80, 0.20, 0.15)
-		@nameTxtBox = TextBox.new(0.2, 0.2, 0.6, 0.15)
-		@nameTxtBox.text = names.sample
+		@backBtn = Button.new("Retour", Proc.new {
+			@nameTxtBox.activate(@view, false)
+			@view.returnToTitle
+		}, 0.10, 0.80, 0.20, 0.15)
+		@raiseBtn = Button.new("Naître", Proc.new {
+			@nameTxtBox.activate(@view, false)
+			@view.controller.newLife(@nameTxtBox.text) if @nameTxtBox.text.length != 0
+		}, 0.70, 0.80, 0.20, 0.15)
 
+		@nameTxtBox = TextBox.new(0.2, 0.2, 0.6, 0.15)
+		@nameTxtBox.text = ["Gérard", "Alphonse", "Pablo",
+			"Winifred", "Adolphe", "Josiane"].sample
+		@nameTxtBox.activate(@view)
 	end
 
 	def up(id)
@@ -26,11 +31,7 @@ class Birth
 			@backBtn.trigger if @backBtn.hovered
 			@raiseBtn.trigger if @raiseBtn.hovered
 
-			if @nameTxtBox.hovered then
-				@view.text_input = @nameTxtBox
-			else
-				@view.text_input = nil
-			end
+			@nameTxtBox.activate(@view, @nameTxtBox.hovered)
 		end
 	end
 
