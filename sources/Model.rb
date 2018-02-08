@@ -1475,6 +1475,47 @@ class Model
 					)
 				]
 			),
+			Scene.new("Au détour de votre immeuble, vous apercevez une camionnette blanche à la vente.",
+				nil,
+				"View/Assets/Combi.jpg", [
+					Response.new("L’acheter.",
+						Proc.new {
+							@controller.response = "Vous décidez de l’acheter,\n" +
+								"car elle vous rappelle votre enfance.\n" +
+								"Vous ne savez pas trop pourquoi..."
+							@life.wealth -= 2
+							@life.car = "camionnette"
+							@life.age += 2
+							@controller.currentScene = @scenes[23] #TODO acte 3 employé
+						}
+					),
+					Response.new("Passer devant.",
+						Proc.new {
+							@controller.response = "Vous passez devant comme si vous ne l’aviez pas vue."
+							@life.age += 2
+							@controller.currentScene = @scenes[22] #TODO acte 3
+						}
+					),
+					Response.new("Parler au propriétaire.",
+						Proc.new {
+							@controller.response = "Vous parlez avec le propriétaire de la camionnette\n" +
+								"qui ne vous inspire pas du tout confiance."
+							@life.doubt += 3
+							@life.age += 2
+							@controller.currentScene = @scenes[22] #TODO acte 3 employé
+						}
+					)
+				]
+			),
+
+
+
+
+
+
+
+
+
 			Scene.new("L’Infirmière <infirmiere> vous a rendu visite et veut repartir."),
 				"infirmiere",
 				"View/Assets/Hospital.jpg", [
