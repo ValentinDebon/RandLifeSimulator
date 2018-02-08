@@ -13,7 +13,7 @@ class DeathView
 		case @view.controller.death
 			when "Darwin"
 				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/darwin.jpg")
-				@view.playSound(["View/Assets/Musics/C'est Dawin.mp3",
+				@view.playSound(["View/Assets/Musics/C'est Darwin.mp3",
 						"View/Assets/Musics/C'est la sélection naturelle.mp3"].sample)
 			when "Javel"
 				@backgroundImg = Gosu::Image.new("View/Assets/Deaths/javel.jpg")
