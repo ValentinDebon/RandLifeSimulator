@@ -36,9 +36,9 @@ class Model
 								@life.age += 5
 								case @life.age
 									when 5..14
-										@controller.currentScene = [@scenes[3], @scenes[4], @scenes[5], @scenes[7], @scenes[9]].sample
+										@controller.currentScene = (@scenes[3..5] + [@scenes[7]] + [@scenes[9]]).sample
 									else
-										@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+										@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
 
 							else
@@ -56,9 +56,9 @@ class Model
 							@life.violence += 2
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[3], @scenes[4], @scenes[5], @scenes[7], @scenes[9]].sample
+									@controller.currentScene = (@scenes[3..5] + [@scenes[7]] + [@scenes[9]]).sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -70,9 +70,9 @@ class Model
 							@life.age += 5
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[3], @scenes[4], @scenes[5], @scenes[7], @scenes[9]].sample
+									@controller.currentScene = (@scenes[3..5] + [@scenes[7]] + [@scenes[9]]).sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -83,9 +83,9 @@ class Model
 							@life.age += 5
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[3], @scenes[4], @scenes[5], @scenes[7], @scenes[9]].sample
+									@controller.currentScene = (@scenes[3..5] + [@scenes[7]] + [@scenes[9]]).sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					)
@@ -113,7 +113,7 @@ class Model
 								"Néanmoins, une fois enroulé, la poussière vous fait éternuer à foison."
 
 							@life.age += 5
-							@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+							@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
 						}
 					),
 					Response.new("Dormir.",
@@ -122,7 +122,7 @@ class Model
 								"lentement vous vous sentez partir vers le pays des rêves."
 
 							@life.age += 5
-							@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+							@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
 						}
 					)
 				]
@@ -138,7 +138,7 @@ class Model
 
 							@life.age += 5
 							@life.instability += 1
-							@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+							@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
 						}
 					),
 					Response.new("Ah!",
@@ -147,7 +147,7 @@ class Model
 								"c’est comme si ce nom vous parlait."
 
 							@life.age += 5
-							@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+							@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
 						}
 					),
 					Response.new("Caca",
@@ -157,7 +157,7 @@ class Model
 								"Mais bon ça finira par passer avec le temps."
 
 							@life.age += 5
-							@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+							@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
 						}
 					),
 					Response.new("Papa",
@@ -168,7 +168,7 @@ class Model
 								"Maman est un peu jalouse mais vous vous en fichez un peu."
 
 							@life.age += 5
-							@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+							@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
 						}
 					),
 					Response.new("Maman",
@@ -179,7 +179,7 @@ class Model
 								"Papa est un peu jaloux mais vous vous en fichez un peu."
 
 							@life.age += 5
-							@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+							@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
 						}
 					)
 				]
@@ -199,7 +199,7 @@ class Model
 									when 5..14
 										@controller.currentScene = [@scenes[0],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
 									else
-									  @controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									  @controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
 							end
 						}
@@ -215,7 +215,7 @@ class Model
 								when 5..14
 									@controller.currentScene = [@scenes[0],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -230,7 +230,7 @@ class Model
 								when 5..14
 									@controller.currentScene = [@scenes[0],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -267,7 +267,7 @@ class Model
 								when 5..14
 									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[5],@scenes[7], @scenes[9]].sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -281,7 +281,7 @@ class Model
 									when 5..14
 										@controller.currentScene = [@scenes[0],@scenes[3],@scenes[5],@scenes[7], @scenes[9]].sample
 									else
-										@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+										@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
 						}
 					),
@@ -296,7 +296,7 @@ class Model
 									when 5..14
 										@controller.currentScene = [@scenes[0],@scenes[3],@scenes[5],@scenes[7], @scenes[9]].sample
 									else
-										@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+										@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
 						}
 					)
@@ -321,7 +321,7 @@ class Model
 								when 5..14
 									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[7], @scenes[9]].sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -346,7 +346,7 @@ class Model
 								when 5..14
 									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[7], @scenes[9]].sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -359,7 +359,7 @@ class Model
 								when 5..14
 									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[7], @scenes[9]].sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -374,7 +374,7 @@ class Model
 								when 5..14
 									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[7], @scenes[9]].sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -389,7 +389,7 @@ class Model
 								when 5..14
 									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[7], @scenes[9]].sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					)
@@ -408,9 +408,9 @@ class Model
 								@life.age += 5
 								case @life.age
 									when 5..14
-										@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5], @scenes[9]].sample
+										@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[9]]).sample
 									else
-										@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+										@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
 						}
 					),
@@ -424,9 +424,9 @@ class Model
 										@life.art += 2
 										case @life.age
 											when 5..14
-												@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5], @scenes[9]].sample
+												@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[9]]).sample
 											else
-												@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+												@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 										end
 									when 0.5..0.75
 										@controller.response = "Oh non, vous avez trébuché en courant avec le ciseau\n" +
@@ -434,9 +434,9 @@ class Model
 										@life.age += 5
 										case @life.age
 											when 5..14
-												@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5], @scenes[9]].sample
+												@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[9]]).sample
 											else
-												@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+												@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 										end
 									when 0.75..1.0
 										@controller.response = "Oh non, vous êtes tombé sur le ciseau alors\n" +
@@ -454,9 +454,9 @@ class Model
 							@life.art -= 2
 								case @life.age
 									when 5..14
-										@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5], @scenes[9]].sample
+										@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[9]]).sample
 									else
-										@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+										@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
 						}
 					)
@@ -472,9 +472,9 @@ class Model
 							@life.instability += 2
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+									@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -486,9 +486,9 @@ class Model
 							@life.blackSheep += 2
 								case @life.age
 									when 5..14
-										@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+										@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
 									else
-										@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+										@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
 						}
 					),
@@ -499,9 +499,9 @@ class Model
 							@life.doubt += 2
 								case @life.age
 									when 5..14
-										@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+										@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]] + [@scenes[9]]).sample
 									else
-										@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+										@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
 						}
 					)
@@ -517,9 +517,9 @@ class Model
 								@life.age += 5
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7]].sample
+									@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]]).sample
 								else
-									@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
 						}
 					),
@@ -532,9 +532,9 @@ class Model
 								@life.laziness += 2
 									case @life.age
 										when 5..14
-											@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[5],@scenes[7],@scenes[10], @scenes[11]].sample
+											@controller.currentScene = (@scenes[3..5] + [@scenes[0]] + [@scenes[7]]).sample
 										else
-											@controller.currentScene = [@scenes[10], @scenes[11], @scenes[12], @scenes[15]].sample #TODO scenes acte 2
+											@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 									end
 							else
 								@controller.response = "Vous traversez sans regarder et êtes percuté par\n" +
@@ -557,10 +557,10 @@ class Model
 							@life.art -= 1
 							@life.age += 1
 							case @life.age
-								when 15..18
-									@controller.currentScene = [@scenes[11..12] + @scenes[15..16]].sample
+								when 15..17
+									@controller.currentScene = (@scenes[11..12] + @scenes[15..16]).sample
 								else
-									@controller.currentScene = @scenes.sample #TODO scenes acte 3
+									@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 							end
 						}
 					),
@@ -573,10 +573,10 @@ class Model
 							@life.intelligence -= 1
 							@life.age += 1
 							case @life.age
-								when 15..18
+								when 15..17
 									@controller.currentScene = (@scenes[11..12] + @scenes[15..16]).sample
 								else
-									@controller.currentScene = @scenes.sample #TODO scenes acte 3
+									@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 							end
 						}
 					),
@@ -589,10 +589,10 @@ class Model
 							@life.intelligence -= 1
 							@life.age += 1
 							case @life.age
-								when 15..18
+								when 15..17
 									@controller.currentScene = (@scenes[11..12] + @scenes[15..16]).sample
 								else
-									@controller.currentScene = @scenes.sample #TODO scenes acte 3
+									@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 							end
 						}
 					)
@@ -609,10 +609,10 @@ class Model
 							@life.instability += 2
 							@life.age += 1
 							case @life.age
-								when 15..18
-									@controller.currentScene = [@scenes[10],@scenes[12], @scenes[15], @scenes[16]].sample
+								when 15..17
+									@controller.currentScene = ([@scenes[10]] + [@scenes[12]] + @scenes[15..16]).sample
 								else
-									@controller.currentScene = @scenes.sample #TODO scenes acte 3
+									@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 							end
 						}
 					),
@@ -624,10 +624,10 @@ class Model
 							@life.love += 3
 							@life.age += 1
 							case @life.age
-								when 15..18
-									@controller.currentScene = [@scenes[10],@scenes[12], @scenes[15], @scenes[16]].sample
+								when 15..17
+									@controller.currentScene = ([@scenes[10]] + [@scenes[12]] + @scenes[15..16]).sample
 								else
-									@controller.currentScene = @scenes.sample #TODO scenes acte 3
+									@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 							end
 						}
 					),
@@ -668,10 +668,10 @@ class Model
 							 "Pas vous en tout cas !"
 							 @life.age += 1
 					 		case @life.age
-					 			when 15..18
-					 				@controller.currentScene = [@scenes[10],@scenes[11],scenes[15], @scenes[16]].sample
+					 			when 15..17
+									@controller.currentScene = (@scenes[10..11] + @scenes[15..16]).sample
 					 			else
-					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+									@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 					 		end
 						}
 					)
@@ -688,10 +688,10 @@ class Model
 							@life.art += 2
 							@life.age += 1
 							case @life.age
-					 			when 15..18
-					 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15], @scenes[16]].sample
+					 			when 15..17
+									@controller.currentScene = (@scenes[10..11] + @scenes[15..16]).sample
 					 			else
-					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+									@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 					 		end
 						}
 					),
@@ -704,10 +704,10 @@ class Model
 								@life.instability += 1
 								@life.age += 1
 								case @life.age
-						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15], @scenes[16]].sample
+						 			when 15..17
+										@controller.currentScene = (@scenes[10..11] + @scenes[15..16]).sample
 						 			else
-						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+										@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 						 		end
 						}
 					)
@@ -721,10 +721,10 @@ class Model
 							@controller.response = "Vous le savez mieux que quiconque."
 								@life.age += 1
 								case @life.age
-						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15], @scenes[16]].sample
+						 			when 15..17
+										@controller.currentScene = (@scenes[10..11] + @scenes[15..16]).sample
 						 			else
-						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+										@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 						 		end
 						}
 					),
@@ -734,10 +734,10 @@ class Model
 								@life.sport += 1
 								@life.age += 1
 								case @life.age
-						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15], @scenes[16]].sample
+						 			when 15..17
+										@controller.currentScene = (@scenes[10..11] + @scenes[15..16]).sample
 						 			else
-						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+										@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 						 		end
 						}
 					),
@@ -747,10 +747,10 @@ class Model
 								@life.art += 1
 								@life.age += 1
 								case @life.age
-						 			when 15..18
-						 				@controller.currentScene = [@scenes[10],@scenes[11],@scenes[15], @scenes[16]].sample
+						 			when 15..17
+										@controller.currentScene = (@scenes[10..11] + @scenes[15..16]).sample
 						 			else
-						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+										@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 						 		end
 						}
 					)
@@ -764,10 +764,10 @@ class Model
 							@controller.response = "Vous achetez donc de la lessive Omo pour votre mère."
 								@life.age += 1
 								case @life.age
-						 			when 15..18
+						 			when 15..17
 						 				@controller.currentScene = (@scenes[10..12] + [@scenes[16]]).sample
 						 			else
-						 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+										@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 						 		end
 						}
 					),
@@ -777,10 +777,10 @@ class Model
 								@life.sport += 1
 								@life.age += 1
 								case @life.age
-						 			when 15..18
+						 			when 15..17
 						 				@controller.currentScene = (@scenes[10..12] + [@scenes[16]]).sample
 						 			else
-						 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+										@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 						 		end
 						}
 					)
@@ -797,10 +797,10 @@ class Model
 							@life.violence += 2
 							@life.age += 1
 							case @life.age
-					 			when 15..18
+					 			when 15..17
 					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample
 					 			else
-					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+									@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 					 		end
 						}
 					),
@@ -808,7 +808,7 @@ class Model
 						Proc.new {
 							if Random.rand() > 0.5 then
 									@controller.response = "Il n’aime pas votre tête\n" +
-										"et a décidé à vous le faire savoir. Il vous frappe donc violemment."
+										"et a décidé de vous le faire savoir. Il vous frappe donc violemment."
 									@life.blackSheep += 2
 							else
 									@controller.response = "La conversation se fait facilement, vous flirtez innocemment."
@@ -816,10 +816,10 @@ class Model
 							end
 							@life.age += 1
 							case @life.age
-								when 15..18
+								when 15..17
 									@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample
 								else
-									@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+									@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 							end
 						}
 					),
@@ -828,10 +828,10 @@ class Model
 							@controller.response = "Vous n’avez pas de temps à lui consacrez et poursuivez votre chemin."
 							@life.age += 1
 							case @life.age
-					 			when 15..18
+					 			when 15..17
 					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample
 					 			else
-					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+									@controller.currentScene = (@scenes[17..18] + @scenes[20..21]).sample
 					 		end
 						}
 					)
@@ -840,7 +840,7 @@ class Model
 			Scene.new("Que souhaitez-vous faire après la fac ?",
 				nil,
 				"View/Assets/Diplome.jpg", [
-					Response.new("Une ecole d’ingénieur.",
+					Response.new("Une école d’ingénieur.",
 						Proc.new {
 							@controller.response = "Vous souhaitez un métier bien payé et un avenir radieux,\n" +
 								"l’école d’ingénieur semble être une bonne perspective."
@@ -865,10 +865,10 @@ class Model
 							@life.intelligence += 3
 							@life.age += 1
 							case @life.age
-								when 18..25
-					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+								when 17..25
+									@controller.currentScene = ([@scenes[18]] + @scenes[20..21]).sample
 					 			else
-					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 					 		end
 						}
 					)
@@ -885,8 +885,8 @@ class Model
 							@life.intelligence += 2
 							@life.age += 1
 							case @life.age
-								when 18..25
-					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+								when 17..25
+									@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
 					 			else
 					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 					 		end
@@ -907,8 +907,8 @@ class Model
 								@life.intelligence -= 2
 								@life.age += 1
 								case @life.age
-									when 18..25
-						 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+									when 17..25
+										@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
@@ -922,10 +922,10 @@ class Model
 							@life.intelligence += 3
 							@life.age += 1
 							case @life.age
-							when 18..25
-					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+							when 17..25
+								@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
 					 			else
-					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 					 		end
 						}
 					),
@@ -936,10 +936,10 @@ class Model
 							@life.intelligence -= 1
 							@life.age += 1
 							case @life.age
-							when 18..25
-					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+							when 17..25
+								@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
 					 			else
-					 				@controller.currentScene = @scenes.sample #TODO scenes acte 2 university
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 					 		end
 						}
 					)
@@ -957,8 +957,8 @@ class Model
 								@life.intelligence -= 2
 								@life.age += 1
 								case @life.age
-									when 18..25
-						 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+									when 17..25
+										@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
@@ -986,8 +986,8 @@ class Model
 									"Du coup, il ne vous embêtera plus avec vos absences."
 								@life.age += 1
 								case @life.age
-									when 18..25
-						 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+									when 17..25
+										@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
@@ -1000,8 +1000,8 @@ class Model
 								"à plat et de justifier vos absences."
 							@life.age += 1
 							case @life.age
-							when 18..25
-					 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+							when 17..25
+									@controller.currentScene = ([@scenes[17]] + @scenes[20..21]).sample
 					 			else
 					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 					 		end
@@ -1029,8 +1029,8 @@ class Model
 								@life.wealth -= 2
 								@life.age += 1
 								case @life.age
-								when 18..25
-						 				@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+								when 17..25
+										@controller.currentScene = (@scenes[17..18] + [@scenes[21]]).sample
 						 			else
 						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
 						 		end
@@ -1051,8 +1051,8 @@ class Model
 								@life.wealth += 3
 								@life.age += 1
 								case @life.age
-								when 18..25
-										@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+								when 17..25
+										@controller.currentScene = (@scenes[17..18] + [@scenes[21]]).sample
 									else
 										@controller.currentScene = @scenes.sample #TODO scenes acte 3
 								end
@@ -1075,11 +1075,95 @@ class Model
 									"Ils arrivent et l’embarque."
 								@life.age += 1
 								case @life.age
-								when 18..25
-										@controller.currentScene = (@scenes[10..12] + [@scenes[15]]).sample #TODO acte 2 university
+								when 17..25
+										@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
 									else
 										@controller.currentScene = @scenes.sample #TODO scenes acte 3
 								end
+							end
+						}
+					)
+				]
+			),
+			Scene.new("Vous déprimez sur votre canapé\ncar vous avez des problèmes à la fac.",
+				nil,
+				"View/Assets/Canapé.jpg", [
+					Response.new("Jouer au loto.",
+						Proc.new {
+							if Random.rand() > 0.1 then
+								@controller.response = "Vous avez gagné le gros lot ! Félicitations !\n"
+								@life.wealth += 8
+								if Random.rand() > 0.5 then
+									@controller.response += "Vous décidez de quitter l'Université."
+									@life.age = 26
+									@life.university = false
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+								else
+									@controller.response += "Vous restez à l'Université\n" +
+										"malgré votre richesse"
+									case @life.age
+									when 17..25
+											@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
+							 			else
+							 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+							 		end
+								end
+							else
+								@controller.response = "Vous avez perdu."
+								@life.age += 1
+								case @life.age
+								when 17..25
+										@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
+						 			else
+						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+						 		end
+							end
+						}
+					),
+					Response.new("Dormir.",
+						Proc.new {
+							@controller.response = "Vous ne vous sentez pas productif aujourd’hui.\n" +
+							"Vous décidez de faire un petit somme sur le canapé."
+							@life.laziness += 1
+							@life.age += 1
+							case @life.age
+							when 17..25
+									@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
+					 			else
+					 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+					 		end
+						}
+					),
+					Response.new("Manger des chips.",
+						Proc.new {
+							@controller.response = "Le goût salé des chips vous remonte\n" +
+								"un peu le moral et vous aide à affronter cette journée."
+							@life.age += 1
+							case @life.age
+							when 17..25
+									@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
+								else
+									@controller.currentScene = @scenes.sample #TODO scenes acte 3
+							end
+						}
+					),
+					Response.new("Chercher un emploi.",
+						Proc.new {
+							if Random.rand() > 0.3 then
+								@controller.response = "Vous avez trouver un emploi !\n"
+								@life.wealth += 3
+								@life.age = 26
+								@life.employment = true
+				 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+							else
+								@controller.response = "Votre recherche ne porte pas ses fruits"
+								@life.age += 1
+								case @life.age
+								when 17..25
+										@controller.currentScene = (@scenes[17..18] + [@scenes[20]]).sample
+						 			else
+						 				@controller.currentScene = @scenes.sample #TODO scenes acte 3
+						 		end
 							end
 						}
 					)
