@@ -1476,8 +1476,8 @@ class Model
 				]
 			),
 			Scene.new("L’Infirmière <infirmiere> vous a rendu visite et veut repartir."),
-				"View/Assets/Hospital.jpg",
-				"infirmiere", [
+				"infirmiere",
+				"View/Assets/Hospital.jpg", [
 				Response.new("Jouer aux dominos avec elle.",
 					Proc.new {
 						@life.age += 5
@@ -1517,8 +1517,8 @@ class Model
 			]
 		),
 		Scene.new("Votre neveu <petitFils> a déféqué sur votre magnifique tapis oriental !",
-		"View/Assets/Hospital.jpg",
-		"neveu", [
+			"neveu",
+			"View/Assets/Hospital.jpg", [
 				Response.new("Le réprimander.",
 					Proc.new {
 						@life.age += 5
@@ -1543,8 +1543,8 @@ class Model
 			]
 		),
 		Scene.new("Vous êtes en maison de retraite.",
-		"View/Assets/Hospital.jpg",
-		nil, [
+		nil,
+		"View/Assets/Hospital.jpg", [
 				Response.new("Jouer à la pétanque.",
 					Proc.new {
 						@life.age += 5
@@ -1622,8 +1622,8 @@ class Model
 				Scene.new("Une grande partie des résidents de la maison de retraite\n" +
 					"s'est rassemblée pour regarder\n" +
 					"des rediffusions de \" Question pour un pochtron\"",
-					"View/Assets/Hospital.jpg",
-					nil, [
+					nil,
+					"View/Assets/Hospital.jpg", [
 						Response.new("Vous connaissez les réponses et n'hésitez pas à le faire savoir",
 							Proc.new {
 								@life.age += 5
@@ -1657,8 +1657,8 @@ class Model
 					]
 				),
 				Scene.new("Votre neveu <neveu> tente de vous tuer pour récupérer l'héritage plus tôt",
-				"View/Assets/Hospital.jpg",
-				"neveu", [
+				"neveu",
+				"View/Assets/Hospital.jpg", [
 						Response.new("Le frapper.",
 							Proc.new {
 								@life.age += 5
@@ -1697,8 +1697,8 @@ class Model
 				Scene.new("Vous retrouvez votre \"ami\" d'antan <dealer>,\n" +
 					"il continue, même à son grand age, \n" +
 					"ses activités légalement discutables.",
-				"View/Assets/Hospital.jpg",
-				"dealer", [
+					"dealer",
+					"View/Assets/Hospital.jpg", [
 						Response.new("Faire tourner un sucre d'orge.",
 							Proc.new {
 								@life.age += 5
@@ -1733,8 +1733,8 @@ class Model
 					]
 				),
 				Scene.new("C'est l'anniversaire de votre neveu <neveu>.",
-				"View/Assets/Hospital.jpg",
-				"neveu", [
+					"neveu",
+					"View/Assets/Hospital.jpg", [
 						Response.new("Lui envoyer une lettre et un peu d'argent.",
 							Proc.new {
 								@life.age += 5
@@ -1778,8 +1778,8 @@ class Model
 					]
 				),
 				Scene.new("Vous sentez que c'est l'heure de votre  dernier mot.",
-				"View/Assets/Hospital.jpg",
-				nil, [
+					nil,
+					"View/Assets/Hospital.jpg", [
 						Response.new("Dites à mon conjoint que je l'ai aimé.",
 							Proc.new {
 								if @life.marriedTo != nil then
