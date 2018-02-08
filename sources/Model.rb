@@ -194,9 +194,9 @@ class Model
 								@life.age += 5
 								case @life.age
 									when 5..14
-										@controller.currentScene = [@scenes[0],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+										@controller.currentScene = ([@scenes[0]] + @scenes[4..5] + [@scenes[7]] + [@scenes[9]]).sample
 									else
-									  @controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
+										@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
 							end
 						}
@@ -210,7 +210,7 @@ class Model
 							@life.art += 2
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[0],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+									@controller.currentScene = ([@scenes[0]] + @scenes[4..5] + [@scenes[7]] + [@scenes[9]]).sample
 								else
 									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
@@ -225,7 +225,7 @@ class Model
 							@life.age += 5
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[0],@scenes[4],@scenes[5],@scenes[7], @scenes[9]].sample
+									@controller.currentScene = ([@scenes[0]] + @scenes[4..5] + [@scenes[7]] + [@scenes[9]]).sample
 								else
 									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
@@ -262,7 +262,7 @@ class Model
 							@life.age += 5
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[5],@scenes[7], @scenes[9]].sample
+									@controller.currentScene = [@scenes[0], @scenes[3], @scenes[5], @scenes[7], @scenes[9]].sample
 								else
 									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
@@ -276,7 +276,7 @@ class Model
 								@life.age += 5
 								case @life.age
 									when 5..14
-										@controller.currentScene = [@scenes[0],@scenes[3],@scenes[5],@scenes[7], @scenes[9]].sample
+										@controller.currentScene = [@scenes[0], @scenes[3], @scenes[5], @scenes[7], @scenes[9]].sample
 									else
 										@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
@@ -291,7 +291,7 @@ class Model
 								@life.age += 5
 								case @life.age
 									when 5..14
-										@controller.currentScene = [@scenes[0],@scenes[3],@scenes[5],@scenes[7], @scenes[9]].sample
+										@controller.currentScene = [@scenes[0], @scenes[3], @scenes[5], @scenes[7], @scenes[9]].sample
 									else
 										@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 								end
@@ -316,7 +316,7 @@ class Model
 							@life.age += 5
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[7], @scenes[9]].sample
+									@controller.currentScene = [@scenes[0], @scenes[3], @scenes[4], @scenes[7], @scenes[9]].sample
 								else
 									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
@@ -341,7 +341,7 @@ class Model
 							@life.age += 5
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[7], @scenes[9]].sample
+									@controller.currentScene = [@scenes[0], @scenes[3], @scenes[4], @scenes[7], @scenes[9]].sample
 								else
 									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
@@ -354,7 +354,7 @@ class Model
 							@life.age += 5
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[7], @scenes[9]].sample
+									@controller.currentScene = [@scenes[0], @scenes[3], @scenes[4], @scenes[7], @scenes[9]].sample
 								else
 									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
@@ -369,7 +369,7 @@ class Model
 							@life.age += 5
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[7], @scenes[9]].sample
+									@controller.currentScene = [@scenes[0], @scenes[3], @scenes[4], @scenes[7], @scenes[9]].sample
 								else
 									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
@@ -384,7 +384,7 @@ class Model
 							@life.age += 5
 							case @life.age
 								when 5..14
-									@controller.currentScene = [@scenes[0],@scenes[3],@scenes[4],@scenes[7], @scenes[9]].sample
+									@controller.currentScene = [@scenes[0], @scenes[3], @scenes[4], @scenes[7], @scenes[9]].sample
 								else
 									@controller.currentScene = (@scenes[10..12] + @scenes[15..16]).sample
 							end
@@ -1259,7 +1259,7 @@ class Model
 										out << @scenes[28]
 									end
 									if @life.employment == true then
-										out << @scenes[31..32]
+										out += @scenes[31..32]
 									else
 										out << @scenes[26]
 									end
@@ -1308,7 +1308,7 @@ class Model
 										out << @scenes[28]
 									end
 									if @life.employment == true then
-										out << @scenes[31..32]
+										out += @scenes[31..32]
 									else
 										out << @scenes[26]
 									end
@@ -2199,10 +2199,10 @@ class Model
 							@life.age += 5
 							if Random.rand() > 0.5 then
 								@controller.response = "Comme d'habitude, il ne vous réponds pas."
-								@controller.currentScene = (@scenes[40] + @scenes[33..38]).sample
+								@controller.currentScene = ([@scenes[40]] + @scenes[33..38]).sample
 							else
 								@controller.response = "Vous recevez quelques jours plus tard une lettre de remerciement."
-								@controller.currentScene = (@scenes[40] + @scenes[33..38]).sample
+								@controller.currentScene = ([@scenes[40]] + @scenes[33..38]).sample
 							end
 						}
 					),
@@ -2210,7 +2210,7 @@ class Model
 						Proc.new {
 							@life.age += 5
 							@controller.response = "Pas de réponse.... Justin Lieber est sans doute passé de mode."
-							@controller.currentScene = (@scenes[40] + @scenes[33..38]).sample
+							@controller.currentScene = ([@scenes[40]] + @scenes[33..38]).sample
 						}
 					),
 					Response.new("Lui envoyer un beau pull tricoté par vos soins.",
@@ -2219,10 +2219,10 @@ class Model
 							if Random.rand() > 0.5 then
 								@controller.response = "Vous ne tardez pas à recevoir un lettre de remerciement,\n" +
 									"vous commencez à croire qu'il aime vraiment vos immondes pulls."
-								@controller.currentScene = (@scenes[40] + @scenes[33..38]).sample
+								@controller.currentScene = ([@scenes[40]] + @scenes[33..38]).sample
 							else
 								@controller.response = "Il ne répondes pas, c'était peut être le pull de trop?"
-								@controller.currentScene = (@scenes[40] + @scenes[33..38]).sample
+								@controller.currentScene = ([@scenes[40]] + @scenes[33..38]).sample
 							end
 						}
 					),
@@ -2231,7 +2231,7 @@ class Model
 							@life.age += 5
 							@controller.response = "Vous avez bien fait de ne rien lui envoyer,\n" +
 								"c'est un petit con."
-							@controller.currentScene = (@scenes[40] + @scenes[33..38]).sample
+							@controller.currentScene = ([@scenes[40]] + @scenes[33..38]).sample
 						}
 					)
 				]
@@ -2247,7 +2247,7 @@ class Model
 							else
 								@controller.response = "Ces belles paroles tomberont dans l'oubli,\n" +
 									"vous n'êtes pas marrié."
-									@controller.death = 'Vieillesse'
+								@controller.death = 'Vieillesse'
 							end
 						}
 					),
