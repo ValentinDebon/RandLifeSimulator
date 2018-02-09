@@ -91,6 +91,7 @@ class SceneView
 			if @textIterator == @text.length then
 				@state = State::Choosing if @state == State::Narrating
 				@state = State::Waiting if @state == State::Responding
+				@view.redraw = true
 			end
 		elsif @state == State::Choosing || @state == State::Waiting
 			@textImg = Gosu::Image.from_text(@text, @textHeight)
