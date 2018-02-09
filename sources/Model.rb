@@ -1843,8 +1843,8 @@ class Model
 					Response.new("Passer sous le bureau.",
 						Proc.new {
 							if Random.rand() > 0.2 then
-								@controller.response = "Le patron, qui cherchait une excuse pour vous,\n" +
-									"renvoyer est ravi que vous ayez tenté quelque chose.\n" +
+								@controller.response = "Vous n'avez pas retrouvé son stylo\n" +
+									"votre action étant sujette à interprétation,\n" +
 									"Il peut donc vous licencier en toute impunité."
 								@life.employment = false
 								@life.wealth -= 2
